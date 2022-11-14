@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html{
+  @extend %cover;
+
+  font-size: calc(100vw / 1920 * 10);
+  line-height: 1;
+  position: fixed;
+  overflow: hidden;
+  background: $bg-contessa;
+  color: $color-white;
+
+  @include media('<phone'){
+    font-size: calc(100vw / 750 * 10);
+  }
+}
+
+body{
+  @extend %cover;
+  @extend %description-16;
+
+  font-family: $font-suisse-bp;
+  position: fixed;
+}
+
+a{
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+button{
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+img{
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  &.loaded{
+    opacity: 1;
+  }
+}
+
+canvas {
+  pointer-events: none;
+  position: relative;
+  z-index: z('canvas')
+}
+
+.content{
+  @extend %cover;
+}
