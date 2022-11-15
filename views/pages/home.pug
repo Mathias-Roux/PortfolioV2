@@ -4,18 +4,20 @@ block variables
   - var template = 'home'
 
 block content
-  .home(data-background="#c97164" data-color="#f9f1e7")
+  .home(data-background="#BC978C" data-color="#f9f1e7")
     .home__wrapper
-      .home__titles
-          each collection, index in collections
-            .home__titles__label=`${home.data.collection} ${Numbers(index)}`
-            .home__titles__title=collection.data.title
-
       .home__gallery
-        each media in home.data.gallery
-          figure.home__gallery__media
-            img.home__gallery__media__image(alt=media.image.alt data-src=media.image.url)
+        .home__gallery__wrapper
+          each item, index in home
+            .item__gallery__card
+              .item__gallery__card__title=item.data.title
+              figure.home__gallery__card__media(data-index=index )
+                img.home__gallery__card__media__image(alt=item.data.image.alt src=item.data.image.url)
 
-    a.home__link(href=Link(home.data.collections))=home.data.button
-      svg.home__link__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 60")
-        path(stroke="currentColor" fill="none" d="M144,0c79.53,0,144,13.43,144,30s-64.47,30-144,30S0,46.57,0,30,64.47,0,144,0Z")
+
+
+
+            //- a.home__gallery__link(href=Link(item.project))
+            //-   .item__gallery__title=item.data.title
+            //-   figure.home__gallery__media(data-index=index )
+            //-     img.home__gallery__media__image(alt=item.data.image.alt data-src=item.data.image.url)

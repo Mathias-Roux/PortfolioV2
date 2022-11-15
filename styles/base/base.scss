@@ -15,9 +15,9 @@ html{
   background: $bg-contessa;
   color: $color-white;
 
-  @include media('<phone'){
-    font-size: calc(100vw / 750 * 10);
-  }
+  // @include media('<phone'){
+  //   font-size: calc(100vw / 750 * 10);
+  // }
 }
 
 body{
@@ -34,17 +34,10 @@ a{
   text-decoration: none;
 }
 
-button{
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-}
 
 img{
   vertical-align: middle;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.4s ease;
 
   &.loaded{
@@ -52,11 +45,11 @@ img{
   }
 }
 
-canvas {
-  pointer-events: none;
-  position: relative;
-  z-index: z('canvas')
-}
+// canvas {
+//   pointer-events: none;
+//   position: relative;
+//   z-index: z('canvas')
+// }
 
 .content{
   @extend %cover;
