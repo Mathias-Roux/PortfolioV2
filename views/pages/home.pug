@@ -4,7 +4,7 @@ block variables
   - var template = 'home'
 
 block content
-  .home(data-background="#BC978C" data-color="#f9f1e7")
+  .home(data-background="#f8f5f2" data-color="#232323")
     .home__wrapper
       .home__gallery
         .home__gallery__wrapper
@@ -12,7 +12,7 @@ block content
             .item__gallery__card
               .item__gallery__card__title=item.data.title
               figure.home__gallery__card__media(data-index=index )
-                img.home__gallery__card__media__image(alt=item.data.image.alt src=item.data.image.url)
+                img.home__gallery__card__media__image(alt=item.data.image.alt data-src=item.data.image.url)
 
 
 

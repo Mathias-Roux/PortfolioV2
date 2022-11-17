@@ -1,17 +1,18 @@
 .preloader{
   @extend %cover;
-  @extend %center;
 
-  color: $color-white;
-  background-color: $bg-contessa;
+  color: $color-black;
+  background-color: $color-white;
   text-align: center;
-  
+
   z-index: z('preloader');
 }
 
 .preloader__text{
-  font-size: 0;
-  max-width: 66rem;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   span{
     display: inline-block;
@@ -19,17 +20,17 @@
   }
 
   span span{
-    @extend %title-53;
+    @extend %title-60;
   }
 }
 
 .preloader__number{
-  @extend %description-14;
+  @extend %title-200;
 
   position: absolute;
-  bottom: 7.3rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   overflow: hidden;
 
   @include media('<phone'){
