@@ -10,8 +10,8 @@ html{
 
   font-size: calc(100vw / 1920 * 10);
   line-height: 1;
-  position: fixed;
-  overflow: hidden;
+  // position: fixed;
+  overflow-x: hidden;
   background: $color-white;
   color: $color-black;
 
@@ -24,7 +24,7 @@ body{
   @extend %cover;
 
   font-family: $font-suisse-bp;
-  position: fixed;
+  // position: fixed;
 }
 
 a{

@@ -1,7 +1,7 @@
 .navigation{
   @extend %cover;
 
-  color: $color-white;
+  color: $color-black;
   pointer-events: none;
   position: fixed;
 
@@ -9,7 +9,8 @@
 }
 
 .navigation__link{
-  font-size: 0;
+  @extend %title-60;
+  
   height: 2rem;
   width: 12.8rem;
   pointer-events: auto;

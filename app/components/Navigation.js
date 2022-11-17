@@ -36,7 +36,7 @@ export default class Navigation extends Component {
       });
     } else {
       GSAP.to(this.element, {
-        color: COLOR_WHITE,
+        color: COLOR_BLACK,
         duration: 1.5,
       });
 
