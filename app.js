@@ -60,7 +60,7 @@ app.set('view engine', 'pug')
 
 const handleRequest = async () => {
   const meta = await client.getSingle('meta')
-  // let assets = []
+  let assets = []
   const navigation = await client.getSingle('navigation')
   const preloader = await client.getSingle('preloader')
   // const about = await client.getSingle('about')
@@ -74,6 +74,7 @@ const handleRequest = async () => {
   //   console.log(item.data.image)
   // })
 
+
   // about.data.gallery.forEach(item => {
   //   assets.push(item.image.url)
   // })
@@ -86,16 +87,14 @@ const handleRequest = async () => {
   //   }
   // })
 
-  // home.forEach(home => {
-  //   home.data.products.forEach(item => {
-  //     assets.push(item.products_product.data.image.url)
-  //   })
-  // })
+  home.forEach(item => {
+    assets.push(item.data.image.url)
+  })
 
 
   return {
     meta,
-    // assets,
+    assets,
     navigation,
     preloader,
     home,
