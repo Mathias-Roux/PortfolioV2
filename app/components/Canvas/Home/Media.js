@@ -1,8 +1,9 @@
 import { Mesh, Program } from 'ogl';
-import GSAP from 'gsap'
+import GSAP from 'gsap';
 
-import vertex from '../../../shaders/home-vertex.glsl';
-import fragment from '../../../shaders/home-fragment.glsl';
+
+import fragment from 'shaders/plane-fragment.glsl';
+import vertex from 'shaders/plane-vertex.glsl';
 
 export default class Media {
   constructor({ element, geometry, gl, index, scene, sizes }) {
@@ -11,21 +12,23 @@ export default class Media {
     this.geometry = geometry;
     this.scene = scene;
     this.index = index;
-    this.sizes = sizes
+    this.sizes = sizes;
 
     this.extra = {
       x: 0,
-      y: 0
-    }
+      y: 0,
+    };
 
     this.createTexture();
     this.createProgram();
     this.createMesh();
+    this.createBounds({
+      sizes: this.sizes,
+    });
   }
 
   createTexture() {
-    const image = this.element
-
+    const image = this.element.querySelector('.home__gallery__card__media__image')
     this.texture = window.TEXTURES[image.getAttribute('data-src')]
   }
 
@@ -34,10 +37,8 @@ export default class Media {
       fragment,
       vertex,
       uniforms: {
+        uAlpha: { value: 0 },
         tMap: { value: this.texture },
-        uViewportSizes: { value: [this.sizes.width, this.sizes.height] },
-        uSpeed: { value: 0 },
-        uAlpha: { value: 0 }
       },
     });
   }
@@ -47,25 +48,22 @@ export default class Media {
       geometry: this.geometry,
       program: this.program,
     });
-
     this.mesh.setParent(this.scene);
   }
 
-  createBounds({ sizes }){
-    this.sizes = sizes
-
-    this.bounds = this.element.getBoundingClientRect()
-
-    this.updateScale()
-    this.updateX()
-    this.updateY()
+  createBounds({ sizes }) {
+    this.sizes = sizes;
+    this.bounds = this.element.getBoundingClientRect();
+    this.updateScale();
+    this.updateY();
   }
 
+  // Animations
   show(){
     GSAP.fromTo(this.program.uniforms.uAlpha, {
       value: 0
     }, {
-      value: 0.42
+      value: 1
     })
   }
 
@@ -75,39 +73,31 @@ export default class Media {
     })
   }
 
-  onResize(sizes, scroll){
+  // Events
+  onResize(sizes, scroll) {
     this.extra = {
       x: 0,
-      y: 0
-    }
-
-    this.createBounds(sizes)
-    this.updateX(scroll && scroll.x)
-    this.updateY(scroll && scroll.y)
+      y: 0,
+    };
+    this.createBounds(sizes);
+    this.updateY(scroll && scroll.y);
   }
 
-  updateScale(){
-    this.height = this.bounds.height / window.innerHeight
-    this.width = this.bounds.width / window.innerWidth
-
-    this.mesh.scale.x = this.sizes.width * this.width
-    this.mesh.scale.y = this.sizes.height * this.height
+  // Loop.
+  updateScale() {
+    this.height = this.bounds.height / window.innerHeight;
+    this.width = this.bounds.width / window.innerWidth;
+    this.mesh.scale.x = this.sizes.width * this.width;
+    this.mesh.scale.y = this.sizes.height * this.height;
   }
 
-  updateX(x = 0){
-    this.x = (this.bounds.left  + x) / window.innerWidth
-    this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x * this.sizes.width) + this.extra.x
+  updateY(y = 0) {
+    this.y = (this.bounds.top - y) / window.innerHeight;
+    this.mesh.position.y = -((-this.sizes.height / 1.85) + (this.mesh.scale.y) + (this.y  * this.sizes.height) + this.extra.y);
   }
 
-  updateY(y = 0){
-    this.y = (this.bounds.top + y) / window.innerHeight
-    this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y * this.sizes.height) + this.extra.y
-  }
 
-  update(scroll, speed){
-    this.updateX(scroll.x)
-    this.updateY(scroll.y)
-
-    this.program.uniforms.uSpeed.value = speed
+  update(scroll) {
+    this.updateY(scroll);
   }
 }

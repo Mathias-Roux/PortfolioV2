@@ -10,7 +10,7 @@ html{
 
   font-size: calc(100vw / 1920 * 10);
   line-height: 1;
-  // position: fixed;
+  position: fixed;
   overflow-x: hidden;
   background: $color-white;
   color: $color-black;
@@ -24,7 +24,7 @@ body{
   @extend %cover;
 
   font-family: $font-suisse-bp;
-  // position: fixed;
+  position: fixed;
 }
 
 a{
@@ -36,19 +36,14 @@ a{
 
 img{
   vertical-align: middle;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-
-  &.loaded{
-    opacity: 1;
-  }
+  visibility: hidden;
 }
 
-// canvas {
-//   pointer-events: none;
-//   position: relative;
-//   z-index: z('canvas')
-// }
+canvas {
+  pointer-events: none;
+  position: relative;
+  z-index: z('canvas')
+}
 
 .content{
   @extend %cover;

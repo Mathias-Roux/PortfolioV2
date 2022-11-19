@@ -6,7 +6,6 @@ import Preloader from './components/Preloader'
 import Navigation from './components/Navigation'
 
 import Home from './pages/Home'
-import Collections from './pages/Collections'
 import Detail from './pages/Detail'
 import About from './pages/About'
 
@@ -52,7 +51,6 @@ class App {
   createPages(){
     this.pages = {
       home: new Home(),
-      collections: new Collections(),
       detail: new Detail(),
       about: new About()
     }
@@ -130,21 +128,15 @@ class App {
   }
 
   onTouchDown(event){
-    if(this.canvas && this.canvas.onTouchDown){
-      this.canvas.onTouchDown(event)
-    }
+
   }
 
   onTouchMove(event){
-    if(this.canvas && this.canvas.onTouchMove){
-      this.canvas.onTouchMove(event)
-    }
+
   }
 
   onTouchUp(event){
-    if(this.canvas && this.canvas.onTouchUp){
-      this.canvas.onTouchUp(event)
-    }
+
   }
 
   onWheel(event){

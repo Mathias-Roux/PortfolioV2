@@ -8,7 +8,7 @@ import { ColorsManager } from 'classes/Colors';
 
 import AsyncLoad from 'classes/AsyncLoad';
 
-export default class Page {
+export default class  Page {
   constructor({
     element,
     elements,
