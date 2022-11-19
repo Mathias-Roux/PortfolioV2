@@ -184,7 +184,7 @@ export default class Canvas {
   }
 
   onTouchUp(event){
-    
+
   }
 
   onWheel(event){
@@ -195,7 +195,7 @@ export default class Canvas {
 
   update(scroll) {
     if(this.home){
-      this.home.update()
+      this.home.update(scroll)
     }
 
     if(this.about){
