@@ -4,8 +4,6 @@ import Prefix from 'prefix'
 import each from 'lodash/each'
 import map from 'lodash/map'
 
-import { ColorsManager } from 'classes/Colors';
-
 import AsyncLoad from 'classes/AsyncLoad';
 
 export default class Page {
@@ -66,11 +64,6 @@ export default class Page {
 
   show(animation){
     return new Promise(resolve => {
-      ColorsManager.change({
-        backgroundColor: this.element.getAttribute('data-background'),
-        color: this.element.getAttribute('data-color'),
-      });
-
       if (animation) {
         this.animationIn = animation;
       } else {

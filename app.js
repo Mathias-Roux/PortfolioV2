@@ -26,16 +26,18 @@ app.use(errorHandler())
 app.use(express.static(path.join(__dirname, 'public')))
 
 const handleLinkResolver = (doc) => {
+  if (doc.type === 'home') {
+    return '/home'
+  }
+
   // if (doc.type === 'project') {
   //   return `/detail/${doc.slug}`
   // }
 
-  if (doc.type === 'home') {
-    return '/home'
+  if (doc.type === 'about') {
+    return '/about'
   }
-  // if (doc.type === 'about') {
-  //   return '/about'
-  // }
+
 
   return null
 }
@@ -63,28 +65,15 @@ const handleRequest = async () => {
   let assets = []
   const navigation = await client.getSingle('navigation')
   const preloader = await client.getSingle('preloader')
-  // const about = await client.getSingle('about')
+  const about = await client.getSingle('about')
   const home = await client.getAllByType('item', {
     fetchLinks: 'product.image'
   })
 
-  // console.log(home[0])
+  console.log(about.data.description[0].text)
 
   // home.forEach(item => {
   //   console.log(item.data.image)
-  // })
-
-
-  // about.data.gallery.forEach(item => {
-  //   assets.push(item.image.url)
-  // })
-
-  // about.data.body.forEach(section => {
-  //   if (section.slice_type === 'gallery') {
-  //     section.items.forEach(item => {
-  //       assets.push(item.image.url)
-  //     })
-  //   }
   // })
 
   home.forEach(item => {
@@ -98,7 +87,7 @@ const handleRequest = async () => {
     navigation,
     preloader,
     home,
-    // about
+    about
   }
 }
 
@@ -123,13 +112,13 @@ app.get('/', async (req, res) => {
 //   })
 // })
 
-// app.get('/about', async (req, res) => {
-//   const defaults = await handleRequest()
+app.get('/about', async (req, res) => {
+  const defaults = await handleRequest()
 
-//   res.render('pages/about', {
-//     ...defaults
-//   })
-// })
+  res.render('pages/about', {
+    ...defaults
+  })
+})
 
 
 app.listen(port, () => {

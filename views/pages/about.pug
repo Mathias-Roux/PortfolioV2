@@ -1,13 +1,11 @@
-//- extends ../base.pug
+extends ../base.pug
 
-//- block variables
-//-   - var template = 'about'
+block variables
+  - var template = 'about'
 
-//- block content
-//-   .about(data-background="#b2b8c3" data-color="#37384c")
-//-     .about__wrapper
-//-       section.about__gallery
-//-         .about__gallery__wrapper
-//-           each media in about.data.gallery
-//-             figure.about__gallery__media
-//-               img.about__gallery__media__image(alt=media.image.alt data-src=media.image.url)
+block content
+  .about
+    .about__wrapper
+      .about__title=about.data.title
+      .about__message=about.data.message
+      .about__description=about.data.description[0].text
