@@ -5,6 +5,7 @@ import each from 'lodash/each'
 import map from 'lodash/map'
 
 import AsyncLoad from 'classes/AsyncLoad';
+import { cookie } from '@prismicio/client';
 
 export default class Page {
   constructor({
@@ -102,7 +103,7 @@ export default class Page {
 
   onResize(){
     if(this.elements.wrapper){
-      this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight
+      this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight * 0.3)
     }
   }
 
