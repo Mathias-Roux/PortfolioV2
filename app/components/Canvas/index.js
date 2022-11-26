@@ -8,11 +8,6 @@ export default class Canvas {
   constructor({ template }) {
     this.template = template
 
-    this.x = {
-      start: 0,
-      distance: 0,
-      end: 0
-    }
     this.y = {
       start: 0,
       distance: 0,
