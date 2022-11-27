@@ -30,7 +30,6 @@ export default class Media {
   createTexture() {
     const image = this.element.querySelector('.home__gallery__card__media__image')
     this.texture = window.TEXTURES[image.getAttribute('data-src')];
-
   }
 
   createProgram() {
@@ -96,16 +95,16 @@ export default class Media {
 
   updateX(x = 0) {
     this.x = (this.bounds.left + x) / window.innerWidth;
-    this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x * this.sizes.width) + this.extra.x
+    this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x;
   }
 
   updateY(y = 0) {
     this.y = (this.bounds.top - y) / window.innerHeight;
-    this.mesh.position.y = -((-this.sizes.height / 1.85) + (this.mesh.scale.y) + (this.y  * this.sizes.height) + this.extra.y);
+    this.mesh.position.y = -((-this.sizes.height / 1.77) + (this.mesh.scale.y) + (this.y  * this.sizes.height) + this.extra.y);
   }
 
+
   update(scroll) {
-    this.updateX();
     this.updateY(scroll);
   }
 }

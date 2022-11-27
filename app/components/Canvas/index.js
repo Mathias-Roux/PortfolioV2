@@ -84,8 +84,7 @@ export default class Canvas {
     this.detail = new Detail({
       gl: this.gl,
       scene: this.scene,
-      sizes: this.sizes,
-      transition: this.transition
+      sizes: this.sizes
     })
   }
 
