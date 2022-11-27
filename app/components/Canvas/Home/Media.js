@@ -100,7 +100,7 @@ export default class Media {
 
   updateY(y = 0) {
     this.y = (this.bounds.top - y) / window.innerHeight;
-    this.mesh.position.y = -((-this.sizes.height / 1.77) + (this.mesh.scale.y) + (this.y  * this.sizes.height) + this.extra.y);
+    this.mesh.position.y = -((-this.sizes.height / 2) + (this.mesh.scale.y / 2) + (this.y  * this.sizes.height) + this.extra.y);
   }
 
 

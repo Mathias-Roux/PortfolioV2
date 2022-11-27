@@ -193,7 +193,7 @@ export default class Canvas {
     }
 
     if(this.about){
-      this.about.update(scroll)
+      this.about.update()
     }
 
     if (this.detail) {

@@ -1,13 +1,11 @@
-/*! ./Media */
-
 /*! gsap */
-
-/*! lodash/map */
 
 /*! ogl */
 
-/*! prefix */
+/*! shaders/plane-fragment.glsl */
+
+/*! shaders/plane-vertex.glsl */
 
 /*!*********************************************!*\
-  !*** ./app/components/Canvas/Home/index.js ***!
+  !*** ./app/components/Canvas/Home/Media.js ***!
   \*********************************************/
