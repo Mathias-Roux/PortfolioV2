@@ -30,9 +30,9 @@ const handleLinkResolver = (doc) => {
     return '/home'
   }
 
-  // if (doc.type === 'project') {
-  //   return `/detail/${doc.slug}`
-  // }
+  if (doc.type === 'project') {
+    return `/detail/${doc.slug}`
+  }
 
   if (doc.type === 'about') {
     return '/about'
@@ -70,11 +70,6 @@ const handleRequest = async () => {
     fetchLinks: 'product.image'
   })
 
-  console.log(about.data.description[0].text)
-
-  // home.forEach(item => {
-  //   console.log(item.data.image)
-  // })
 
   home.forEach(item => {
     assets.push(item.data.image.url)
@@ -99,18 +94,18 @@ app.get('/', async (req, res) => {
   })
 })
 
-// app.get('/detail/:uid', async (req, res) => {
-//   const defaults = await handleRequest()
+app.get('/detail/:uid', async (req, res) => {
+  const defaults = await handleRequest()
 
-//   const product = await client.getByUID('product', req.params.uid, {
-//     fetchLinks: 'collection.title'
-//   })
+  const product = await client.getByUID('project', req.params.uid, {
+    fetchLinks: 'item.data.title'
+  })
 
-//   res.render('pages/detail', {
-//     ...defaults,
-//     product
-//   })
-// })
+  res.render('pages/detail', {
+    ...defaults,
+    product
+  })
+})
 
 app.get('/about', async (req, res) => {
   const defaults = await handleRequest()

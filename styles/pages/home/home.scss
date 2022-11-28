@@ -22,8 +22,10 @@
   left: 65%;
 }
 
-item__gallery__link{
-  background-color: blue;
+.home__gallery__link{
+  @extend %cover;
+
+  z-index: 1;
 }
 
 .item__gallery__card{
