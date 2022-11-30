@@ -69,10 +69,17 @@ const handleRequest = async () => {
   const home = await client.getAllByType('item', {
     fetchLinks: 'product.image'
   })
+  const projects = await client.getByUID('project', req.params.uid, {
+    fetchLinks: 'item.data.title'
+  })
 
 
   home.forEach(item => {
     assets.push(item.data.image.url)
+  })
+
+  projects.forEach(project => {
+    assets.push(project.data.image.url)
   })
 
 
@@ -82,6 +89,7 @@ const handleRequest = async () => {
     navigation,
     preloader,
     home,
+    projects,
     about
   }
 }
@@ -97,13 +105,8 @@ app.get('/', async (req, res) => {
 app.get('/detail/:uid', async (req, res) => {
   const defaults = await handleRequest()
 
-  const product = await client.getByUID('project', req.params.uid, {
-    fetchLinks: 'item.data.title'
-  })
-
   res.render('pages/detail', {
-    ...defaults,
-    product
+    ...defaults
   })
 })
 
