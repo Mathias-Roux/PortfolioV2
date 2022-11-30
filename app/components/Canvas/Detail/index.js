@@ -50,8 +50,6 @@ export default class {
       program: this.program,
     })
 
-    this.mesh.rotation.z = Math.PI * 0.01
-
     this.mesh.setParent(this.scene)
   }
 
@@ -69,15 +67,9 @@ export default class {
    * Animations.
    */
   show() {
-    if (this.transition) {
-      this.transition.animate(this.mesh, (_) => {
-        this.program.uniforms.uAlpha.value = 1
-      })
-    } else {
-      GSAP.to(this.program.uniforms.uAlpha, {
-        value: 1,
-      })
-    }
+    GSAP.to(this.program.uniforms.uAlpha, {
+      value: 1,
+    })
   }
 
   hide() {

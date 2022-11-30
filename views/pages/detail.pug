@@ -8,21 +8,22 @@ block content
     .detail__wrapper
       .detail__gallery
         .detail__gallery__wrapper
-          figure.detail__media
-            img.detail__media__image(alt=project.data.image.alt data-src=project.data.image.url)
+          each shot in project.data.shots
+            figure.detail__media
+              img.detail__media__image(alt=shot.image.alt data-src=shot.image.url)
 
       .detail__information
         h1.details__information__title=project.data.title
 
         .detail__information__content
           .detail__information__description
-            p.detail__information__description__text
+            p.detail__information__description__text=project.data.description[0].text
 
           .detail__information__technos
-            p.detail__information__technos__text
+            p.detail__information__technos__text=project.data.technologies
 
           //- a.detail__information__link(href=project.data.link_url.url target=_blank)=product.data.link_text
 
-    a.detail__button(href=Link(home.data.collections)) Close
+    a.detail__button(href=Link(home)) Close
       //- svg.detail__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 60")
       //-   path(fill="none" stroke="currentColor" d="M62,0c34.24,0,62,13.43,62,30s-27.76,30-62,30S0,46.57,0,30,27.76,0,62,0Zm0,.5c33.97,0,61.5,13.21,61.5,29.5s-27.53,29.5-61.5,29.5S.5,46.29,.5,30,28.03,.5,62,.5Z")

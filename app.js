@@ -26,10 +26,6 @@ app.use(errorHandler())
 app.use(express.static(path.join(__dirname, 'public')))
 
 const handleLinkResolver = (doc) => {
-  if (doc.type === 'home') {
-    return '/home'
-  }
-
   if (doc.type === 'project') {
     return `/detail/${doc.slug}`
   }
@@ -69,18 +65,16 @@ const handleRequest = async () => {
   const home = await client.getAllByType('item', {
     fetchLinks: 'product.image'
   })
-  const projects = await client.getByUID('project', req.params.uid, {
-    fetchLinks: 'item.data.title'
-  })
+
 
 
   home.forEach(item => {
     assets.push(item.data.image.url)
   })
 
-  projects.forEach(project => {
-    assets.push(project.data.image.url)
-  })
+  // projects.forEach(project => {
+  //   assets.push(project.data.image.url)
+  // })
 
 
   return {
@@ -89,7 +83,6 @@ const handleRequest = async () => {
     navigation,
     preloader,
     home,
-    projects,
     about
   }
 }
@@ -105,8 +98,15 @@ app.get('/', async (req, res) => {
 app.get('/detail/:uid', async (req, res) => {
   const defaults = await handleRequest()
 
+  const project = await client.getByUID('project', req.params.uid, {
+    fetchLinks: 'home.data.title'
+  })
+
+  console.log(project)
+
   res.render('pages/detail', {
-    ...defaults
+    ...defaults,
+    project
   })
 })
 
