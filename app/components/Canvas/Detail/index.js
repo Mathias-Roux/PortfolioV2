@@ -1,134 +1,78 @@
-import GSAP from 'gsap'
-import { Mesh, Plane, Program } from 'ogl'
+import { Plane, Transform } from 'ogl';
+import map from 'lodash/map';
 
-import fragment from '../../../shaders/plane-fragment.glsl'
-import vertex from '../../../shaders/plane-vertex.glsl'
+import Gallery from './Gallery';
 
 export default class {
-  constructor({ gl, scene, sizes, transition }) {
-    this.id = 'detail'
-
-    this.element = document.querySelector('.detail__media__image')
-
-    this.gl = gl
-    this.scene = scene
+  constructor({ gl, scene, sizes }) {
+    this.gl = gl;
     this.sizes = sizes
-    this.transition = transition
 
-    this.geometry = new Plane(this.gl)
+    this.group = new Transform();
 
-    this.createTexture()
-    this.createProgram()
-    this.createMesh()
-    this.createBounds({
+    this.createGeometry();
+    this.createGalleries();
+
+    this.onResize({
       sizes: this.sizes,
-    })
+    });
+
+    this.group.setParent(scene);
 
     this.show()
   }
 
-  createTexture() {
-    const image = this.element.getAttribute('data-src')
 
-    this.texture = window.TEXTURES[image]
+  createGeometry() {
+    this.geometry = new Plane(this.gl);
   }
 
-  createProgram() {
-    this.program = new Program(this.gl, {
-      fragment,
-      vertex,
-      uniforms: {
-        uAlpha: { value: 0 },
-        tMap: { value: this.texture },
-      },
+  createGalleries() {
+    this.galleriesElements = document.querySelectorAll('.detail__gallery')
+
+    this.galleries = map(this.galleriesElements, (element, index) => {
+      return new Gallery({
+        element,
+        geometry: this.geometry,
+        index,
+        gl: this.gl,
+        scene: this.group,
+        sizes: this.sizes
+      })
     })
   }
 
-  createMesh() {
-    this.mesh = new Mesh(this.gl, {
-      geometry: this.geometry,
-      program: this.program,
-    })
-
-    this.mesh.setParent(this.scene)
+  show(){
+    map(this.galleries, gallery => gallery.show())
   }
 
-  createBounds({ sizes }) {
-    this.sizes = sizes
-
-    this.bounds = this.element.getBoundingClientRect()
-
-    this.updateScale()
-    this.updateX()
-    this.updateY()
+  hide(){
+    map(this.galleries, gallery => gallery.hide())
   }
 
-  /**
-   * Animations.
-   */
-  show() {
-    GSAP.to(this.program.uniforms.uAlpha, {
-      value: 1,
-    })
+  onResize(event){
+    map(this.galleries, gallery => gallery.onResize(event))
   }
 
-  hide() {
-    GSAP.to(this.program.uniforms.uAlpha, {
-      value: 0
-    })
+  onTouchDown(event){
+    map(this.galleries, gallery => gallery.onTouchDown(event))
   }
 
-  /**
-   * Events.
-   */
-  onResize(sizes) {
-    this.createBounds(sizes)
-    this.updateX()
-    this.updateY()
+  onTouchMove(event){
+    map(this.galleries, gallery => gallery.onTouchMove(event))
   }
 
-  onTouchDown() {}
-
-  onTouchMove() {}
-
-  onTouchUp() {}
-
-  /**
-   * Loop.
-   */
-  updateScale() {
-    this.height = this.bounds.height / window.innerHeight
-    this.width = this.bounds.width / window.innerWidth
-
-    this.mesh.scale.x = this.sizes.width * this.width
-    this.mesh.scale.y = this.sizes.height * this.height
+  onTouchUp(event){
+    map(this.galleries, gallery => gallery.onTouchUp(event))
   }
 
-  updateX() {
-    this.x = this.bounds.left / window.innerWidth
+  onWheel({ pixelX, pixelY }){}
 
-    this.mesh.position.x =
-      -this.sizes.width / 2 + this.mesh.scale.x / 2 + this.x * this.sizes.width
+  update(scroll){
+    map(this.galleries, gallery => gallery.update(scroll))
   }
 
-  updateY() {
-    this.y = this.bounds.top / window.innerHeight
-
-    this.mesh.position.y =
-      this.sizes.height / 2 -
-      this.mesh.scale.y / 2 -
-      this.y * this.sizes.height
-  }
-
-  update() {
-    this.updateX()
-    this.updateY()
-  }
-
-  /**
-   * Destroy.
-   */
-  destroy() {
-    this.scene.removeChild(this.mesh)
+  destroy(){
+    map(this.galleries, gallery => gallery.destroy())
   }
 }

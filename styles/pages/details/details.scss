@@ -4,14 +4,31 @@
 }
 
 .detail__wrapper{
+  @extend %cover;
+
   display: flex;
   align-items: center;
 }
 
+.detail__gallery{
+  @extend %cover;
+}
+
+.detail__gallery__wrapper{
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  transform: translateY(-50%)
+}
+
 .detail__media{
-  height: 78.2rem;
+  height: 33.2rem;
   position: relative;
-  width: 55.4rem;
+  width: 61.4rem;
+
+  &:not(:last-child){
+    margin-bottom: 10rem
+  }
 }
 
 .detail__media__image{
@@ -21,80 +38,46 @@
 }
 
 .detail__information{
-  padding-left: 8.2rem;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%)
 }
 
-.detail__information__collection{
-  @extend %description-12;
+.detail__information__title{
+  @extend %title-100;
 
+  max-width: 60rem;
   text-transform: uppercase;
   margin-bottom: 4rem;
 }
 
-.details__information__title{
-  @extend %title-120;
-
-  max-width: 60rem;
-}
-
 .detail__information__content{
-  padding-left: 18rem;
 
-  @include media('<phone'){
-    padding-left: 0;
-  }
 }
 
-.detail__information__highlights{
-  margin-top: 6rem;
-}
-
-.detail__information__highlight{
-  display: flex;
-  align-items: center;
-
-  &:not(:first-child){
-    margin-top: 4rem;
-  }
-}
-
-.detail__information__highlight__icon{
-  height: 4rem;
-  width: 4rem;
-  margin-right: 3.75rem;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-}
-
-.detail__information__highlight__text{
-  @extend %description-16;
-}
-
-.detail__information__list{
-  margin-top: 4rem;
-}
-
-.detail__information__item{
-  display: flex;
-
-  &:not(:first-child){
-    margin-top: 4rem;
-  }
-}
-
-.detail__information__item__title{
-  @extend %description-12;
-
-  padding-right: 2.5rem;
-  width: 10rem;
-}
-
-.detail__information__item__description{
-  @extend %description-16;
-
+.detail__information__description{
   max-width: 44rem;
+  padding-bottom: 3rem
+}
+
+.detail__information__description__text{
+  @extend %description-16;
+
+  letter-spacing: 0.03rem;
+  opacity: 0.7;
+}
+
+.detail__information__technos{
+  max-width: 44rem;
+}
+
+.detail__information__technos__text{
+  @extend %description-16;
+
   letter-spacing: 0.03rem;
 }
+
 
 .detail__information__link{
   @extend %title-30;

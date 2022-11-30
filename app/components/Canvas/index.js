@@ -197,7 +197,7 @@ export default class Canvas {
     }
 
     if (this.detail) {
-      this.detail.update();
+      this.detail.update(scroll);
     }
 
     this.renderer.render({
