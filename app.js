@@ -63,18 +63,22 @@ const handleRequest = async () => {
   const preloader = await client.getSingle('preloader')
   const about = await client.getSingle('about')
   const home = await client.getAllByType('item', {
-    fetchLinks: 'product.image'
+    fetchLinks: 'project.shots'
   })
 
-console.log(home[0].data.link)
+  console.log(home[0].data.project[0].project_shots)
 
   home.forEach(item => {
     assets.push(item.data.image.url)
   })
 
-  // projects.forEach(project => {
-  //   assets.push(project.data.shot.image.url)
-  // })
+  home.forEach(item => {
+    item.data.project.forEach(detail => {
+      detail.project_shots.data.shots.forEach(shot => {
+        assets.push(shot.image.url)
+      })
+    })
+  })
 
 
   return {
