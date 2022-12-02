@@ -55,7 +55,7 @@ export default class Preloader extends Component{
     })
   }
 
-  onAssetLoaded(image){
+  onAssetLoaded(){
     this.length++
 
     const percent = this.length / window.ASSETS.length

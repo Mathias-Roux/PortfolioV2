@@ -66,14 +66,14 @@ const handleRequest = async () => {
     fetchLinks: 'product.image'
   })
 
-
+console.log(home[0].data.link)
 
   home.forEach(item => {
     assets.push(item.data.image.url)
   })
 
   // projects.forEach(project => {
-  //   assets.push(project.data.image.url)
+  //   assets.push(project.data.shot.image.url)
   // })
 
 
@@ -101,8 +101,6 @@ app.get('/detail/:uid', async (req, res) => {
   const project = await client.getByUID('project', req.params.uid, {
     fetchLinks: 'home.data.title'
   })
-
-  console.log(project)
 
   res.render('pages/detail', {
     ...defaults,

@@ -16,7 +16,7 @@ export default class Navigation extends Component {
   }
 
   onChange(template) {
-    if (template === 'home') {
+    if (template !== 'about') {
       GSAP.to(this.elements.items[0], {
         autoAlpha: 1,
         delay: 0.75,
