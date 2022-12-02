@@ -19,6 +19,13 @@ export default class Media {
       y: 0,
     };
 
+    this.scroll = {
+      current: 0,
+      target: 0,
+      last: 0,
+      limit: 0
+    }
+
     this.createTexture();
     this.createProgram();
     this.createMesh();
@@ -105,6 +112,14 @@ export default class Media {
 
 
   update(scroll) {
-    this.updateY(scroll);
+    scroll.target = GSAP.utils.clamp(0, scroll.limit, scroll.target)
+
+    scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
+
+    if(this.scroll.current < 0.01){
+      this.scroll.current = 0
+    }
+
+    this.mesh.position.y = this.scroll.current
   }
 }

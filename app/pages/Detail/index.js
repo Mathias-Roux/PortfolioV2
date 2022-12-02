@@ -6,13 +6,17 @@ export default class Detail extends Page {
   constructor(){
     super({
       id: 'detail',
-      element: '.detail'
+      element: '.detail',
+      elements: {
+        navigation: document.querySelector('.navigation'),
+        wrapper: '.detail__gallery__wrapper'
+      }
     })
   }
 
   show() {
     const timeline = GSAP.timeline({
-      delay: 2,
+      delay: 1,
     });
 
     timeline.fromTo(

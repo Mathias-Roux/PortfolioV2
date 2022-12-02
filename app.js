@@ -66,8 +66,7 @@ const handleRequest = async () => {
     fetchLinks: 'project.shots'
   })
 
-  console.log(home[0].data.project[0].project_shots)
-
+  
   home.forEach(item => {
     assets.push(item.data.image.url)
   })

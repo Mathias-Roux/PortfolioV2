@@ -1,7 +1,7 @@
 import { Plane, Transform } from 'ogl';
 import map from 'lodash/map';
 
-import Gallery from './Gallery';
+import Media from './Media';
 
 export default class {
   constructor({ gl, scene, sizes }) {
@@ -11,7 +11,7 @@ export default class {
     this.group = new Transform();
 
     this.createGeometry();
-    this.createGalleries();
+    this.createMedias();
 
     this.onResize({
       sizes: this.sizes,
@@ -27,11 +27,11 @@ export default class {
     this.geometry = new Plane(this.gl);
   }
 
-  createGalleries() {
-    this.galleriesElements = document.querySelectorAll('.detail__gallery')
+  createMedias() {
+    this.mediasElements = document.querySelectorAll('.detail__media')
 
-    this.galleries = map(this.galleriesElements, (element, index) => {
-      return new Gallery({
+    this.medias = map(this.mediasElements, (element, index) => {
+      return new Media({
         element,
         geometry: this.geometry,
         index,
@@ -43,36 +43,30 @@ export default class {
   }
 
   show(){
-    map(this.galleries, gallery => gallery.show())
+    map(this.medias, media => media.show())
   }
 
   hide(){
-    map(this.galleries, gallery => gallery.hide())
+    map(this.medias, media => media.hide())
   }
 
   onResize(event){
-    map(this.galleries, gallery => gallery.onResize(event))
+    map(this.medias, media => media.hide())
   }
 
-  onTouchDown(event){
-    map(this.galleries, gallery => gallery.onTouchDown(event))
-  }
+  onTouchDown(event){}
 
-  onTouchMove(event){
-    map(this.galleries, gallery => gallery.onTouchMove(event))
-  }
+  onTouchMove(event){}
 
-  onTouchUp(event){
-    map(this.galleries, gallery => gallery.onTouchUp(event))
-  }
+  onTouchUp(event){}
 
-  onWheel({ pixelX, pixelY }){}
+  onWheel({ pixelY }){}
 
   update(scroll){
-    map(this.galleries, gallery => gallery.update(scroll))
+    map(this.medias, media => media.update(scroll))
   }
 
   destroy(){
-    map(this.galleries, gallery => gallery.destroy())
+    map(this.medias, media => media.destroy())
   }
 }

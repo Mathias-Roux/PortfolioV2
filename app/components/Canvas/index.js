@@ -169,21 +169,19 @@ export default class Canvas {
     }
   }
 
-  onTouchDown(event){
+  onTouchDown(event){}
 
-  }
+  onTouchMove(event){}
 
-  onTouchMove(event){
-
-  }
-
-  onTouchUp(event){
-
-  }
+  onTouchUp(event){}
 
   onWheel(event){
     if(this.home){
       this.home.onWheel(event)
+    }
+
+    if(this.detail){
+      this.detail.onWheel(event)
     }
   }
 
