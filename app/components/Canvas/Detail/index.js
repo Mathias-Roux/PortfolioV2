@@ -11,7 +11,16 @@ export default class {
 
     this.group = new Transform();
 
+    this.galleryWrapperElement = document.querySelector(".detail__gallery__wrapper")
     this.mediasElements = document.querySelectorAll('.detail__media')
+
+    this.scroll = {
+      current: 0,
+      start: 0,
+      target: 0,
+      lerp: 0.1,
+      velocity: 1,
+    };
 
     this.createGeometry();
     this.createMedias();
@@ -52,7 +61,15 @@ export default class {
   }
 
   onResize(event){
-    map(this.medias, media => media.onResize(event))
+    this.sizes = event.sizes;
+
+    this.bounds = this.galleryWrapperElement.getBoundingClientRect();
+
+    this.scroll.last = this.scroll.target = 0;
+
+    map(this.medias, (media) => media.onResize(event, this.scroll));
+
+    this.scroll.limit = this.bounds.width - this.medias[0].element.clientWidth;
   }
 
   onTouchDown(event){}
@@ -61,7 +78,9 @@ export default class {
 
   onTouchUp(event){}
 
-  onWheel({ pixelY }){}
+  onWheel({ pixelY }){
+    this.scroll.target += pixelY;
+  }
 
   update(scroll){
     map(this.medias, media => media.update(scroll))

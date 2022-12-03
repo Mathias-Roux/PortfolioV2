@@ -1,3 +1,9 @@
+/*! ./Media */
+
+/*! lodash/map */
+
+/*! ogl */
+
 /*!***********************************************!*\
-  !*** ./app/components/Canvas/Detail/Media.js ***!
+  !*** ./app/components/Canvas/Detail/index.js ***!
   \***********************************************/

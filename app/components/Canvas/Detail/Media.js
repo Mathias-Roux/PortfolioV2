@@ -19,13 +19,6 @@ export default class Media {
       y: 0,
     };
 
-    this.scroll = {
-      current: 0,
-      target: 0,
-      last: 0,
-      limit: 0
-    }
-
     this.createTexture();
     this.createProgram();
     this.createMesh();
