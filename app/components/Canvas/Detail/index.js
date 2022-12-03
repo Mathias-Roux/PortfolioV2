@@ -5,10 +5,13 @@ import Media from './Media';
 
 export default class {
   constructor({ gl, scene, sizes }) {
-    this.gl = gl;
+    this.gl = gl
+    this.scene = scene
     this.sizes = sizes
 
     this.group = new Transform();
+
+    this.mediasElements = document.querySelectorAll('.detail__media')
 
     this.createGeometry();
     this.createMedias();
@@ -28,8 +31,6 @@ export default class {
   }
 
   createMedias() {
-    this.mediasElements = document.querySelectorAll('.detail__media')
-
     this.medias = map(this.mediasElements, (element, index) => {
       return new Media({
         element,
@@ -51,7 +52,7 @@ export default class {
   }
 
   onResize(event){
-    map(this.medias, media => media.hide())
+    map(this.medias, media => media.onResize(event))
   }
 
   onTouchDown(event){}
@@ -67,6 +68,6 @@ export default class {
   }
 
   destroy(){
-    map(this.medias, media => media.destroy())
+    this.scene.removeChild(this.group);
   }
 }

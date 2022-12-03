@@ -77,7 +77,7 @@ export default class Media {
 
   hide() {
     GSAP.to(this.program.uniforms.uAlpha, {
-      value: 0,
+      value: 0
     });
   }
 
@@ -112,14 +112,6 @@ export default class Media {
 
 
   update(scroll) {
-    scroll.target = GSAP.utils.clamp(0, scroll.limit, scroll.target)
-
-    scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
-
-    if(this.scroll.current < 0.01){
-      this.scroll.current = 0
-    }
-
-    this.mesh.position.y = this.scroll.current
+    this.updateY(scroll)
   }
 }
