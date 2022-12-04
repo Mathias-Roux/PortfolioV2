@@ -1,18 +1,19 @@
 import { Plane, Transform } from 'ogl';
+import GSAP from 'gsap';
+
 import map from 'lodash/map';
 
 import Media from './Media';
 
 export default class {
-  constructor({ gl, scene, sizes }) {
-    this.gl = gl
-    this.scene = scene
-    this.sizes = sizes
+  constructor({ gl, scene, sizes,  }) {
+    this.gl = gl;
+    this.scene = scene;
+    this.sizes = sizes;
 
     this.group = new Transform();
 
-    this.galleryWrapperElement = document.querySelector(".detail__gallery__wrapper")
-    this.mediasElements = document.querySelectorAll('.detail__media')
+    this.mediasElements = document.querySelectorAll( '.detail__media' )
 
     this.scroll = {
       current: 0,
@@ -23,23 +24,22 @@ export default class {
     };
 
     this.createGeometry();
-    this.createMedias();
+    this.createGallery();
 
     this.onResize({
       sizes: this.sizes,
     });
 
-    this.group.setParent(scene);
+    this.group.setParent(this.scene);
 
-    this.show()
+    this.show();
   }
-
 
   createGeometry() {
     this.geometry = new Plane(this.gl);
   }
 
-  createMedias() {
+  createGallery() {
     this.medias = map(this.mediasElements, (element, index) => {
       return new Media({
         element,
@@ -47,46 +47,63 @@ export default class {
         index,
         gl: this.gl,
         scene: this.group,
-        sizes: this.sizes
-      })
-    })
+        sizes: this.sizes,
+      });
+    });
   }
 
-  show(){
-    map(this.medias, media => media.show())
+  /**
+   * Animations.
+   */
+   show() {
+    map(this.medias, (media) => media.show());
   }
 
-  hide(){
-    map(this.medias, media => media.hide())
+  hide() {
+    map(this.medias, (media) => media.hide());
   }
 
-  onResize(event){
+  /**
+   * Events.
+   */
+  onResize(event) {
     this.sizes = event.sizes;
-
-    this.bounds = this.galleryWrapperElement.getBoundingClientRect();
 
     this.scroll.last = this.scroll.target = 0;
 
     map(this.medias, (media) => media.onResize(event, this.scroll));
-
-    this.scroll.limit = this.bounds.width - this.medias[0].element.clientWidth;
   }
 
-  onTouchDown(event){}
+  onTouchDown({ x, y }) {}
 
-  onTouchMove(event){}
+  onTouchMove({ x, y }) {}
 
-  onTouchUp(event){}
+  onTouchUp({ x, y }) {}
 
-  onWheel({ pixelY }){
-    this.scroll.target += pixelY;
+  onWheel({ pixelY }) {
+    this.scroll.target -= pixelY;
   }
 
-  update(scroll){
-    map(this.medias, media => media.update(scroll))
+
+  /**
+   * Update.
+   */
+  update() {
+    this.scroll.current = GSAP.utils.interpolate(
+      this.scroll.current,
+      this.scroll.target,
+      this.scroll.lerp
+    );
+
+    map(this.medias, (media) => {
+      media.update(this.scroll.current, this.index);
+    })
   }
 
-  destroy(){
+  /**
+   * Destroy.
+   */
+  destroy() {
     this.scene.removeChild(this.group);
   }
 }
