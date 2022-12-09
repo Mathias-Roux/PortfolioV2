@@ -7,5 +7,16 @@ block content
   .about
     .about__wrapper
       .about__title=about.data.title
-      .about__message=about.data.message
-      .about__description=about.data.description[0].text
+
+      .about__infos
+        p.about__infos__category=about.data.infos_category
+        each row in about.data.infos
+          .about__infos__row
+            p.about__infos__row__title=row.infos_title
+            p.about__infos__row__text=row.infos_text
+
+      .about__contact
+        p.about__contact__category=about.data.contact_category
+        .about__contact__list
+          each link in about.data.contact
+            a.about__contact__list__link(href=link.contact_link.url)=link.contact_title
