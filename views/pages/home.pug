@@ -6,11 +6,10 @@ block variables
 block content
   .home
     .home__wrapper
-      .home__gallery
-        .home__gallery__wrapper
-          each item, index in home
-            .item__gallery__card
-              a.home__gallery__link(href=Link(item.data.project[0].project_shots))
-              .item__gallery__card__title=item.data.title
-              figure.home__gallery__card__media(data-index=index )
-                img.home__gallery__card__media__image(alt=item.data.image.alt data-src=item.data.image.url)
+      each item in home
+        .item
+          .item__wrapper
+            a.item__wrapper__link(href=Link(item.data.project[0].project_shots))
+            .item__wrapper__title=item.data.title
+            //- figure.home__gallery__card__media(data-index=index )
+            //-   img.home__gallery__card__media__image(alt=item.data.image.alt data-src=item.data.image.url)
