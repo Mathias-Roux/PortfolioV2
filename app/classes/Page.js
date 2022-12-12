@@ -29,10 +29,16 @@ export default class Page {
     this.elements = {}
 
     this.scroll = {
-      current: 0,
-      target: 0,
-      last: 0,
-      limit: 0
+      current: 0, //y
+      target: 0, //scrollY
+      last: 0, //old
+      speed: 0
+    }
+
+    if (this.elements.home) {
+      this.menuHeight = this.element.clientHeight;
+      this.itemHeight = this.elements.items[0].clientHeight;
+      this.wrapperHeight = this.elements.wrapper.clientHeight;
     }
 
     each(this.selectorChildren, (entry, key) => {
@@ -101,24 +107,25 @@ export default class Page {
   }
 
   onResize(){
-    if(this.elements.wrapper){
-      this.scroll.limit = this.elements.wrapper.clientHeight
+    if (this.elements.home) {
+      this.menuHeight = this.element.clientHeight;
+      this.itemHeight = this.elements.items[0].clientHeight;
+      this.wrapperHeight = this.elements.wrapper.clientHeight;
     }
   }
 
   update(){
-    this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
-
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
 
-    if(this.scroll.current < 0.01){
-      this.scroll.current = 0
-    }
-
-
-    if (this.elements.wrapper){
-      this.elements.wrapper.style[this.transformPrefix] = `translateY(-${this.scroll.current}px)`
-    }
+    GSAP.set(this.elements.items, {
+      y: i => {
+        return i * this.itemHeight + this.scroll.current;
+      },
+      modifiers: {
+        y: y => {
+          const s = GSAP.utils.wrap(-this.itemHeight, this.wrapperHeight - this.itemHeight, parseInt(y));
+          return `${s}px`;
+        } } });
   }
 
   addEventListeners(){}

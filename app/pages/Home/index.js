@@ -6,8 +6,9 @@ export default class Home extends Page {
       id: 'home',
       element: '.home',
       elements: {
-        navigation: document.querySelector('.navigation'),
-        wrapper: '.home__wrapper'
+        home: true,
+        wrapper: document.querySelector('.home__wrapper'),
+        items: document.querySelectorAll('.item')
       }
     })
   }
