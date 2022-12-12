@@ -1,5 +1,4 @@
 import GSAP from 'gsap'
-import Prefix from 'prefix'
 
 import each from 'lodash/each'
 import map from 'lodash/map'
@@ -20,8 +19,6 @@ export default class Page {
     }
 
     this.id = id
-
-    this.transformPrefix = Prefix('transform')
   }
 
   create(){
@@ -29,16 +26,9 @@ export default class Page {
     this.elements = {}
 
     this.scroll = {
-      current: 0, //y
-      target: 0, //scrollY
-      last: 0, //old
-      speed: 0
-    }
-
-    if (this.elements.home) {
-      this.menuHeight = this.element.clientHeight;
-      this.itemHeight = this.elements.items[0].clientHeight;
-      this.wrapperHeight = this.elements.wrapper.clientHeight;
+      current: 0,
+      target: 0,
+      last: 0
     }
 
     each(this.selectorChildren, (entry, key) => {
@@ -58,6 +48,11 @@ export default class Page {
         }
       }
     })
+
+    if (this.elements.home === null) {
+      this.itemHeight = this.elements.items[0].clientHeight;
+      this.wrapperHeight = this.elements.items.length * this.itemHeight
+    }
 
     this.createPreloader()
   }
@@ -103,15 +98,12 @@ export default class Page {
   }
 
   onWheel({ pixelY }){
-    this.scroll.target += pixelY;
+    this.scroll.target -= pixelY;
   }
 
   onResize(){
-    if (this.elements.home) {
-      this.menuHeight = this.element.clientHeight;
-      this.itemHeight = this.elements.items[0].clientHeight;
-      this.wrapperHeight = this.elements.wrapper.clientHeight;
-    }
+    this.itemHeight = this.elements.items[0].clientHeight;
+    this.wrapperHeight = this.elements.items.length * this.itemHeight
   }
 
   update(){
@@ -125,7 +117,9 @@ export default class Page {
         y: y => {
           const s = GSAP.utils.wrap(-this.itemHeight, this.wrapperHeight - this.itemHeight, parseInt(y));
           return `${s}px`;
-        } } });
+        }
+      }
+    });
   }
 
   addEventListeners(){}
