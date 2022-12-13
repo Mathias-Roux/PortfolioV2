@@ -1,78 +1,52 @@
-import { Plane, Transform } from 'ogl';
-import map from 'lodash/map';
+import { Plane, Program } from 'ogl';
 
-import Gallery from './Gallery';
+
+import vertex from 'shaders/home-vertex.glsl';
+import fragment from 'shaders/home-fragment.glsl';
 
 export default class {
   constructor({ gl, scene, sizes }) {
     this.gl = gl;
+    this.scene = scene;
     this.sizes = sizes
 
-    this.group = new Transform();
-
     this.createGeometry();
-    this.createGalleries();
-
-    this.onResize({
-      sizes: this.sizes,
-    });
-
-    this.group.setParent(scene);
-
-    this.show()
+    this.createProgram()
   }
-
 
   createGeometry() {
     this.geometry = new Plane(this.gl);
   }
 
-  createGalleries() {
-    this.galleriesElements = document.querySelectorAll('.home__gallery')
-
-    this.galleries = map(this.galleriesElements, (element, index) => {
-      return new Gallery({
-        element,
-        geometry: this.geometry,
-        index,
-        gl: this.gl,
-        scene: this.group,
-        sizes: this.sizes
-      })
-    })
+  createProgram() {
+    this.program = new Program(this.gl, {
+      fragment,
+      vertex
+    });
   }
 
-  show(){
-    map(this.galleries, gallery => gallery.show())
-  }
 
-  hide(){
-    map(this.galleries, gallery => gallery.hide())
-  }
+  // Animations
+  show() {}
 
-  onResize(event){
-    map(this.galleries, gallery => gallery.onResize(event))
-  }
+  hide() {}
 
-  onTouchDown(event){
-    map(this.galleries, gallery => gallery.onTouchDown(event))
-  }
+  // Events
 
-  onTouchMove(event){
-    map(this.galleries, gallery => gallery.onTouchMove(event))
-  }
+  onResize(e) {}
 
-  onTouchUp(event){
-    map(this.galleries, gallery => gallery.onTouchUp(event))
-  }
+  onTouchDown({ x, y }) {}
 
-  onWheel({ pixelX, pixelY }){}
+  onTouchMove({ x, y }) {}
 
-  update(scroll){
-    map(this.galleries, gallery => gallery.update(scroll))
-  }
+  onTouchUp({ x, y }) {}
 
-  destroy(){
-    map(this.galleries, gallery => gallery.destroy())
-  }
+  onWheel({ pixelX, pixelY }) {}
+
+  // Update
+
+  update() {}
+
+  // Destroy
+  destroy() { }
 }

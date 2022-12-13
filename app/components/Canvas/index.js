@@ -1,6 +1,6 @@
 import { Camera, Renderer, Transform } from 'ogl';
 
-import Home from './Home'
+// import Home from './Home'
 import Detail from './Detail'
 
 export default class Canvas {
@@ -44,19 +44,19 @@ export default class Canvas {
   /**
    * HOME
    */
-  createHome() {
-    this.home = new Home({
-      gl: this.gl,
-      scene: this.scene,
-      sizes: this.sizes
-    })
-  }
+  // createHome() {
+  //   this.home = new Home({
+  //     gl: this.gl,
+  //     scene: this.scene,
+  //     sizes: this.sizes
+  //   })
+  // }
 
-  destroyHome(){
-    if (!this.home) return
-    this.home.destroy()
-    this.home = null
-  }
+  // destroyHome(){
+  //   if (!this.home) return
+  //   this.home.destroy()
+  //   this.home = null
+  // }
 
   /**
    * DETAIL
@@ -81,9 +81,9 @@ export default class Canvas {
   }
 
   onChangeStart(url){
-    if(this.home){
-      this.home.hide()
-    }
+    // if(this.home){
+    //   this.home.hide()
+    // }
 
     if(this.detail){
       this.detail.hide()
@@ -92,11 +92,11 @@ export default class Canvas {
   }
 
   onChangeEnd(template){
-    if (template === 'home') {
-      this.createHome()
-    } else if (this.home){
-      this.destroyHome()
-    }
+    // if (template === 'home') {
+    //   this.createHome()
+    // } else if (this.home){
+    //   this.destroyHome()
+    // }
 
     if (template === 'detail') {
       this.createDetail()
@@ -127,9 +127,9 @@ export default class Canvas {
       sizes: this.sizes
     }
 
-    if(this.home){
-      this.home.onResize(values)
-    }
+    // if(this.home){
+    //   this.home.onResize(values)
+    // }
 
     if(this.detail){
       this.detail.onResize(values)
@@ -143,9 +143,9 @@ export default class Canvas {
   onTouchUp(event){}
 
   onWheel(event){
-    if(this.home){
-      this.home.onWheel(event)
-    }
+    // if(this.home){
+    //   this.home.onWheel(event)
+    // }
 
     if(this.detail){
       this.detail.onWheel(event)
@@ -153,9 +153,9 @@ export default class Canvas {
   }
 
   update(scroll) {
-    if(this.home){
-      this.home.update(scroll)
-    }
+    // if(this.home){
+    //   this.home.update(scroll)
+    // }
 
     if (this.detail) {
       this.detail.update(scroll);

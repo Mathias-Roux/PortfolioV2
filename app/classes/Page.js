@@ -49,7 +49,7 @@ export default class Page {
       }
     })
 
-    if (this.elements.home === null) {
+    if (this.id === 'home') {
       this.itemHeight = this.elements.items[0].clientHeight;
       this.wrapperHeight = this.elements.items.length * this.itemHeight
     }
@@ -102,24 +102,28 @@ export default class Page {
   }
 
   onResize(){
-    this.itemHeight = this.elements.items[0].clientHeight;
-    this.wrapperHeight = this.elements.items.length * this.itemHeight
+    if (this.id === 'home') {
+      this.itemHeight = this.elements.items[0].clientHeight;
+      this.wrapperHeight = this.elements.items.length * this.itemHeight
+    }
   }
 
   update(){
-    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
+    if (this.id === 'home') {
+      this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
 
-    GSAP.set(this.elements.items, {
-      y: i => {
-        return i * this.itemHeight + this.scroll.current;
-      },
-      modifiers: {
-        y: y => {
-          const s = GSAP.utils.wrap(-this.itemHeight, this.wrapperHeight - this.itemHeight, parseInt(y));
-          return `${s}px`;
+      GSAP.set(this.elements.items, {
+        y: i => {
+          return i * this.itemHeight + this.scroll.current;
+        },
+        modifiers: {
+          y: y => {
+            const s = GSAP.utils.wrap(-this.itemHeight, this.wrapperHeight - this.itemHeight, parseInt(y));
+            return `${s}px`;
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   addEventListeners(){}

@@ -102,9 +102,7 @@ class App {
 
       this.canvas.onChangeEnd(this.template)
 
-      this.page = this.pages[this.template]
-
-      this.page.create()
+      this.createPages()
 
       this.onResize()
       this.page.show()
