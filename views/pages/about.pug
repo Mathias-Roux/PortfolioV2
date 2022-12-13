@@ -19,4 +19,4 @@ block content
         p.about__contact__category=about.data.contact_category
         .about__contact__list
           each link in about.data.contact
-            a.about__contact__list__link(href=link.contact_link.url)=link.contact_title
+            a.about__contact__list__link(href=link.contact_link.url target="_blank")=link.contact_title

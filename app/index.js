@@ -21,7 +21,6 @@ class App {
     this.createPages()
 
     this.addEventListeners()
-    this.addLinkListeners()
 
     this.onResize()
 
@@ -107,7 +106,7 @@ class App {
       this.onResize()
       this.page.show()
 
-      this.addLinkListeners()
+
     } else {
       console.error(`response status: ${res.status}`)
     }
@@ -175,20 +174,6 @@ class App {
     window.addEventListener('popstate', this.onPopState.bind(this))
 
     window.addEventListener('resize', this.onResize.bind(this))
-  }
-
-  addLinkListeners(){
-    const links = document.querySelectorAll('a')
-
-    each(links, link => {
-      link.onclick = event => {
-        event.preventDefault()
-
-        const { href } = link
-
-        this.onChange({ url: href })
-      }
-    })
   }
 }
 

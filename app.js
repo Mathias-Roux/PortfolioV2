@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const handleLinkResolver = (doc) => {
   if (doc.type === 'project') {
-    return `/detail/${doc.slug}`
+    return `/detail/${doc.uid}`
   }
 
   if (doc.type === 'about') {
@@ -100,9 +100,7 @@ app.get('/', async (req, res) => {
 app.get('/detail/:uid', async (req, res) => {
   const defaults = await handleRequest()
 
-  const project = await client.getByUID('project', req.params.uid, {
-    fetchLinks: 'home.data.title'
-  })
+  const project = await client.getByUID('project', req.params.uid)
 
   res.render('pages/detail', {
     ...defaults,
