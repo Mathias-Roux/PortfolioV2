@@ -1,4 +1,3 @@
-import each from 'lodash/each'
 import NormalizeWheel from 'normalize-wheel'
 
 import Canvas from 'components/Canvas'
@@ -163,13 +162,13 @@ class App {
   addEventListeners(){
     window.addEventListener('mousewheel', this.onWheel.bind(this))
 
-    window.addEventListener('mousedown', this.onTouchDown.bind(this))
-    window.addEventListener('mousemove', this.onTouchMove.bind(this))
-    window.addEventListener('mouseup', this.onTouchUp.bind(this))
+    // window.addEventListener('mousedown', this.onTouchDown.bind(this))
+    // window.addEventListener('mousemove', this.onTouchMove.bind(this))
+    // window.addEventListener('mouseup', this.onTouchUp.bind(this))
 
-    window.addEventListener('touchdown', this.onTouchDown.bind(this))
-    window.addEventListener('touchmove', this.onTouchMove.bind(this))
-    window.addEventListener('touchend', this.onTouchUp.bind(this))
+    // window.addEventListener('touchdown', this.onTouchDown.bind(this))
+    // window.addEventListener('touchmove', this.onTouchMove.bind(this))
+    // window.addEventListener('touchend', this.onTouchUp.bind(this))
 
     window.addEventListener('popstate', this.onPopState.bind(this))
 

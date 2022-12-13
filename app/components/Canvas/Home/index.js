@@ -21,7 +21,10 @@ export default class {
   createProgram() {
     this.program = new Program(this.gl, {
       fragment,
-      vertex
+      vertex,
+      uniforms: {
+        uAlpha: { value: 1 }
+      },
     });
   }
 
