@@ -1,6 +1,5 @@
 import { Camera, Renderer, Transform } from 'ogl';
 
-// import Home from './Home'
 import Detail from './Detail'
 
 export default class Canvas {
@@ -41,22 +40,6 @@ export default class Canvas {
     this.scene = new Transform()
   }
 
-  /**
-   * HOME
-   */
-  // createHome() {
-  //   this.home = new Home({
-  //     gl: this.gl,
-  //     scene: this.scene,
-  //     sizes: this.sizes
-  //   })
-  // }
-
-  // destroyHome(){
-  //   if (!this.home) return
-  //   this.home.destroy()
-  //   this.home = null
-  // }
 
   /**
    * DETAIL
@@ -81,23 +64,12 @@ export default class Canvas {
   }
 
   onChangeStart(url){
-    // if(this.home){
-    //   this.home.hide()
-    // }
-
     if(this.detail){
       this.detail.hide()
     }
-
   }
 
   onChangeEnd(template){
-    // if (template === 'home') {
-    //   this.createHome()
-    // } else if (this.home){
-    //   this.destroyHome()
-    // }
-
     if (template === 'detail') {
       this.createDetail()
     } else if (this.detail){
@@ -127,38 +99,20 @@ export default class Canvas {
       sizes: this.sizes
     }
 
-    // if(this.home){
-    //   this.home.onResize(values)
-    // }
-
     if(this.detail){
       this.detail.onResize(values)
     }
   }
 
-  onTouchDown(event){}
-
-  onTouchMove(event){}
-
-  onTouchUp(event){}
-
   onWheel(event){
-    // if(this.home){
-    //   this.home.onWheel(event)
-    // }
-
     if(this.detail){
       this.detail.onWheel(event)
     }
   }
 
-  update(scroll) {
-    // if(this.home){
-    //   this.home.update(scroll)
-    // }
-
+  update() {
     if (this.detail) {
-      this.detail.update(scroll);
+      this.detail.update();
     }
 
     this.renderer.render({

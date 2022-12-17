@@ -123,18 +123,6 @@ class App {
     })
   }
 
-  onTouchDown(event){
-
-  }
-
-  onTouchMove(event){
-
-  }
-
-  onTouchUp(event){
-
-  }
-
   onWheel(event){
     const normalizedWheel = NormalizeWheel(event)
 
@@ -153,7 +141,7 @@ class App {
     }
 
     if(this.canvas && this.canvas.update){
-      this.canvas.update(this.page.scroll)
+      this.canvas.update()
     }
 
     window.requestAnimationFrame(this.update.bind(this))
@@ -161,14 +149,6 @@ class App {
 
   addEventListeners(){
     window.addEventListener('mousewheel', this.onWheel.bind(this))
-
-    // window.addEventListener('mousedown', this.onTouchDown.bind(this))
-    // window.addEventListener('mousemove', this.onTouchMove.bind(this))
-    // window.addEventListener('mouseup', this.onTouchUp.bind(this))
-
-    // window.addEventListener('touchdown', this.onTouchDown.bind(this))
-    // window.addEventListener('touchmove', this.onTouchMove.bind(this))
-    // window.addEventListener('touchend', this.onTouchUp.bind(this))
 
     window.addEventListener('popstate', this.onPopState.bind(this))
 

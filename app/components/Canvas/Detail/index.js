@@ -6,7 +6,7 @@ import map from 'lodash/map';
 import Media from './Media';
 
 export default class {
-  constructor({ gl, scene, sizes,  }) {
+  constructor({ gl, scene, sizes }) {
     this.gl = gl;
     this.scene = scene;
     this.sizes = sizes;
@@ -74,29 +74,18 @@ export default class {
     map(this.medias, (media) => media.onResize(event, this.scroll));
   }
 
-  onTouchDown({ x, y }) {}
-
-  onTouchMove({ x, y }) {}
-
-  onTouchUp({ x, y }) {}
-
   onWheel({ pixelY }) {
     this.scroll.target -= pixelY;
   }
-
 
   /**
    * Update.
    */
   update() {
-    this.scroll.current = GSAP.utils.interpolate(
-      this.scroll.current,
-      this.scroll.target,
-      this.scroll.lerp
-    );
+    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp);
 
     map(this.medias, (media) => {
-      media.update(this.scroll.current, this.index);
+      media.update(this.scroll.current);
     })
   }
 

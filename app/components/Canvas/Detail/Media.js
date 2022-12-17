@@ -49,6 +49,7 @@ export default class {
     });
 
     this.mesh.setParent(this.scene);
+    console.log(this.mesh);
   }
 
   createBounds({ sizes }) {
@@ -89,6 +90,8 @@ export default class {
       y: 0,
     };
 
+    this.mesh.id === 0
+
     this.createBounds(sizes);
     this.updateX(scroll && scroll.x);
     this.updateY(scroll && scroll.y);
@@ -116,6 +119,8 @@ export default class {
   }
 
   update(scroll) {
-    this.updateY(scroll);
+    if (this.mesh.position.y !== -0.2850724052430351) {
+      this.updateY(scroll);
+    }
   }
 }
