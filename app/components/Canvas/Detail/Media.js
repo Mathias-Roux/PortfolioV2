@@ -49,7 +49,10 @@ export default class {
     });
 
     this.mesh.setParent(this.scene);
-    console.log(this.mesh);
+
+    if (this.mesh.id === 0) {
+      this.firstMeshPositionY = this.mesh.position.y
+    }
   }
 
   createBounds({ sizes }) {
@@ -90,8 +93,6 @@ export default class {
       y: 0,
     };
 
-    this.mesh.id === 0
-
     this.createBounds(sizes);
     this.updateX(scroll && scroll.x);
     this.updateY(scroll && scroll.y);
@@ -115,12 +116,11 @@ export default class {
 
   updateY(y = 0) {
     this.y = (this.bounds.top + y) / window.innerHeight;
-    this.mesh.position.y = -((-this.sizes.height / 2) + (this.mesh.scale.y / 2) + (this.y  * this.sizes.height) + this.extra.y);
+    this.mesh.position.y = -((-this.sizes.height / 2) + (this.mesh.scale.y / 2) + (this.y * this.sizes.height) + this.extra.y)
   }
 
+
   update(scroll) {
-    if (this.mesh.position.y !== -0.2850724052430351) {
-      this.updateY(scroll);
-    }
+    this.updateY(scroll);
   }
 }
