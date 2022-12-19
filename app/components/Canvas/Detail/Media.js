@@ -49,10 +49,6 @@ export default class {
     });
 
     this.mesh.setParent(this.scene);
-
-    if (this.mesh.id === 0) {
-      this.firstMeshPositionY = this.mesh.position.y
-    }
   }
 
   createBounds({ sizes }) {
@@ -116,18 +112,19 @@ export default class {
 
   updateY(y = 0) {
     this.y = (this.bounds.top + y) / window.innerHeight;
-    this.base = -((-this.sizes.height / 2) + (this.mesh.scale.y / 2) + (this.y * this.sizes.height) + this.extra.y)
 
-    this.positionY = GSAP.utils.clamp(
-      this.base,
-      this.firstMeshPositionY,
-      this.positionY
+    const clamper = GSAP.utils.clamp(
+      (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (((this.bounds.top + 0) / window.innerHeight) * this.sizes.height) + this.extra.y,
+      -0.2853685056390063
     )
 
-    this.mesh.position.y = this.positionY
+    this.mesh.position.y = clamper((this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y * this.sizes.height) + this.extra.y)
   }
 
   update(scroll) {
     this.updateY(scroll);
   }
 }
+
+
+//max = -0.2853685056390063

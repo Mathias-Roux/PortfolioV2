@@ -17,10 +17,8 @@ export default class {
 
     this.scroll = {
       current: 0,
-      start: 0,
       target: 0,
-      lerp: 0.1,
-      velocity: 1,
+      lerp: 0.1
     };
 
     this.createGeometry();
@@ -51,6 +49,8 @@ export default class {
       });
     });
   }
+
+
 
   /**
    * Animations.
