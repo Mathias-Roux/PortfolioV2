@@ -83,11 +83,13 @@ export default class {
   /**
    * Events.
    */
-  onResize(sizes, scroll) {
+  onResize(sizes, scroll, max) {
     this.extra = {
       x: 0,
       y: 0,
     };
+
+    this.max = max
 
     this.createBounds(sizes);
     this.updateX(scroll && scroll.x);
@@ -110,21 +112,25 @@ export default class {
     this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x;
   }
 
-  updateY(y = 0) {
+  updateY(y = 0, max) {
+    this.max = max
     this.y = (this.bounds.top + y) / window.innerHeight;
+    this.initialPosition = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (((this.bounds.top + 0) / window.innerHeight) * this.sizes.height) + this.extra.y
 
     const clamper = GSAP.utils.clamp(
-      (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (((this.bounds.top + 0) / window.innerHeight) * this.sizes.height) + this.extra.y,
-      -0.2853685056390063
+      this.initialPosition,
+      this.max
     )
 
     this.mesh.position.y = clamper((this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y * this.sizes.height) + this.extra.y)
   }
 
-  update(scroll) {
-    this.updateY(scroll);
+  update(scroll, max) {
+    this.updateY(scroll, max);
   }
 }
 
 
-//max = -0.2853685056390063
+//CLAMP POSITION Y
+//  min = position initiale
+//  max = position 1ere mesh

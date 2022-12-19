@@ -45,7 +45,7 @@ export default class {
         index,
         gl: this.gl,
         scene: this.group,
-        sizes: this.sizes,
+        sizes: this.sizes
       });
     });
   }
@@ -71,7 +71,7 @@ export default class {
 
     this.scroll.last = this.scroll.target = 0;
 
-    map(this.medias, (media) => media.onResize(event, this.scroll));
+    map(this.medias, (media) => media.onResize(event, this.scroll, this.medias[0].initialPosition));
   }
 
   onWheel({ pixelY }) {
@@ -85,7 +85,7 @@ export default class {
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp);
 
     map(this.medias, (media) => {
-      media.update(this.scroll.current);
+      media.update(this.scroll.current, this.medias[0].initialPosition);
     })
   }
 
