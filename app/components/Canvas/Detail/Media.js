@@ -49,6 +49,8 @@ export default class {
     });
 
     this.mesh.setParent(this.scene);
+
+    console.log(this.mesh);
   }
 
   createBounds({ sizes }) {
@@ -129,8 +131,3 @@ export default class {
     this.updateY(scroll, max);
   }
 }
-
-
-//CLAMP POSITION Y
-//  min = position initiale
-//  max = position 1ere mesh
