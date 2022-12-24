@@ -11,9 +11,11 @@
 
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  left: 55%;
+  transform: translateY(-50%);
+  left: 60%;
   opacity: 0.01;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
 }
 
 .about__infos{

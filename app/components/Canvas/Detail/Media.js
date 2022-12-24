@@ -117,6 +117,7 @@ export default class {
   updateY(y = 0, max) {
     this.max = max
     this.y = (this.bounds.top + y) / window.innerHeight;
+    console.log(this.y, 'this.y');
     this.initialPosition = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (((this.bounds.top + 0) / window.innerHeight) * this.sizes.height) + this.extra.y
 
     const clamper = GSAP.utils.clamp(
@@ -125,7 +126,9 @@ export default class {
     )
 
     this.mesh.position.y = clamper((this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y * this.sizes.height) + this.extra.y)
+    console.log(this.mesh.position.y, 'mesh');
   }
+
 
   update(scroll, max) {
     this.updateY(scroll, max);
