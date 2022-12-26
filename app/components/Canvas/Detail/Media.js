@@ -1,16 +1,17 @@
-import GSAP from 'gsap';
 import { Mesh, Program } from 'ogl';
+import GSAP from 'gsap';
+
 
 import fragment from 'shaders/plane-fragment.glsl';
 import vertex from 'shaders/plane-vertex.glsl';
 
-export default class {
+export default class Media {
   constructor({ element, geometry, gl, index, scene, sizes }) {
     this.element = element;
-    this.geometry = geometry;
     this.gl = gl;
-    this.index = index;
+    this.geometry = geometry;
     this.scene = scene;
+    this.index = index;
     this.sizes = sizes;
 
     this.extra = {
@@ -27,8 +28,8 @@ export default class {
   }
 
   createTexture() {
-    const image = this.element.querySelector( '.detail__media__image' )
-    this.texture = window.TEXTURES[image.getAttribute('data-src')]
+    const image = this.element.querySelector('.detail__media__image')
+    this.texture = window.TEXTURES[image.getAttribute('data-src')];
   }
 
   createProgram() {
@@ -47,33 +48,24 @@ export default class {
       geometry: this.geometry,
       program: this.program,
     });
-
     this.mesh.setParent(this.scene);
-
-    console.log(this.mesh);
   }
 
   createBounds({ sizes }) {
     this.sizes = sizes;
-
     this.bounds = this.element.getBoundingClientRect();
-
     this.updateScale();
+    this.updateX();
     this.updateY();
-    this.updateX()
   }
 
-  /**
-   * Animations.
-   */
+  // Animations
   show() {
     GSAP.fromTo(this.program.uniforms.uAlpha, {
-        value: 0,
-      },
-      {
-        value: 1,
-      }
-    );
+      value: 0,
+    }, {
+      value: 1,
+    });
   }
 
   hide() {
@@ -82,29 +74,21 @@ export default class {
     });
   }
 
-  /**
-   * Events.
-   */
-  onResize(sizes, scroll, max) {
+  // Events
+  onResize(sizes, scroll) {
     this.extra = {
       x: 0,
       y: 0,
     };
-
-    this.max = max
-
     this.createBounds(sizes);
     this.updateX(scroll && scroll.x);
     this.updateY(scroll && scroll.y);
   }
 
-  /**
-   * Loop.
-   */
+  // Loop.
   updateScale() {
     this.height = this.bounds.height / window.innerHeight;
     this.width = this.bounds.width / window.innerWidth;
-
     this.mesh.scale.x = this.sizes.width * this.width;
     this.mesh.scale.y = this.sizes.height * this.height;
   }
@@ -114,23 +98,14 @@ export default class {
     this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x;
   }
 
-  updateY(y = 0, max) {
-    this.max = max
+  updateY(y = 0) {
     this.y = (this.bounds.top + y) / window.innerHeight;
-    console.log(this.y, 'this.y');
-    this.initialPosition = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (((this.bounds.top + 0) / window.innerHeight) * this.sizes.height) + this.extra.y
-
-    const clamper = GSAP.utils.clamp(
-      this.initialPosition,
-      this.max
-    )
-
-    this.mesh.position.y = clamper((this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y * this.sizes.height) + this.extra.y)
-    console.log(this.mesh.position.y, 'mesh');
+    this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height) + this.extra.y;
+    // console.log(this.mesh.position.y);
   }
 
-
-  update(scroll, max) {
-    this.updateY(scroll, max);
+  update(scroll) {
+    this.updateY(scroll);
   }
+
 }

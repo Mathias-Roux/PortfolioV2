@@ -8,7 +8,6 @@ export default class Canvas {
 
     this.y = {
       start: 0,
-      distance: 0,
       end: 0
     }
 
@@ -110,9 +109,9 @@ export default class Canvas {
     }
   }
 
-  update() {
+  update(scroll) {
     if (this.detail) {
-      this.detail.update();
+      this.detail.update(scroll);
     }
 
     this.renderer.render({

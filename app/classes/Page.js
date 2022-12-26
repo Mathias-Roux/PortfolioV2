@@ -1,5 +1,6 @@
 import GSAP from 'gsap'
 
+
 import each from 'lodash/each'
 import map from 'lodash/map'
 
@@ -28,7 +29,8 @@ export default class Page {
     this.scroll = {
       current: 0,
       target: 0,
-      last: 0
+      last: 0,
+      limit: 0
     }
 
     each(this.selectorChildren, (entry, key) => {

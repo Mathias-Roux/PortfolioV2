@@ -141,7 +141,7 @@ class App {
     }
 
     if(this.canvas && this.canvas.update){
-      this.canvas.update()
+      this.canvas.update(this.page.scroll)
     }
 
     window.requestAnimationFrame(this.update.bind(this))
@@ -149,9 +149,7 @@ class App {
 
   addEventListeners(){
     window.addEventListener('mousewheel', this.onWheel.bind(this))
-
     window.addEventListener('popstate', this.onPopState.bind(this))
-
     window.addEventListener('resize', this.onResize.bind(this))
   }
 }

@@ -1,25 +1,34 @@
 import { Plane, Transform } from 'ogl';
-import GSAP from 'gsap';
-
 import map from 'lodash/map';
+import GSAP from 'gsap'
+import Prefix from 'prefix'
 
 import Media from './Media';
 
 export default class {
   constructor({ gl, scene, sizes }) {
+    this.id = 'collections';
+
     this.gl = gl;
-    this.scene = scene;
-    this.sizes = sizes;
+    this.scene = scene
+    this.sizes = sizes
 
-    this.group = new Transform();
+    this.group = new Transform()
 
-    this.mediasElements = document.querySelectorAll( '.detail__media' )
+    this.transformPrefix = Prefix('transform')
+
+    this.galleryElement = document.querySelector('.detail__gallery')
+    this.galleryWrapperElement = document.querySelector('.detail__gallery__wrapper')
+
+    this.mediasElements = document.querySelectorAll('.detail__media')
+
 
     this.scroll = {
       current: 0,
+      start: 0,
       target: 0,
       lerp: 0.1
-    };
+    }
 
     this.createGeometry();
     this.createGallery();
@@ -28,13 +37,14 @@ export default class {
       sizes: this.sizes,
     });
 
-    this.group.setParent(this.scene);
+    this.group.setParent(this.scene)
 
-    this.show();
+    this.show()
   }
 
+
   createGeometry() {
-    this.geometry = new Plane(this.gl);
+    this.geometry = new Plane(this.gl)
   }
 
   createGallery() {
@@ -50,48 +60,49 @@ export default class {
     });
   }
 
-
-  /**
-   * Animations.
-   */
    show() {
     map(this.medias, (media) => media.show());
   }
 
-  hide() {
-    map(this.medias, (media) => media.hide());
+  hide(){
+    map(this.medias, media => media.hide())
   }
 
-  /**
-   * Events.
-   */
-  onResize(event) {
-    this.sizes = event.sizes;
+  onResize(event){
+    this.sizes = event.sizes
 
-    this.scroll.last = this.scroll.target = 0;
+    this.bounds = this.galleryWrapperElement.getBoundingClientRect()
 
-    map(this.medias, (media) => media.onResize(event, this.scroll, this.medias[0].initialPosition));
+    this.scroll.last = this.scroll.target = 0
+
+    map(this.medias, media => media.onResize(event, this.scroll))
+
+    this.scroll.limit = this.bounds.height - this.medias[0].element.clientHeight
   }
 
-  onWheel({ pixelY }) {
-    this.scroll.target -= pixelY;
+  onTouchDown({ x }){}
+
+  onTouchMove({ x }){}
+
+  onTouchUp({ x }){}
+
+  onWheel({ pixelY }){
+    this.scroll.target -= pixelY
   }
 
-  /**
-   * Update.
-   */
-  update() {
-    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp);
+  update(){
+    this.scroll.target = GSAP.utils.clamp(-this.scroll.limit, 0, this.scroll.target)
 
-    map(this.medias, (media) => {
-      media.update(this.scroll.current, this.medias[0].initialPosition);
+    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
+
+    this.galleryWrapperElement.style[this.transformPrefix] = `translateY(${this.scroll.current}px)`
+
+    map(this.medias, media => {
+      media.update(this.scroll.current)
     })
   }
 
-  /**
-   * Destroy.
-   */
-  destroy() {
-    this.scene.removeChild(this.group);
+  destroy(){
+    this.scene.removeChild(this.group)
   }
 }

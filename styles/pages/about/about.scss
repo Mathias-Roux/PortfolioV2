@@ -6,21 +6,10 @@
   @extend %cover;
 }
 
-.about__title{
-  @extend %title-200;
-
+.about__infos{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 60%;
-  opacity: 0.01;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
-
-.about__infos{
-  position: absolute;
-  top: 30%;
   left: 50%;
   backdrop-filter: blur(0.5rem);
 }
@@ -39,7 +28,8 @@
 
 .about__contact{
   position: absolute;
-  bottom: 37%;
+  top: 50%;
+  transform: translateY(-50%);
   left: 25%;
   backdrop-filter: blur(0.5rem);
 }
