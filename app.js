@@ -67,10 +67,6 @@ const handleRequest = async () => {
   })
 
   home.forEach(item => {
-    assets.push(item.data.image.url)
-  })
-
-  home.forEach(item => {
     item.data.project.forEach(detail => {
       detail.project_shots.data.shots.forEach(shot => {
         assets.push(shot.image.url)

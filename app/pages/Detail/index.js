@@ -6,7 +6,6 @@ export default class Detail extends Page {
       id: 'detail',
       element: '.detail',
       elements: {
-        navigation: document.querySelector('.navigation'),
         wrapper: '.detail__gallery__wrapper'
       }
     })
