@@ -9,8 +9,8 @@ block content
       .detail__gallery
         .detail__gallery__wrapper
           each shot in project.data.shots
-            figure.detail__media
-              img.detail__media__image(alt=shot.image.alt data-src=shot.image.url)
+            figure.detail__media(style=`height:${shot.image.dimensions.height}px; width:${shot.image.dimensions.width}px`)
+              img.detail__media__image(alt=shot.image.alt  data-src=shot.image.url)
 
       .detail__information
         h1.detail__information__title=project.data.title
