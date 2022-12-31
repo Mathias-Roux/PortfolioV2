@@ -34,7 +34,6 @@ const handleLinkResolver = (doc) => {
     return '/about'
   }
 
-
   return null
 }
 
