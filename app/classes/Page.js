@@ -1,5 +1,5 @@
 import GSAP from 'gsap'
-
+import Prefix from 'prefix'
 
 import each from 'lodash/each'
 import map from 'lodash/map'
@@ -21,9 +21,7 @@ export default class Page {
 
     this.id = id
 
-    if (this.id === 'home') {
-      this.items = document.querySelectorAll('.item')
-    }
+    this.transformPrefix = Prefix('transform')
   }
 
   create(){
@@ -54,11 +52,6 @@ export default class Page {
         }
       }
     })
-
-    if (this.id === 'home') {
-      this.itemHeight = this.items[0].clientHeight;
-      this.wrapperHeight = this.items.length * this.itemHeight
-    }
 
     this.createPreloader()
   }
@@ -103,33 +96,29 @@ export default class Page {
     })
   }
 
-  onWheel({ pixelY }){
-    this.scroll.target -= pixelY;
+  onResize(){
+    if (this.elements.wrapper) {
+      this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
+    }
   }
 
-  onResize(){
-    if (this.id === 'home') {
-      this.itemHeight = this.elements.items[0].clientHeight;
-      this.wrapperHeight = this.elements.items.length * this.itemHeight
-    }
+  onWheel({ pixelY }){
+    this.scroll.target += pixelY;
   }
 
   update(){
-    if (this.id === 'home') {
-      this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
+    this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
 
-      GSAP.set(this.elements.items, {
-        y: i => {
-          return i * this.itemHeight + this.scroll.current;
-        },
-        modifiers: {
-          y: y => {
-            const s = GSAP.utils.wrap(-this.itemHeight, this.wrapperHeight - this.itemHeight, parseInt(y));
-            return `${s}px`;
-          }
-        }
-      });
+    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
+
+    if (this.scroll.current < 0.01) {
+      this.scroll.current = 0;
     }
+
+    if (this.elements.wrapper) {
+      this.elements.wrapper.style[this.transformPrefix] = `translateY(-${this.scroll.current}px)`;
+    }
+
   }
 
   addEventListeners(){}

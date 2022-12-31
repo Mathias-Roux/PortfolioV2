@@ -30,7 +30,7 @@ html(lang="en")
     meta(name="twitter:description" content=meta.data.description)
     meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
 
-    link(href="/main.css" rel="stylesheet")
+    link(href="main.css" rel="stylesheet")
 
   body
     include ./partials/preloader
@@ -42,4 +42,4 @@ html(lang="en")
     script.
       window.ASSETS = !{JSON.stringify(assets).replace(/<\//g, "<\\/")}
 
-    script(src="/main.js")
+    script(src="main.js")
