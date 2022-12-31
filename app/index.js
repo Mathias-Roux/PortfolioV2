@@ -104,9 +104,8 @@ class App {
       this.page.create()
 
       this.onResize()
+
       this.page.show()
-
-
     } else {
       console.error(`response status: ${res.status}`)
     }
