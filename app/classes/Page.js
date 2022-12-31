@@ -20,6 +20,10 @@ export default class Page {
     }
 
     this.id = id
+
+    if (this.id === 'home') {
+      this.items = document.querySelectorAll('.item')
+    }
   }
 
   create(){
@@ -52,8 +56,8 @@ export default class Page {
     })
 
     if (this.id === 'home') {
-      this.itemHeight = this.elements.items[0].clientHeight;
-      this.wrapperHeight = this.elements.items.length * this.itemHeight
+      this.itemHeight = this.items[0].clientHeight;
+      this.wrapperHeight = this.items.length * this.itemHeight
     }
 
     this.createPreloader()
