@@ -38,8 +38,8 @@ export default class Media {
       vertex,
       uniforms: {
         uAlpha: { value: 0 },
-        tMap: { value: this.texture },
-      },
+        tMap: { value: this.texture }
+      }
     });
   }
 
@@ -54,6 +54,7 @@ export default class Media {
   createBounds({ sizes }) {
     this.sizes = sizes;
     this.bounds = this.element.getBoundingClientRect();
+    console.log(this.bounds, 'img');
     this.updateScale();
     this.updateX();
     this.updateY();
@@ -94,17 +95,18 @@ export default class Media {
   }
 
   updateX(x = 0) {
-    this.x = (this.bounds.left + x) / window.innerWidth;
-    this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x;
+    this.x = (this.bounds.left - x) / window.innerWidth;
+    this.mesh.position.x = -(this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x;
   }
 
   updateY(y = 0) {
     this.y = (this.bounds.top + y) / window.innerHeight;
     this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height) + this.extra.y;
-    // console.log(this.mesh.position.y);
   }
 
   update(scroll) {
+    this.updateScale()
+    this.updateX()
     this.updateY(scroll);
   }
 

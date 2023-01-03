@@ -31,8 +31,8 @@ export default class Canvas {
 
   createCamera() {
     this.camera = new Camera(this.gl);
-
-    this.camera.position.z = 50;
+    this.camera.fov = 1
+    this.camera.position.z = 1;
   }
 
   createScene() {
@@ -82,7 +82,7 @@ export default class Canvas {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
     this.camera.perspective({
-      aspect: window.innerWidth / window.innerHeight,
+      aspect: this.gl.canvas.width / this.gl.canvas.height
     });
 
     const fov = this.camera.fov * (Math.PI / 180)
