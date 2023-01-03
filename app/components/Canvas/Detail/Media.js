@@ -54,7 +54,6 @@ export default class Media {
   createBounds({ sizes }) {
     this.sizes = sizes;
     this.bounds = this.element.getBoundingClientRect();
-    console.log(this.bounds, 'img');
     this.updateScale();
     this.updateX();
     this.updateY();
