@@ -31,8 +31,8 @@ export default class Canvas {
 
   createCamera() {
     this.camera = new Camera(this.gl);
-    this.camera.fov = 1
-    this.camera.position.z = 1;
+
+    this.camera.position.z = 5;
   }
 
   createScene() {
