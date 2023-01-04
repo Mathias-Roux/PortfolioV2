@@ -21,16 +21,21 @@ export default class Canvas {
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
-      antialias: true
+      antialias: true,
+      dpr: 2
     });
 
     this.gl = this.renderer.gl;
 
     document.body.appendChild(this.gl.canvas);
+
+    this.gl.clearColor(1, 1, 1, 1)
   }
 
   createCamera() {
-    this.camera = new Camera(this.gl);
+    this.camera = new Camera(this.gl, {
+      fov: 45
+    });
 
     this.camera.position.z = 5;
   }
@@ -82,7 +87,7 @@ export default class Canvas {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
     this.camera.perspective({
-      aspect: window.innerWidth / window.innerHeight
+      aspect: this.gl.canvas.width / this.gl.canvas.height
     });
 
     const fov = this.camera.fov * (Math.PI / 180)

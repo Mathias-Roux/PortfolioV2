@@ -39,7 +39,8 @@ export default class Media {
       uniforms: {
         uAlpha: { value: 0 },
         tMap: { value: this.texture }
-      }
+      },
+      cullFace: null
     });
   }
 
