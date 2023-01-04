@@ -42,7 +42,7 @@
 .detail__information{
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 56%;
   transform: translateY(-50%)
 }
 
@@ -95,13 +95,10 @@
 
   align-items: center;
   display: flex;
-  height: 6rem;
   justify-content: center;
   letter-spacing: 0.05rem;
-  width: 12.4rem;
-  bottom: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 10rem;
+  left: 56%;
   position: absolute;
   text-transform: uppercase;
   z-index: 2;

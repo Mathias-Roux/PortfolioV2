@@ -22,20 +22,16 @@ export default class Canvas {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: 2
+      dpr: 3
     });
 
     this.gl = this.renderer.gl;
 
     document.body.appendChild(this.gl.canvas);
-
-    this.gl.clearColor(1, 1, 1, 1)
   }
 
   createCamera() {
-    this.camera = new Camera(this.gl, {
-      fov: 45
-    });
+    this.camera = new Camera(this.gl);
 
     this.camera.position.z = 5;
   }

@@ -6,7 +6,7 @@
   @extend %cover;
 }
 
-.about__infos{
+.about__frame{
   position: absolute;
   top: 40%;
   transform: translateX(-50%);
@@ -25,14 +25,9 @@
   max-width: 40rem;
 }
 
-.about__contact{
-  position: absolute;
-  top: 60%;
-  transform: translateX(-50%);
-  left: 50%;
-}
 .about__contact__list{
   display: flex;
+  margin-top: 2rem
 }
 .about__contact__list__link{
   @extend %description-14;
