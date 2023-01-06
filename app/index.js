@@ -37,7 +37,6 @@ class App {
   }
 
   createCanvas(){
-    console.log('canvas create');
     this.canvas = new Canvas({ template: this.template })
   }
 
@@ -66,7 +65,9 @@ class App {
   onPreloaded(){
     this.onResize()
 
-    this.canvas.onPreloaded()
+    if (this.canvas) {
+      this.canvas.onPreloaded()
+    }
 
     this.page.show()
   }
@@ -79,7 +80,9 @@ class App {
   }
 
   async onChange({ url, push = true }){
-    this.canvas.onChangeStart(this.template, url)
+    if (this.canvas) {
+      this.canvas.onChangeStart(this.template, url)
+    }
 
     await this.page.hide()
 
@@ -104,7 +107,9 @@ class App {
       this.content.setAttribute('data-template', this.template)
       this.content.innerHTML = divContent.innerHTML
 
-      this.canvas.onChangeEnd(this.template)
+      if (this.canvas) {
+        this.canvas.onChangeEnd(this.template)
+      }
 
       this.page = this.pages[this.template]
       this.page.create()
