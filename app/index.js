@@ -2,6 +2,8 @@ import NormalizeWheel from 'normalize-wheel'
 import each from 'lodash/each'
 
 import Canvas from 'components/Canvas'
+import Detection from 'classes/Detection';
+
 import Preloader from './components/Preloader'
 import Navigation from './components/Navigation'
 
@@ -13,6 +15,7 @@ class App {
   constructor(){
     this.createContent()
 
+    console.log(Detection.isDesktop() ? true : false);
     this.createCanvas()
 
     this.createPreloader()

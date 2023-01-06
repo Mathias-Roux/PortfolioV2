@@ -15,9 +15,9 @@ html{
   background: $color-white;
   color: $color-black;
 
-  // @include media('<phone'){
-  //   font-size: calc(100vw / 750 * 10);
-  // }
+  @include media('<phone'){
+    font-size: calc(100vw / 750 * 10);
+  }
 }
 
 body{
