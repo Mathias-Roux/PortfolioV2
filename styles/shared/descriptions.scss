@@ -1,7 +1,7 @@
 %description-12 {
   font-size: 1.2rem;
 
-  @include media('<phone'){
+  @include media('<tablet'){
     font-size: 3rem;
   }
 }
@@ -9,7 +9,7 @@
 %description-14 {
   font-size: 1.4rem;
 
-  @include media('<phone'){
+  @include media('<tablet'){
     font-size: 3rem;
   }
 }
@@ -17,7 +17,7 @@
 %description-16 {
   font-size: 1.6rem;
 
-  @include media('<phone'){
+  @include media('<tablet'){
     font-size: 2.8rem;
   }
 }

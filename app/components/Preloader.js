@@ -6,7 +6,7 @@ import Component from "../classes/Component";
 
 
 export default class Preloader extends Component{
-  constructor({ canvas }){
+  constructor({ canvas = null }){
     super({
       element: '.preloader',
       elements: {
@@ -32,7 +32,23 @@ export default class Preloader extends Component{
 
     this.length = 0
 
-    this.createLoader()
+    if (this.canvas) {
+      this.createLoader()
+    } else {
+      this.noLoader()
+    }
+  }
+
+  noLoader(){
+    return new Promise(resolve => {
+      this.emit('completed')
+
+      this.animateOut = GSAP.timeline()
+
+      this.animateOut.call(_ => {
+        this.destroy()
+      })
+    })
   }
 
   createLoader(){

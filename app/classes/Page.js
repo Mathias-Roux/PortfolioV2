@@ -5,6 +5,7 @@ import each from 'lodash/each'
 import map from 'lodash/map'
 
 import AsyncLoad from 'classes/AsyncLoad';
+import Detection from 'classes/Detection'
 
 export default class Page {
   constructor({
@@ -115,7 +116,7 @@ export default class Page {
       this.scroll.current = 0;
     }
 
-    if (this.elements.wrapper) {
+    if (this.elements.wrapper && Detection.isDesktop()) {
       this.elements.wrapper.style[this.transformPrefix] = `translateY(-${this.scroll.current}px)`;
     }
 

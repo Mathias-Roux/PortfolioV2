@@ -10,19 +10,15 @@
 
 .navigation__link{
   @extend %title-60;
-  
-  height: 2rem;
-  width: 12.8rem;
+
   pointer-events: auto;
   left: 4rem;
   position: absolute;
   top: 4rem;
 
-  @include media('<phone'){
+  @include media('<tablet'){
     top: 5rem;
     left: 5rem;
-    width: 27.9rem;
-    height: 4.3rem;
   }
 }
 
@@ -38,7 +34,7 @@
   position: absolute;
   pointer-events: auto;
   right: 4rem;
-  top: 4rem;
+  top: 6rem;
 }
 
 .navigation__list__link{
