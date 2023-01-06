@@ -1,36 +1,29 @@
 class Detection {
-  isPhone() {
-    if (this.isPhoneChecked) {
-      this.isPhoneChecked = true;
+  isPhone () {
+    if (!this.isPhoneChecked) {
+      this.isPhoneChecked = true
 
-      this.isPhoneCheck = document.documentElement.classList.contains('phone');
+      this.isPhoneCheck = document.documentElement.classList.contains('phone')
     }
 
-    return this.isPhoneCheck;
+    return this.isPhoneCheck
   }
 
-  isDesktop() {
-    if (this.DesktopChecked) {
-      this.DesktopChecked = true;
+  isTablet () {
+    if (!this.isTabletChecked) {
+      this.isTabletChecked = true
 
-      this.DesktopCheck =
-        document.documentElement.classList.contains('desktop');
+      this.isTabletCheck = document.documentElement.classList.contains('phone')
     }
 
-    return this.DesktopCheck;
+    return this.isTabletCheck
   }
 
-  isTablet() {
-    if (this.TabletChecked) {
-      this.TabletChecked = true;
-
-      this.TabletCheck = document.documentElement.classList.contains('tablet');
-    }
-
-    return this.TabletCheck;
+  isDesktop () {
+    return !this.isPhone()
   }
 }
 
-const DetectionManager = new Detection();
+const DetectionManager = new Detection()
 
-export default DetectionManager;
+export default DetectionManager
