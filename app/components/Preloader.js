@@ -36,23 +36,37 @@ export default class Preloader extends Component{
   }
 
   createLoader(){
-    each(window.ASSETS, image => {
-      // const texture = new Texture(this.canvas.gl, {
-      //   generateMipMaps: false
-      // })
+    this.canvas ?
 
-      const media = new window.Image()
+      each(window.ASSETS, image => {
+        const texture = new Texture(this.canvas.gl, {
+          generateMipMaps: false
+        })
 
-      media.crossOrigin = 'anonymous'
-      media.src = image
-      media.onload = _ => {
-        // texture.image = media
+        const media = new window.Image()
 
-        this.onAssetLoaded()
-      }
+        media.crossOrigin = 'anonymous'
+        media.src = image
+        media.onload = _ => {
+          texture.image = media
 
-      // window.TEXTURES[image] = texture
-    })
+          this.onAssetLoaded()
+        }
+
+        window.TEXTURES[image] = texture
+      })
+
+      :
+
+      each(window.ASSETS, image => {
+        const media = new window.Image()
+
+        media.crossOrigin = 'anonymous'
+        media.src = image
+        media.onload = _ => {
+          this.onAssetLoaded()
+        }
+      })
   }
 
   onAssetLoaded(){
