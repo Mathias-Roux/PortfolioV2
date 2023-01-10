@@ -32,42 +32,26 @@ export default class Preloader extends Component{
 
     this.length = 0
 
-    if (this.canvas) {
-      this.createLoader()
-    } else {
-      this.noLoader()
-    }
-  }
-
-  noLoader(){
-    return new Promise(resolve => {
-      this.emit('completed')
-
-      this.animateOut = GSAP.timeline()
-
-      this.animateOut.call(_ => {
-        this.destroy()
-      })
-    })
+    this.createLoader()
   }
 
   createLoader(){
     each(window.ASSETS, image => {
-      const texture = new Texture(this.canvas.gl, {
-        generateMipMaps: false
-      })
+      // const texture = new Texture(this.canvas.gl, {
+      //   generateMipMaps: false
+      // })
 
       const media = new window.Image()
 
       media.crossOrigin = 'anonymous'
       media.src = image
       media.onload = _ => {
-        texture.image = media
+        // texture.image = media
 
         this.onAssetLoaded()
       }
 
-      window.TEXTURES[image] = texture
+      // window.TEXTURES[image] = texture
     })
   }
 

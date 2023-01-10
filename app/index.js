@@ -44,6 +44,7 @@ class App {
     this.preloader = new Preloader({
       canvas: this.canvas
     })
+
     this.preloader.once('completed', this.onPreloaded.bind(this))
   }
 
@@ -63,6 +64,7 @@ class App {
   }
 
   onPreloaded(){
+    console.log('onpreloader');
     this.onResize()
 
     if (this.canvas) {

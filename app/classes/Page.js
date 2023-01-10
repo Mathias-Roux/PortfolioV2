@@ -74,6 +74,7 @@ export default class Page {
         },{
           autoAlpha: 1
         });
+        console.log('animationIn');
       }
 
       this.animationIn.call(_ => {

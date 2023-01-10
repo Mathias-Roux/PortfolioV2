@@ -6,6 +6,10 @@
 
 .home__wrapper{
   padding-top: 30rem;
+
+  @include media('<tablet'){
+    padding-top: 15rem;
+  }
 }
 
 .item{
