@@ -104,6 +104,52 @@ export default class Canvas {
     }
   }
 
+  onTouchDown(e) {
+    this.isDown = true;
+
+    this.y.start = e.touches ? e.touches[0].clientY : e.clientY;
+
+    const values = {
+      y: this.y,
+    };
+
+    if (this.detail) {
+      this.detail.onTouchDown(values);
+    }
+  }
+
+  onTouchMove(e) {
+    if (!this.isDown) return;
+
+    const y = e.touches ? e.touches[0].clientY : e.clientY;
+
+    this.y.end = y;
+
+    const values = {
+      y: this.y,
+    };
+
+    if (this.detail) {
+      this.detail.onTouchMove(values);
+    }
+  }
+
+  onTouchUp(e) {
+    this.isDown = false;
+
+    const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+
+    this.y.end = y;
+
+    const values = {
+      y: this.y,
+    };
+
+    if (this.detail) {
+      this.detail.onTouchUp(values);
+    }
+  }
+
   onWheel(event){
     if(this.detail){
       this.detail.onWheel(event)
