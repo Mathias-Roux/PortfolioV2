@@ -8,8 +8,7 @@
     "backend:build": "node app.js",
     "backend:development": "nodemon app.js",
     "frontend:development": "webpack serve --progress --config webpack.config.development.js",
-    "frontend:build": "webpack --progress --config webpack.config.build.js",
-    "deploy": "aws s3 sync public/ s3://portfolio-rouxmathias"
+    "frontend:build": "webpack --progress --config webpack.config.build.js"
   },
   "author": "rouxMathias",
   "license": "ISC",

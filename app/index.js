@@ -64,7 +64,6 @@ class App {
   }
 
   onPreloaded(){
-    console.log('onpreloader');
     this.onResize()
 
     if (this.canvas) {
