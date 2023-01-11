@@ -9,5 +9,5 @@ block content
       each item in home
         .item
           .item__wrapper
-            a.item__wrapper__link(href=Link(item.data.project[0].project_shots))
+            a.item__wrapper__link(draggable="false" href=Link(item.data.project[0].project_shots))
             .item__wrapper__title=item.data.title

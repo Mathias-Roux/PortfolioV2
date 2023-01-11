@@ -141,17 +141,29 @@ class App {
     if (this.canvas && this.canvas.onTouchDown) {
       this.canvas.onTouchDown(event)
     }
+
+    if (this.page && this.page.onTouchDown) {
+      this.page.onTouchDown(event)
+    }
   }
 
   onTouchMove (event) {
     if (this.canvas && this.canvas.onTouchMove) {
       this.canvas.onTouchMove(event)
     }
+
+    if (this.page && this.page.onTouchDown) {
+      this.page.onTouchMove(event)
+    }
   }
 
   onTouchUp (event) {
     if (this.canvas && this.canvas.onTouchUp) {
       this.canvas.onTouchUp(event)
+    }
+
+    if (this.page && this.page.onTouchDown) {
+      this.page.onTouchUp(event)
     }
   }
 

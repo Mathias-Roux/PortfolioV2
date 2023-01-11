@@ -36,6 +36,11 @@ export default class Page {
       limit: 0
     }
 
+    this.y = {
+      start: 0,
+      end: 0
+    }
+
     each(this.selectorChildren, (entry, key) => {
       if (
         entry instanceof window.HTMLElement ||
@@ -98,9 +103,35 @@ export default class Page {
   }
 
   onResize(){
+    this.scroll.last = this.scroll.target = 0
+
     if (this.elements.wrapper) {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
     }
+  }
+
+  onTouchDown (e) {
+    this.isDown = true;
+
+    this.y.start = e.touches ? e.touches[0].clientY : e.clientY;
+
+    this.scroll.last = this.scroll.current;
+  }
+
+  onTouchMove (e) {
+    if (!this.isDown) return;
+
+    const y = e.touches ? e.touches[0].clientY : e.clientY;
+
+    this.y.end = y;
+
+    const distance = this.y.start - this.y.end;
+
+    this.scroll.target = this.scroll.last + distance;
+  }
+
+  onTouchUp (event) {
+    this.isDown = false;
   }
 
   onWheel({ pixelY }){
