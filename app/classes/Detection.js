@@ -13,7 +13,7 @@ class Detection {
     if (!this.isTabletChecked) {
       this.isTabletChecked = true
 
-      this.isTabletCheck = document.documentElement.classList.contains('phone')
+      this.isTabletCheck = document.documentElement.classList.contains('tablet')
     }
 
     return this.isTabletCheck
