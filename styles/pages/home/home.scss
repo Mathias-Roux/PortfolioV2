@@ -16,6 +16,10 @@
   line-height: 1.4;
   padding: 4rem 0;
   text-align: center;
+
+  @include media('<tablet'){
+    padding: 10rem 0;
+  }
 }
 
 .item__wrapper{
