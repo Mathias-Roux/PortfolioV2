@@ -101,7 +101,7 @@ export default class {
 
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
 
-    this.galleryWrapperElement.style[this.transformPrefix] = `translateY(${this.scroll.current}px)`
+    this.galleryWrapperElement.style[this.transformPrefix] = `translate3d(0, ${this.scroll.current}px, 0)`
 
     map(this.medias, media => {
       media.update(this.scroll.current)

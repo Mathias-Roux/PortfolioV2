@@ -6,6 +6,9 @@ const errorHandler = require('errorhandler')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
+const https = require('https');
+const fs = require('fs');
+
 const app = express()
 const path = require('path')
 const port = 3000
@@ -118,6 +121,15 @@ app.get('/about', async (req, res) => {
     ...defaults
   })
 })
+
+const httpsServer = https.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/rouxmathias.site/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/rouxmathias.site/fullchain.pem'),
+}, app);
+
+httpsServer.listen(80, () => {
+  console.log('HTTPS Server running on port 80');
+});
 
 
 app.listen(port, () => {
