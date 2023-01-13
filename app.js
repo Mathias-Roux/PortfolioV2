@@ -121,8 +121,6 @@ app.get('/about', async (req, res) => {
 })
 
 
-
-
-// app.listen(port, () => {
-//   console.log(`server at http://localhost:${port}`)
-// })
+app.listen(port, () => {
+  console.log(`server at http://localhost:${port}`)
+})
