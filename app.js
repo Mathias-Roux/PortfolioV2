@@ -9,7 +9,7 @@ const methodOverride = require('method-override')
 
 const app = express()
 const path = require('path')
-const port = 3000
+const port = 8080
 
 const prismic = require('@prismicio/client')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -122,5 +122,5 @@ app.get('/about', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log('Served on 3000')
+  console.log(`Serverd on ${port}`)
 })
