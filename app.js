@@ -122,5 +122,5 @@ app.get('/about', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log('Served')
+  console.log('Served on 3000')
 })
