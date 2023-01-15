@@ -8,6 +8,10 @@
   z-index: z('navigation');
 }
 
+.navigation__wrapper{
+  
+}
+
 .navigation__link{
   @extend %title-60;
 
@@ -20,10 +24,6 @@
     top: 5rem;
     left: 5rem;
   }
-}
-
-.navigation__link__icon{
-  display: block;
 }
 
 .navigation__list{
