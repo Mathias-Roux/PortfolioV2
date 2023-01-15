@@ -88,7 +88,7 @@ module.exports = {
         },
       },
 
-      
+
 
       {
         test: /\.(glsl|frag|vert)$/,
