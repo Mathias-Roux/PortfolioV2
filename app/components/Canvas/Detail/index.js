@@ -60,7 +60,7 @@ export default class {
     });
   }
 
-   show() {
+  show() {
     map(this.medias, (media) => media.show());
   }
 
