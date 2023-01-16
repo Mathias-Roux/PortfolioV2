@@ -75,9 +75,11 @@ export default class Page {
       } else {
         this.animationIn = GSAP.timeline();
         this.animationIn.fromTo(this.element,{
-          autoAlpha: 0
+          autoAlpha: 0,
+          y: '5%'
         },{
-          autoAlpha: 1
+          autoAlpha: 1,
+          y: '0%'
         });
       }
 
@@ -96,6 +98,7 @@ export default class Page {
       this.animationOut = GSAP.timeline()
 
       this.animationOut.to(this.element, {
+        y: '-5%',
         autoAlpha: 0,
         onComplete: resolve
       })
