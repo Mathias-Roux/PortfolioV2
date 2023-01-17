@@ -20,7 +20,13 @@ class Detection {
   }
 
   isDesktop () {
-    return !this.isPhone()
+    if (!this.isDesktopChecked) {
+      this.isDesktopChecked = true
+
+      this.isDesktopCheck = document.documentElement.classList.contains('desktop')
+    }
+
+    return this.isDesktopCheck
   }
 }
 

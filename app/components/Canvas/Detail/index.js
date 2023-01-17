@@ -16,8 +16,7 @@ export default class {
     this.group = new Transform()
 
     this.transformPrefix = Prefix('transform')
-
-    this.galleryElement = document.querySelector('.detail__gallery')
+    
     this.galleryWrapperElement = document.querySelector('.detail__gallery__wrapper')
 
     this.mediasElements = document.querySelectorAll('.detail__media')

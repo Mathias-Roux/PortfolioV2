@@ -32,12 +32,7 @@
   }
 }
 
-.item__wrapper{
-  width: 100%;
-
-  overflow: hidden;
-  position: relative;
-}
+.item__wrapper{}
 
 .item__wrapper__link{
   @extend %cover;

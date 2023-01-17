@@ -68,21 +68,17 @@ export default class Page {
     });
   }
 
-  show(animation){
+  show(){
     return new Promise(resolve => {
-      if (animation) {
-        this.animationIn = animation;
-      } else {
-        this.animationIn = GSAP.timeline();
-        this.animationIn.fromTo(this.element,{
-          autoAlpha: 0,
-          y: '5%'
-        },{
-          autoAlpha: 1,
-          y: '0%'
-        });
-      }
-
+      this.animationIn = GSAP.timeline();
+      this.animationIn.fromTo(this.element,{
+        autoAlpha: 0,
+        y: '5%'
+      },{
+        autoAlpha: 1,
+        y: '0%'
+      });
+      
       this.animationIn.call(_ => {
         this.addEventListeners()
 

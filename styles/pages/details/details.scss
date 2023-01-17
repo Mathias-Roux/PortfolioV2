@@ -1,6 +1,5 @@
 .detail{
   @extend %page;
-  @extend %center;
 }
 
 .detail__wrapper{
@@ -72,7 +71,7 @@
 .detail__information__title{
   @extend %title-90;
 
-  max-width: 60rem;
+  // max-width: 60rem;
   text-transform: uppercase;
   margin-bottom: 4rem;
 }
