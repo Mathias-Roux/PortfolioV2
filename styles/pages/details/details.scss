@@ -10,7 +10,7 @@
 
   @include media('<tablet'){
     flex-direction: column-reverse;
-    height: 0%;
+    height: 26%;
     position: static;
   }
 }
@@ -21,7 +21,6 @@
   @include media('<tablet'){
     position: static;
     height: 0%;
-    position: static;
   }
 }
 
@@ -64,7 +63,6 @@
   @include media('<tablet'){
     position: static;
     transform: none;
-    padding-top: 15rem;
   }
 }
 

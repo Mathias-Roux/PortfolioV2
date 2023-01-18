@@ -32,7 +32,9 @@
   }
 }
 
-.item__wrapper{}
+.item__wrapper{
+  position: relative
+}
 
 .item__wrapper__link{
   @extend %cover;
