@@ -146,7 +146,7 @@ export default class Page {
       this.scroll.current = 0;
     }
 
-    if (this.elements.wrapper && !Detection.isDesktop()) {
+    if (this.elements.wrapper && Detection.isDesktop()) {
       this.elements.wrapper.style[this.transformPrefix] = `translate3d(0, -${this.scroll.current}px, 0)`;
     }
 

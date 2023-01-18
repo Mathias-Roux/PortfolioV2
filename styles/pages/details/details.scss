@@ -9,8 +9,7 @@
   align-items: center;
 
   @include media('<tablet'){
-    flex-direction: column-reverse;
-    height: 26%;
+    flex-direction: column;
     position: static;
   }
 }
@@ -34,7 +33,8 @@
 
   @include media('<tablet'){
     position: static;
-    margin-top: 10rem;
+    margin-top: 80rem;
+    padding-bottom: 10rem;
   }
 }
 
@@ -63,6 +63,7 @@
   @include media('<tablet'){
     position: static;
     transform: none;
+    padding-top: 20rem;
   }
 }
 

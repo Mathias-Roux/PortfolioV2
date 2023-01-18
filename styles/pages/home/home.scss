@@ -12,6 +12,12 @@
   }
 
   z-index: 0;
+
+  @include media('<tablet'){
+    &::after{
+      content: none;
+    }
+  }
 }
 
 .home__wrapper{

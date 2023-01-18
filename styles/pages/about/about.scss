@@ -32,8 +32,16 @@
 }
 
 .about__contact__list{
-  margin-top: 2rem
+  margin-top: 2rem;
+
+  @include media('<tablet'){
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+  }
 }
+
+
 .about__contact__list__link{
   @extend %description-20;
 
@@ -47,5 +55,10 @@
 
   &:hover::after{
     opacity: 0.9;
+  }
+
+  @include media('<tablet'){
+    margin: 0 0 8rem 0;
+    text-align: center;
   }
 }

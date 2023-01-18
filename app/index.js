@@ -37,6 +37,7 @@ class App {
   }
 
   createCanvas(){
+    console.log('canvas created');
     this.canvas = new Canvas({ template: this.template })
   }
 
