@@ -16,9 +16,7 @@ class App {
   constructor(){
     this.createContent()
 
-    console.log(Detection.isPhone());
-
-    Detection.isDesktop() ? this.createCanvas() : null
+    !Detection.isDesktop() ? null : this.createCanvas()
 
     this.createPreloader()
     this.createNavigation()
