@@ -59,7 +59,7 @@ export default class Page {
       }
     })
 
-    this.createPreloader()
+    Detection.isDesktop() ? null : this.createPreloader()
   }
 
   createPreloader() {

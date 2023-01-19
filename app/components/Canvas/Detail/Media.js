@@ -1,4 +1,4 @@
-import { TextureLoader, Mesh, Program } from 'ogl';
+import { Mesh, Program } from 'ogl';
 import GSAP from 'gsap';
 
 
@@ -19,7 +19,7 @@ export default class Media {
       y: 0,
     };
 
-    this.createTexture();
+    this.createTexture()
     this.createProgram();
     this.createMesh();
     this.createBounds({
@@ -29,9 +29,7 @@ export default class Media {
 
   createTexture() {
     const image = this.element.querySelector('.detail__media__image')
-    this.texture = TextureLoader.load(this.gl, 
-      { src: window.TEXTURES[image.getAttribute('data-src')]
-    })
+    this.texture =  window.TEXTURES[image.getAttribute('data-src')]
   }
 
   createProgram() {
@@ -48,7 +46,7 @@ export default class Media {
   createMesh() {
     this.mesh = new Mesh(this.gl, {
       geometry: this.geometry,
-      program: this.program,
+      program: this.program
     });
     this.mesh.setParent(this.scene);
   }
