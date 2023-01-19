@@ -68,15 +68,15 @@ export default class Page {
     });
   }
 
-  show(){
+  show(yValue){
     return new Promise(resolve => {
       this.animationIn = GSAP.timeline();
       this.animationIn.fromTo(this.element,{
         autoAlpha: 0,
-        y: '5%'
+        y: `${yValue}`
       },{
         autoAlpha: 1,
-        y: '0%'
+        y: 0
       });
       
       this.animationIn.call(_ => {
@@ -87,14 +87,14 @@ export default class Page {
     })
   }
 
-  hide(){
+  hide(yValue){
     return new Promise(resolve => {
       this.removeEventListeners()
 
       this.animationOut = GSAP.timeline()
 
       this.animationOut.to(this.element, {
-        y: '-5%',
+        y: `-${yValue}`,
         autoAlpha: 0,
         onComplete: resolve
       })

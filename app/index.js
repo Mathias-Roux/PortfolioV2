@@ -1,9 +1,9 @@
 import NormalizeWheel from 'normalize-wheel'
 import each from 'lodash/each'
 
-import Detection from 'classes/Detection';
+import Detection from './classes/Detection';
 
-import Canvas from 'components/Canvas'
+import Canvas from './components/Canvas'
 
 import Preloader from './components/Preloader'
 import Navigation from './components/Navigation'
@@ -14,9 +14,19 @@ import About from './pages/About'
 
 class App {
   constructor(){
+    
     this.createContent()
 
-    !Detection.isDesktop() ? null : this.createCanvas()
+    console.log(Detection.isPhone(), 'phone')
+    console.log(Detection.isTablet(), 'tablet')
+    console.log(Detection.isDesktop(), 'desktop')
+    
+    if (Detection.isDesktop()) {
+      this.createCanvas()
+      this.pixelY = '5%'
+    } else {
+      this.pixelY = '0'
+    }
 
     this.createPreloader()
     this.createNavigation()
@@ -71,7 +81,7 @@ class App {
       this.canvas.onPreloaded()
     }
 
-    this.page.show()
+    this.page.show(this.pixelY)
   }
 
   onPopState() {
@@ -86,7 +96,7 @@ class App {
       this.canvas.onChangeStart(this.template, url)
     }
 
-    await this.page.hide()
+    await this.page.hide(this.pixelY)
 
     const res = await window.fetch(url)
 
@@ -118,7 +128,7 @@ class App {
 
       this.onResize()
 
-      this.page.show()
+      this.page.show(this.pixelY)
 
       this.addLinkListeners();
     } else {

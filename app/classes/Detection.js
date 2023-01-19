@@ -1,6 +1,6 @@
 class Detection {
   isPhone() {
-    if (this.isPhoneChecked) {
+    if (!this.isPhoneChecked) {
       this.isPhoneChecked = true;
 
       this.isPhoneCheck = document.documentElement.classList.contains('phone');
@@ -10,7 +10,7 @@ class Detection {
   }
 
   isDesktop() {
-    if (this.DesktopChecked) {
+    if (!this.DesktopChecked) {
       this.DesktopChecked = true;
 
       this.DesktopCheck =
@@ -21,7 +21,7 @@ class Detection {
   }
 
   isTablet() {
-    if (this.TabletChecked) {
+    if (!this.TabletChecked) {
       this.TabletChecked = true;
 
       this.TabletCheck = document.documentElement.classList.contains('tablet');

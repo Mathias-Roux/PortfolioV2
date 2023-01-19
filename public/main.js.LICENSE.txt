@@ -262,7 +262,11 @@
 
 /*! ./_toSource */
 
+/*! ./classes/Detection */
+
 /*! ./clients/WebSocketClient.js */
+
+/*! ./components/Canvas */
 
 /*! ./components/Navigation */
 
@@ -377,8 +381,6 @@
 /*! classes/Component */
 
 /*! classes/Detection */
-
-/*! components/Canvas */
 
 /*! events */
 
