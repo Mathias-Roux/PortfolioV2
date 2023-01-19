@@ -1,4 +1,4 @@
-import { Mesh, Program } from 'ogl';
+import { TextureLoader, Mesh, Program } from 'ogl';
 import GSAP from 'gsap';
 
 
@@ -29,7 +29,9 @@ export default class Media {
 
   createTexture() {
     const image = this.element.querySelector('.detail__media__image')
-    this.texture = window.TEXTURES[image.getAttribute('data-src')];
+    this.texture = TextureLoader.load(this.gl, 
+      { src: window.TEXTURES[image.getAttribute('data-src')]
+    })
   }
 
   createProgram() {
@@ -64,7 +66,7 @@ export default class Media {
     GSAP.fromTo(this.program.uniforms.uAlpha, {
       value: 0,
     }, {
-      value: 1,
+      value: 1
     });
   }
 
