@@ -14,12 +14,7 @@ import About from './pages/About'
 
 class App {
   constructor(){
-    
     this.createContent()
-
-    console.log(Detection.isPhone(), 'phone')
-    console.log(Detection.isTablet(), 'tablet')
-    console.log(Detection.isDesktop(), 'desktop')
     
     if (Detection.isDesktop()) {
       this.createCanvas()
@@ -47,7 +42,6 @@ class App {
   }
 
   createCanvas(){
-    console.log('canvas created');
     this.canvas = new Canvas({ template: this.template })
   }
 
