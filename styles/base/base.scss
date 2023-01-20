@@ -25,7 +25,7 @@ html{
 body{
   @extend %cover;
 
-  font-family: $font-manrope;
+  font-family: $font-switzer;
   position: fixed;
 
   @include media('<tablet'){

@@ -1,4 +1,5 @@
 %description-16 {
+  font-family: $font-switzer;
   font-size: 1.6rem;
 
   @include media('<tablet'){
@@ -7,6 +8,7 @@
 }
 
 %description-20 {
+  font-family: $font-switzer;
   font-size: 2rem;
 
   @include media('<tablet'){

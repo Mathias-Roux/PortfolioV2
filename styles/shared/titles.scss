@@ -1,5 +1,5 @@
 %title-20 {
-  font-family: $font-manrope;
+  font-family: $font-khand;
   font-size: 2rem;
 
   @include media('<tablet'){
@@ -8,7 +8,7 @@
 }
 
 %title-60 {
-  font-family: $font-manrope;
+  font-family: $font-khand;
   font-size: 6rem;
 
   @include media('<tablet'){
@@ -17,7 +17,7 @@
 }
 
 %title-90{
-  font-family: $font-manrope;
+  font-family: $font-khand;
   font-size: 9rem;
   line-height: 1;
 
@@ -27,7 +27,7 @@
 }
 
 %title-200 {
-  font-family: $font-manrope;
+  font-family: $font-khand;
   font-size: 20rem;
 
   @include media('<tablet'){
