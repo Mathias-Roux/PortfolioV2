@@ -110,11 +110,13 @@ export default class Page {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
     }
 
-    // if (!Detection.isDesktop()){
-    //   if (window.innerHeight < window.innerWidth) {
-    //     this.alert.style.display = 'block'
-    //   }
-    // }
+    if (!Detection.isDesktop()){
+      if (window.innerHeight < window.innerWidth) {
+        this.alert.style.opacity = 1
+      } else {
+        this.alert.style.opacity = 0
+      }
+    }
     
   }
 

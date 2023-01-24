@@ -2,8 +2,9 @@
     @extend %cover;
     @extend %center;
 
-    display: none;
+    opacity: 0;
     color: $color-black;
+    background-color: $color-white;
     pointer-events: none;
     position: fixed;
   
