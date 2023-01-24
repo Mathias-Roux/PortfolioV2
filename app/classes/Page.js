@@ -22,6 +22,8 @@ export default class Page {
 
     this.id = id
 
+    this.alert = document.querySelector('.alert')
+
     this.transformPrefix = Prefix('transform')
   }
 
@@ -107,6 +109,13 @@ export default class Page {
     if (this.elements.wrapper) {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
     }
+
+    // if (!Detection.isDesktop()){
+    //   if (window.innerHeight < window.innerWidth) {
+    //     this.alert.style.display = 'block'
+    //   }
+    // }
+    
   }
 
   onTouchDown (e) {

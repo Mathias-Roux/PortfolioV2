@@ -13,7 +13,7 @@
 
   z-index: 0;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     &::after{
       content: none;
     }
@@ -23,7 +23,7 @@
 .home__wrapper{
   padding-top: 30rem;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     padding-top: 15rem;
   }
 }
@@ -33,7 +33,7 @@
   padding: 4rem 0;
   text-align: center;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     padding: 10rem 0;
   }
 }

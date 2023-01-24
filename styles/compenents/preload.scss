@@ -35,7 +35,7 @@
   transform: translate(-50%, -50%);
   overflow: hidden;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     font-size: 2.4rem;
   }
 }

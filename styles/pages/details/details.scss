@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     flex-direction: column;
     position: static;
   }
@@ -17,7 +17,7 @@
 .detail__gallery{
   @extend %cover;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     position: static;
     height: 0%;
   }
@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     position: static;
     margin-top: 80rem;
     padding-bottom: 10rem;
@@ -60,7 +60,7 @@
   left: 56%;
   transform: translateY(-50%);
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     position: static;
     transform: none;
     padding-top: 20rem;

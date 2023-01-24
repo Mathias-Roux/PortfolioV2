@@ -1,0 +1,16 @@
+.alert{
+    @extend %cover;
+    @extend %center;
+
+    display: none;
+    color: $color-black;
+    pointer-events: none;
+    position: fixed;
+  
+    z-index: z('alert');
+}
+  
+.alert__text{
+    @extend %title-60;
+}
+  

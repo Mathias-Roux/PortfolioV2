@@ -13,7 +13,7 @@
   left: 50%;
   width: 50rem;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     top: 20%;
     width: 60rem;
   }
@@ -35,7 +35,7 @@
 .about__contact__list{
   margin-top: 2rem;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     margin-top: 10rem;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@
     opacity: 0.9;
   }
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     margin: 0 0 5rem 0;
     text-align: center;
   }

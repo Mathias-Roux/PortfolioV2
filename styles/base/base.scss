@@ -15,7 +15,7 @@ html{
   background: $color-white;
   color: $color-black;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     font-size: calc(100vw / 750 * 10);
     position: static;
     overflow-y: visible;
@@ -28,7 +28,7 @@ body{
   font-family: $font-switzer;
   position: fixed;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     position: static;
   }
 }
@@ -44,7 +44,7 @@ img{
   opacity: 0;
   vertical-align: middle;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     transition: opacity 0.4s ease;
 
     &.loaded {

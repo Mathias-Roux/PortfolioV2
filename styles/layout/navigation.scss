@@ -17,7 +17,7 @@
   top: 4rem;
   letter-spacing: 0.1rem;
 
-  @include media('<tablet'){
+  @include media('<desktop'){
     top: 5rem;
     left: 5rem;
   }
