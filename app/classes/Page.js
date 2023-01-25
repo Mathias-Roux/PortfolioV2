@@ -22,6 +22,8 @@ export default class Page {
 
     this.id = id
 
+    document.body.scrollTop = 0
+
     this.alert = document.querySelector('.alert')
 
     this.transformPrefix = Prefix('transform')
