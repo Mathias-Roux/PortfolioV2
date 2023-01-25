@@ -22,7 +22,7 @@ export default class Canvas {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: 3
+      // dpr: 3
     });
 
     this.gl = this.renderer.gl;
