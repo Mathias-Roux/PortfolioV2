@@ -1,4 +1,4 @@
-import { Camera, Renderer, Transform } from 'ogl';
+import { Camera, Renderer, Transform } from 'ogl'
 
 import Detail from './Detail'
 
@@ -21,16 +21,17 @@ export default class Canvas {
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
-      antialias: true
-    });
+      antialias: true,
+      dpr: 1.5
+    })
 
-    this.gl = this.renderer.gl;
+    this.gl = this.renderer.gl
 
-    document.body.appendChild(this.gl.canvas);
+    document.body.appendChild(this.gl.canvas)
   }
 
   createCamera() {
-    this.camera = new Camera(this.gl);
+    this.camera = new Camera(this.gl)
 
     this.camera.position.z = 5
   }
@@ -79,11 +80,11 @@ export default class Canvas {
   }
 
   onResize() {
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight)
 
     this.camera.perspective({
       aspect: window.innerWidth / window.innerHeight
-    });
+    })
 
     const fov = this.camera.fov * (Math.PI / 180)
     const height = 2 * Math.tan(fov / 2) * this.camera.position.z
@@ -104,48 +105,48 @@ export default class Canvas {
   }
 
   onTouchDown(e) {
-    this.isDown = true;
+    this.isDown = true
 
-    this.y.start = e.touches ? e.touches[0].clientY : e.clientY;
+    this.y.start = e.touches ? e.touches[0].clientY : e.clientY
 
     const values = {
       y: this.y,
-    };
+    }
 
     if (this.detail) {
-      this.detail.onTouchDown(values);
+      this.detail.onTouchDown(values)
     }
   }
 
   onTouchMove(e) {
-    if (!this.isDown) return;
+    if (!this.isDown) return
 
-    const y = e.touches ? e.touches[0].clientY : e.clientY;
+    const y = e.touches ? e.touches[0].clientY : e.clientY
 
-    this.y.end = y;
+    this.y.end = y
 
     const values = {
       y: this.y,
-    };
+    }
 
     if (this.detail) {
-      this.detail.onTouchMove(values);
+      this.detail.onTouchMove(values)
     }
   }
 
   onTouchUp(e) {
-    this.isDown = false;
+    this.isDown = false
 
-    const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+    const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY
 
-    this.y.end = y;
+    this.y.end = y
 
     const values = {
       y: this.y,
-    };
+    }
 
     if (this.detail) {
-      this.detail.onTouchUp(values);
+      this.detail.onTouchUp(values)
     }
   }
 
@@ -157,12 +158,12 @@ export default class Canvas {
 
   update(scroll) {
     if (this.detail) {
-      this.detail.update(scroll);
+      this.detail.update(scroll)
     }
 
     this.renderer.render({
       camera: this.camera,
       scene: this.scene,
-    });
+    })
   }
 }

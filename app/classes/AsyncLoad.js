@@ -1,9 +1,9 @@
-import Component from 'classes/Component';
+import Component from 'classes/Component'
 
 export default class AsyncLoad extends Component {
   constructor({ element }) {
-    super({ element });
-    this.createObserver();
+    super({ element })
+    this.createObserver()
   }
 
   createObserver() {
@@ -11,15 +11,15 @@ export default class AsyncLoad extends Component {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (!this.element.src) {
-            this.element.src = this.element.getAttribute('data-src');
+            this.element.src = this.element.getAttribute('data-src')
             this.element.onload = _ => {
-                this.element.classList.add('loaded');
+                this.element.classList.add('loaded')
             }
           }
         }
-      });
-    });
+      })
+    })
 
-    this.observer.observe(this.element);
+    this.observer.observe(this.element)
   }
 }

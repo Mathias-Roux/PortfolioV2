@@ -1,13 +1,13 @@
-import { Plane, Transform } from 'ogl';
-import map from 'lodash/map';
+import { Plane, Transform } from 'ogl'
+import map from 'lodash/map'
 import GSAP from 'gsap'
 import Prefix from 'prefix'
 
-import Media from './Media';
+import Media from './Media'
 
 export default class {
   constructor({ gl, scene, sizes }) {
-    this.gl = gl;
+    this.gl = gl
     this.scene = scene
     this.sizes = sizes
 
@@ -24,12 +24,12 @@ export default class {
       lerp: 0.1
     }
 
-    this.createGeometry();
-    this.createMedias();
+    this.createGeometry()
+    this.createMedias()
 
     this.onResize({
       sizes: this.sizes,
-    });
+    })
 
     this.group.setParent(this.scene)
 
@@ -52,12 +52,12 @@ export default class {
         gl: this.gl,
         scene: this.group,
         sizes: this.sizes
-      });
-    });
+      })
+    })
   }
 
   show() {
-    map(this.medias, (media) => media.show());
+    map(this.medias, (media) => media.show())
   }
 
   hide(){
@@ -77,13 +77,13 @@ export default class {
   }
 
   onTouchDown({ x }){
-    this.scroll.last = this.scroll.current;
+    this.scroll.last = this.scroll.current
   }
 
   onTouchMove({ y }){
-    const distance = y.start - y.end;
+    const distance = y.start - y.end
 
-    this.scroll.target = this.scroll.last - distance;
+    this.scroll.target = this.scroll.last - distance
   }
 
   onTouchUp({ x }){}

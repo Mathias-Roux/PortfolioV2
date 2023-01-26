@@ -20,9 +20,9 @@ export default class Component extends EventEmitter {
 
   create(){
     if (this.selector instanceof window.HTMLElement) {
-      this.element = this.selector;
+      this.element = this.selector
     } else {
-      this.element = document.querySelector(this.selector);
+      this.element = document.querySelector(this.selector)
     }
 
     this.elements = {}
@@ -33,13 +33,13 @@ export default class Component extends EventEmitter {
         entry instanceof window.NodeList ||
         Array.isArray(entry)
       ) {
-        this.elements[key] = entry;
+        this.elements[key] = entry
       } else {
-        this.elements[key] = document.querySelectorAll(entry);
+        this.elements[key] = document.querySelectorAll(entry)
         if (this.elements[key].length === 0) {
-          this.elements[key] = null;
+          this.elements[key] = null
         } else if (this.elements[key].length === 1) {
-          this.elements[key] = document.querySelector(entry);
+          this.elements[key] = document.querySelector(entry)
         }
       }
     })

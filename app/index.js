@@ -1,7 +1,7 @@
 import NormalizeWheel from 'normalize-wheel'
 import each from 'lodash/each'
 
-import Detection from './classes/Detection';
+import Detection from './classes/Detection'
 
 import Canvas from './components/Canvas'
 
@@ -29,7 +29,7 @@ class App {
     this.createPages()
 
     this.addEventListeners()
-    this.addLinkListeners();
+    this.addLinkListeners()
 
     this.onResize()
 
@@ -82,7 +82,7 @@ class App {
     this.onChange({
       url: window.location.pathname,
       push: false,
-    });
+    })
   }
 
   async onChange({ url, push = true }){
@@ -99,7 +99,7 @@ class App {
       const div = document.createElement('div')
 
       if (push) {
-        window.history.pushState({}, '', url);
+        window.history.pushState({}, '', url)
       }
 
       div.innerHTML = html
@@ -124,7 +124,7 @@ class App {
 
       this.page.show(this.pixelY)
 
-      this.addLinkListeners();
+      this.addLinkListeners()
     } else {
       console.error(`response status: ${res.status}`)
     }
@@ -212,15 +212,15 @@ class App {
   }
 
   addLinkListeners() {
-    const links = document.querySelectorAll('a');
+    const links = document.querySelectorAll('a')
     each(links, (link) => {
       link.onclick = (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
-        const { href } = link;
-        this.onChange({ url: href });
-      };
-    });
+        const { href } = link
+        this.onChange({ url: href })
+      }
+    })
   }
 }
 

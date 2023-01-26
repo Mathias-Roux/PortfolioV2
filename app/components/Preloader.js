@@ -2,7 +2,7 @@ import GSAP from 'gsap'
 import each from 'lodash/each'
 import { Texture } from 'ogl'
 
-import Component from "../classes/Component";
+import Component from "../classes/Component"
 
 
 export default class Preloader extends Component{
