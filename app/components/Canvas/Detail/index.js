@@ -7,8 +7,6 @@ import Media from './Media';
 
 export default class {
   constructor({ gl, scene, sizes }) {
-    this.id = 'collections';
-
     this.gl = gl;
     this.scene = scene
     this.sizes = sizes
@@ -19,9 +17,6 @@ export default class {
     
     this.galleryWrapperElement = document.querySelector('.detail__gallery__wrapper')
 
-    this.mediasElements = document.querySelectorAll('.detail__media')
-
-
     this.scroll = {
       current: 0,
       start: 0,
@@ -30,7 +25,7 @@ export default class {
     }
 
     this.createGeometry();
-    this.createGallery();
+    this.createMedias();
 
     this.onResize({
       sizes: this.sizes,
@@ -46,7 +41,9 @@ export default class {
     this.geometry = new Plane(this.gl)
   }
 
-  createGallery() {
+  createMedias() {
+    this.mediasElements = document.querySelectorAll('.detail__media')
+
     this.medias = map(this.mediasElements, (element, index) => {
       return new Media({
         element,

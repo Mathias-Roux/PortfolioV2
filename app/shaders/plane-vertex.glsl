@@ -1,13 +1,12 @@
-attribute vec4 position;
+attribute vec3 position;
 attribute vec2 uv;
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 
-varying highp vec2 vUv;
+varying vec2 vUv;
 
 void main() {
-  gl_Position = projectionMatrix * modelViewMatrix * position;
-  
-  vUv = uv;
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
