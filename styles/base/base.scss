@@ -10,15 +10,11 @@ html{
 
   font-size: calc(100vw / 1920 * 10);
   line-height: 1;
-  position: fixed;
-  overflow: hidden;
   background: $color-white;
   color: $color-black;
 
   @include media('<desktop'){
     font-size: calc(100vw / 750 * 10);
-    position: static;
-    overflow-y: visible;
   }
 }
 
@@ -26,10 +22,10 @@ body{
   @extend %cover;
 
   font-family: $font-switzer;
-  position: fixed;
+  overflow: hidden;
 
   @include media('<desktop'){
-    position: static;
+    overflow: scroll;
   }
 }
 

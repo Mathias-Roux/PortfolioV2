@@ -4,8 +4,7 @@
   color: $color-black;
   background-color: $color-white;
   text-align: center;
-  position: fixed;
-  overflow-x: hidden;
+  overflow: hidden;
 
   z-index: z('preloader');
 }

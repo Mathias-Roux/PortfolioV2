@@ -22,8 +22,6 @@ export default class Page {
 
     this.id = id
 
-    document.body.scrollTop = 0
-
     this.alert = document.querySelector('.alert')
 
     this.transformPrefix = Prefix('transform')
@@ -32,6 +30,12 @@ export default class Page {
   create(){
     this.element = document.querySelector(this.selector)
     this.elements = {}
+
+    if(!Detection.isDesktop()){
+      window.pageYOffset = 0
+      document.documentElement.scrollTop = 0 
+      document.body.scrollTop = 0
+    }
 
     this.scroll = {
       current: 0,
@@ -79,9 +83,10 @@ export default class Page {
         autoAlpha: 0,
         y: `${yValue}`
       },{
+        scrollTop: 0,
         autoAlpha: 1,
         y: 0
-      });
+      })
       
       this.animationIn.call(_ => {
         this.addEventListeners()
