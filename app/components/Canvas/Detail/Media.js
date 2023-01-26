@@ -29,7 +29,7 @@ export default class Media {
 
   createTexture() {
     const image = this.element.querySelector('.detail__media__image')
-    this.texture =  window.TEXTURES[image.getAttribute('data-src')]
+    this.texture = window.TEXTURES[image.getAttribute('data-src')]
   }
 
   createProgram() {
