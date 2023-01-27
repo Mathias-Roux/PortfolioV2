@@ -15,6 +15,9 @@ export default class Navigation extends Component {
     this.onChange(template)
   }
 
+  //this.elements.items[0] = About
+  //this.elements.items[1] = Close
+
   onChange(template) {
     if (template === 'home') {
       GSAP.to(this.elements.items[0], {

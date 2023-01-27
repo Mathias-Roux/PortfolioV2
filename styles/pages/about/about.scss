@@ -20,20 +20,20 @@
 }
 
 .about__infos__row{
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .about__infos__row__text{
   @extend %description-20;
 
-  opacity: 0.8;
+  
   text-align: justify;
   line-height: 1.3;
   letter-spacing: .1rem;
 }
 
 .about__contact__list{
-  margin-top: 2rem;
+  margin-top: 4rem;
 
   @include media('<desktop'){
     margin-top: 10rem;
@@ -56,7 +56,7 @@
   }
 
   &:hover::after{
-    opacity: 0.9;
+    opacity: 1;
   }
 
   @include media('<desktop'){
