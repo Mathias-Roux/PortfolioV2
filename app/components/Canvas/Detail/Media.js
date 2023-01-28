@@ -101,6 +101,9 @@ export default class Media {
   updateY(y = 0) {
     this.y = (this.bounds.top + y) / window.innerHeight
     this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height) + this.extra.y
+
+    //This improve smooth display on scroll (idk why)
+    this.mesh.scale.z += Math.cos((this.mesh.position.y / this.sizes.height) * Math.PI * 0.1)
   }
 
   update(scroll) {
