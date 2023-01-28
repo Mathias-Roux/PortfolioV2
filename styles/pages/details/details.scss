@@ -56,7 +56,7 @@
   position: absolute;
   top: 50%;
   left: 56%;
-  transform: translate3d(0, -50%, 0);
+  transform: translateY(-50%);
 
   @include media('<desktop'){
     position: static;
@@ -99,5 +99,6 @@
   @extend %description-16;
 
   letter-spacing: .09rem;
+  opacity: 0.8;
   line-height: 1.3;
 }
