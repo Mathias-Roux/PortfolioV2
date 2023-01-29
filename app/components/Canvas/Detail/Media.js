@@ -89,8 +89,10 @@ export default class Media {
   updateScale() {
     this.height = this.bounds.height / window.innerHeight
     this.width = this.bounds.width / window.innerWidth
+
     this.mesh.scale.x = this.sizes.width * this.width
     this.mesh.scale.y = this.sizes.height * this.height
+
   }
 
   updateX(x = 0) {
@@ -104,7 +106,7 @@ export default class Media {
     this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height) + this.extra.y
 
     //This improve smooth gallery scroll (idk why)
-    this.mesh.scale.z += .1
+    this.mesh.scale.set(this.mesh.scale.x, this.mesh.scale.y, this.y)
   }
 
   update(scroll) {
