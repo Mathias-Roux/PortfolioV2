@@ -38,7 +38,8 @@ export default class Media {
       vertex,
       uniforms: {
         uAlpha: { value: 0 },
-        tMap: { value: this.texture }
+        tMap: { value: this.texture },
+				u_contrast: { value: 1.1 }
       }
     })
   }
@@ -70,7 +71,7 @@ export default class Media {
 
   hide() {
     GSAP.to(this.program.uniforms.uAlpha, {
-      value: 0,
+      value: 0
     })
   }
 
@@ -98,7 +99,7 @@ export default class Media {
   updateX(x = 0) {
     this.x = (this.bounds.left - x) / window.innerWidth
     this.mesh.position.x = -(this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x
-    this.mesh.position.x += Math.cos((this.mesh.position.y / this.sizes.height) * Math.PI * 0.1) * 15 - 15
+    // this.mesh.position.x += Math.cos((this.mesh.position.y / this.sizes.height) * Math.PI * 0.1) * 15 - 15
   }
 
   updateY(y = 0) {
@@ -109,10 +110,30 @@ export default class Media {
     this.mesh.scale.z += .1
   }
 
-  update(scroll) {
+  updateColor(a, b){
+    let target = Math.round(a)
+    let scroll = Math.round(b)
+    
+    if(target !== scroll){
+      GSAP.to(this.program.uniforms.u_contrast, {
+        value: 1.5,
+        duration: 1,
+        ease: 'Power4.easeOut'
+      })
+    } else {
+      GSAP.to(this.program.uniforms.u_contrast, {
+        value: 1.1,
+        duration: 1,
+        ease: 'Power4.easeOut'
+      })
+    }
+  }
+
+  update(target, scroll) {
     this.updateScale()
     this.updateX()
     this.updateY(scroll)
+    this.updateColor(target, scroll)
   }
 
 }

@@ -98,7 +98,7 @@ export default class {
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
 
     map(this.medias, media => {
-      media.update(this.scroll.current)
+      media.update(this.scroll.target, this.scroll.current)
     })
   }
 
