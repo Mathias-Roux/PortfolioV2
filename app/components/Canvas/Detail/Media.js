@@ -39,7 +39,7 @@ export default class Media {
       uniforms: {
         uAlpha: { value: 0 },
         tMap: { value: this.texture },
-				u_contrast: { value: 1.1 }
+				u_contrast: { value: null }
       }
     })
   }
@@ -111,12 +111,10 @@ export default class Media {
   }
 
   updateColor(x){
-    // let target = Math.round(a)
-    // let scroll = Math.round(b)
+    x += 1
+    x = GSAP.utils.clamp(-1, 1.5, x)
 
-    console.log(x);
-    
-    this.program.uniforms.u_contrast.value = x
+    this.program.uniforms.u_contrast.value = x 
   }
 
   update(scroll, distance) {
