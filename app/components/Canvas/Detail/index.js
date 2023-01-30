@@ -97,8 +97,10 @@ export default class {
 
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
 
+    const distance = (this.scroll.current- this.scroll.target) * 0.1
+
     map(this.medias, media => {
-      media.update(this.scroll.target, this.scroll.current)
+      media.update(this.scroll.current, distance)
     })
   }
 

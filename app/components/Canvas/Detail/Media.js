@@ -110,30 +110,20 @@ export default class Media {
     this.mesh.scale.z += .1
   }
 
-  updateColor(a, b){
-    let target = Math.round(a)
-    let scroll = Math.round(b)
+  updateColor(x){
+    // let target = Math.round(a)
+    // let scroll = Math.round(b)
+
+    console.log(x);
     
-    if(target !== scroll){
-      GSAP.to(this.program.uniforms.u_contrast, {
-        value: 1.5,
-        duration: 1,
-        ease: 'Power4.easeOut'
-      })
-    } else {
-      GSAP.to(this.program.uniforms.u_contrast, {
-        value: 1.1,
-        duration: 1,
-        ease: 'Power4.easeOut'
-      })
-    }
+    this.program.uniforms.u_contrast.value = x
   }
 
-  update(target, scroll) {
+  update(scroll, distance) {
     this.updateScale()
     this.updateX()
     this.updateY(scroll)
-    this.updateColor(target, scroll)
+    this.updateColor(distance)
   }
 
 }
