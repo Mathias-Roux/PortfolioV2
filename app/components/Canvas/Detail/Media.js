@@ -39,7 +39,7 @@ export default class Media {
       uniforms: {
         uAlpha: { value: 0 },
         tMap: { value: this.texture },
-				u_contrast: { value: null }
+				u_saturation: { value: null }
       }
     })
   }
@@ -99,7 +99,7 @@ export default class Media {
   updateX(x = 0) {
     this.x = (this.bounds.left - x) / window.innerWidth
     this.mesh.position.x = -(this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra.x
-    // this.mesh.position.x += Math.cos((this.mesh.position.y / this.sizes.height) * Math.PI * 0.1) * 15 - 15
+    // this.mesh.position.x += Math.cos((this.mesh.position.y / this.sizes.height) * Math.PI * 0.1) * 10 - 10
   }
 
   updateY(y = 0) {
@@ -111,10 +111,9 @@ export default class Media {
   }
 
   updateColor(x){
-    x += 1
-    x = GSAP.utils.clamp(-1, 1.5, x)
+    x *= -0.05
 
-    this.program.uniforms.u_contrast.value = x 
+    this.program.uniforms.u_saturation.value = x 
   }
 
   update(scroll, distance) {
