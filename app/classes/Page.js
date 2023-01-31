@@ -77,37 +77,31 @@ export default class Page {
   }
 
   show(){
-    return new Promise(resolve => {
-      this.animationIn = GSAP.timeline()
-      this.animationIn.fromTo(this.element,{
-        autoAlpha: 0,
-        y: '5%'
-      },{
-        autoAlpha: 1,
-        y: 0
-      })
-      
-      this.animationIn.call(_ => {
-        this.addEventListeners()
-
-        resolve()
-      })
+    this.animationIn = GSAP.timeline()
+    this.animationIn.fromTo(this.element,{
+      autoAlpha: 0
+    },{
+      autoAlpha: 1
     })
+    
+    this.addEventListeners()
+
+    return Promise.resolve()
   }
+  
 
   hide(){
-    return new Promise(resolve => {
-      this.removeEventListeners()
+    this.removeEventListeners()
 
-      this.animationOut = GSAP.timeline()
-
-      this.animationOut.to(this.element, {
-        y: '-5%',
-        autoAlpha: 0,
-        onComplete: resolve
-      })
+    this.animationOut = GSAP.timeline()
+    this.animationOut.to(this.element, {
+      y: '-5%',
+      autoAlpha: 0
     })
+
+    return Promise.resolve() 
   }
+  
 
   onResize(){
     this.scroll.last = this.scroll.target = 0
