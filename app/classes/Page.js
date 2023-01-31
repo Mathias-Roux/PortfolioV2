@@ -76,14 +76,13 @@ export default class Page {
     })
   }
 
-  show(yValue){
+  show(){
     return new Promise(resolve => {
       this.animationIn = GSAP.timeline()
       this.animationIn.fromTo(this.element,{
         autoAlpha: 0,
-        y: `${yValue}`
+        y: '5%'
       },{
-        scrollTop: 0,
         autoAlpha: 1,
         y: 0
       })
@@ -96,14 +95,14 @@ export default class Page {
     })
   }
 
-  hide(yValue){
+  hide(){
     return new Promise(resolve => {
       this.removeEventListeners()
 
       this.animationOut = GSAP.timeline()
 
       this.animationOut.to(this.element, {
-        y: `-${yValue}`,
+        y: '-5%',
         autoAlpha: 0,
         onComplete: resolve
       })

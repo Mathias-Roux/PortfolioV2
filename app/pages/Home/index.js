@@ -11,7 +11,7 @@ export default class Home extends Page {
     })
   }
 
-  show(){
+  async show(){
     console.log('show!')
 
     return super.show()

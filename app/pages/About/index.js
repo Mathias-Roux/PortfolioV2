@@ -8,7 +8,7 @@ export default class About extends Page {
     })
   }
 
-  show(){
+  async show(){
     console.log('show!')
 
     return super.show()

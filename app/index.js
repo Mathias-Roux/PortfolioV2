@@ -16,13 +16,8 @@ class App {
   constructor(){
     this.createContent()
     
-    if (Detection.isDesktop()) {
-      this.createCanvas()
-      this.pixelY = '5%'
-    } else {
-      this.pixelY = '0'
-    }
-
+    Detection.isDesktop() ? this.createCanvas() : null
+    
     this.createPreloader()
     this.createNavigation()
 
@@ -75,7 +70,7 @@ class App {
       this.canvas.onPreloaded()
     }
 
-    this.page.show(this.pixelY)
+    this.page.show()
   }
 
   onPopState() {
@@ -122,7 +117,7 @@ class App {
 
       this.onResize()
 
-      this.page.show(this.pixelY)
+      this.page.show()
 
       this.addLinkListeners()
     } else {
