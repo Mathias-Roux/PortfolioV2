@@ -83,11 +83,6 @@ export default class Page {
     },{
       autoAlpha: 1
     })
-    this.animationIn.fromTo(this.elements.text,{
-      y: '100%'
-    },{
-      y: '0%'
-    })
     
     this.addEventListeners()
 
