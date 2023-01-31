@@ -10,4 +10,16 @@ export default class Home extends Page {
       }
     })
   }
+
+  show(){
+    console.log('show!')
+
+    return super.show()
+  }
+
+  hide(){
+    console.log('hide!')
+
+    return super.hide()
+  }
 }

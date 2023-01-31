@@ -7,4 +7,16 @@ export default class About extends Page {
       element: '.about'
     })
   }
+
+  show(){
+    console.log('show!')
+
+    return super.show()
+  }
+
+  hide(){
+    console.log('hide!')
+
+    return super.hide()
+  }
 }
