@@ -4,7 +4,10 @@ export default class About extends Page {
   constructor(){
     super({
       id: 'about',
-      element: '.about'
+      element: '.about',
+      elements: {
+        text: [...document.querySelectorAll('h1, h2, p')]
+      }
     })
   }
 
