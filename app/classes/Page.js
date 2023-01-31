@@ -17,7 +17,7 @@ export default class Page {
     this.selectorChildren = {
       ...elements,
 
-      preloaders: '[data-src]',
+      preloaders: '[data-src]'
     }
 
     this.id = id
