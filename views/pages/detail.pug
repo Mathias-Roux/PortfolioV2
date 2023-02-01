@@ -13,11 +13,11 @@ block content
               img.detail__media__image(alt=shot.image.alt  data-src=shot.image.url)
 
       .detail__information
-        h1.detail__information__title!=project.data.title.replace(' ', '<br>')
+        h1.detail__information__title=project.data.title
 
         .detail__information__content
           .detail__information__description
-            p.detail__information__description__text!=project.data.description[0].text.replace(/\n/g, '<br>')
+            p.detail__information__description__text!=project.data.description[0].text.replace(/\n/, '<br>')
 
           .detail__information__technos
             p.detail__information__technos__text=project.data.technologies

@@ -24,14 +24,14 @@ export default class About extends Page {
 
     this.text = about__infos__row__text
 
-    // split({
-    //   element: this.text,
-    //   expression: '<br>'
-    // })
-    // split({
-    //   element: this.text,
-    //   expression: '<br>'
-    // })
+    split({
+      element: this.text,
+      expression: '<br>'
+    })
+    split({
+      element: this.text,
+      expression: '<br>'
+    })
   
 
     this.animationIn = GSAP.timeline()
