@@ -17,7 +17,8 @@ block content
 
         .detail__information__content
           .detail__information__description
-            p.detail__information__description__text!=project.data.description[0].text.replace(/\n/, '<br>')
+            each description in project.data.description
+              p.detail__information__description__text!=description.text.replace(/\n/g, '<br>')
 
           .detail__information__technos
             p.detail__information__technos__text=project.data.technologies

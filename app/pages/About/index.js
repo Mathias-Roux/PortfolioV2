@@ -9,9 +9,7 @@ export default class About extends Page {
     super({
       id: 'about',
       element: '.about'
-    })
-
-   
+    })  
   }
 
   async show(){
@@ -23,7 +21,7 @@ export default class About extends Page {
   textAnimation(){
     this.page = document.querySelector('.about')
 
-    this.texts = this.page.querySelectorAll('h1, h2, p')
+    this.texts = this.page.querySelectorAll('h1, h2, p, a')
 
     each(this.texts, text => {
       split({

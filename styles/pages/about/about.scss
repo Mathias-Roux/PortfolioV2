@@ -49,10 +49,18 @@
 
 
 .about__contact__list__link{
-  @extend %description-20;
-
   margin-right: 1.5rem;
-  letter-spacing: .08rem;
+  
+  span{
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  span span{
+    @extend %description-20;
+
+    letter-spacing: .08rem;
+  }
 
   &:after{
     content: ' ↗ ';
