@@ -9,7 +9,7 @@ block content
       .about__frame
         each row in about.data.infos
           .about__infos__row
-            p.about__infos__row__text!=row.infos_text.replace(/\n/, '<br>')
+            p.about__infos__row__text!=row.infos_text.replace(/\n/g, '<br>')
 
         .about__contact__list
           each link in about.data.contact
