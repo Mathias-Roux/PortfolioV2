@@ -1,4 +1,5 @@
-import GSAP from 'gsap'
+import GSAP, { splitColor } from 'gsap'
+import each from 'lodash/each'
 
 import Page from "../../classes/Page"
 
@@ -21,7 +22,17 @@ export default class About extends Page {
   textAnimation(){
     this.page = document.querySelector('.about')
 
-    this.texts = [...this.page.querySelectorAll('h1, h2, p')]
+    this.text = about__infos__row__text
+
+    // split({
+    //   element: this.text,
+    //   expression: '<br>'
+    // })
+    // split({
+    //   element: this.text,
+    //   expression: '<br>'
+    // })
+  
 
     this.animationIn = GSAP.timeline()
     this.animationIn.set(this.texts,{
