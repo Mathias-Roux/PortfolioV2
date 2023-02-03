@@ -16,6 +16,16 @@
   }
 }
 
+%title-70{
+  font-family: $font-khand;
+  font-size: 7rem;
+  line-height: 1;
+
+  @include media('<desktop'){
+    font-size: 5rem;
+  }
+}
+
 %title-90{
   font-family: $font-khand;
   font-size: 9rem;

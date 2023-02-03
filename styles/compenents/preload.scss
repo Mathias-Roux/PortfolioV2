@@ -10,39 +10,39 @@
 }
 
 .preloader__text{
+  @extend %title-90;
+
   position: absolute;
-  top: 8rem;
-  left: 32%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 4rem;
 
   span{
     display: inline-block;
     overflow: hidden;
   }
 
-  span span{
-    @extend %title-60;
-
-    @include media('<desktop'){
-      font-size: 8rem;
-    }
-  }
+  span span{}
 
   @include media('<desktop'){
+    top: 4rem;
+    transform: translateY(0%);
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
 .preloader__number{
-  @extend %title-90;
+  @extend %title-70;
 
   position: absolute;
-  top: 50%;
-  left: 32%;
+  bottom: 50%;
+  right: 4rem;
   transform: translateY(-50%);
   overflow: hidden;
 
   @include media('<desktop'){
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
   }

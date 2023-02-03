@@ -1,5 +1,6 @@
 import GSAP from 'gsap'
 import each from 'lodash/each'
+import { split } from 'utils/text'
 import { Texture } from 'ogl'
 
 import Component from "../classes/Component"
@@ -20,15 +21,14 @@ export default class Preloader extends Component{
 
     window.TEXTURES = {}
 
-    const title = document.querySelector('.preloader__text')
+    this.page = document.querySelector('.preloader')
 
-    const titleDatas = title.getAttribute('data-text')
+    const title = this.page.querySelector('.preloader__text')
 
-    each(titleDatas, letter => {
-      title.innerHTML += `<span><span>${letter}</span></span>`
-    })
+    split({ element: title })
+    split({ element: title })
 
-    this.titleLetters = document.querySelectorAll('span span')
+    this.titleSpan = this.page.querySelector('span span')
 
     this.length = 0
 
@@ -89,16 +89,16 @@ export default class Preloader extends Component{
         delay: 1
       })
 
-      this.animateOut.to(this.titleLetters, {
+      this.animateOut.to(this.titleSpan, {
         duration: 1.5,
         ease: 'expo.out',
-        x: '-100%'
+        y: '-110%'
       })
 
       this.animateOut.to(this.elements.numberText, {
         duration: 1.5,
         ease: 'expo.out',
-        y: '150%'
+        y: '110%'
       }, '-=1.5')
 
       this.animateOut.to(this.element, {
