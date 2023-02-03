@@ -44,7 +44,7 @@ export default class Detail extends Page {
 
     this.animationIn = GSAP.timeline()
     this.animationIn.set(this.spans,{
-      y: '100%',
+      y: '110%',
     }) 
 
     this.animationIn.to(this.spans,{
