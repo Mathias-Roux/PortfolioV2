@@ -4,6 +4,8 @@ import each from 'lodash/each'
 
 import Page from "../../classes/Page"
 
+import Detection from 'classes/Detection'
+
 export default class Detail extends Page {
   constructor(){
     super({
@@ -18,7 +20,7 @@ export default class Detail extends Page {
   async show(){
     super.show()
 
-    this.textAnimation()
+    Detection.isDesktop() ? this.textAnimation() : null
   }
 
   textAnimation(){

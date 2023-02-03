@@ -2,6 +2,8 @@ import GSAP from 'gsap'
 
 import Page from "../../classes/Page"
 
+import Detection from 'classes/Detection'
+
 export default class Home extends Page {
   constructor(){
     super({
@@ -16,7 +18,7 @@ export default class Home extends Page {
   async show(){
     super.show()
 
-    this.textAnimation()
+    Detection.isDesktop() ? this.textAnimation() : null
   }
 
   textAnimation(){

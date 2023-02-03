@@ -4,6 +4,8 @@ import each from 'lodash/each'
 
 import Page from "../../classes/Page"
 
+import Detection from 'classes/Detection'
+
 export default class About extends Page {
   constructor(){
     super({
@@ -15,13 +17,14 @@ export default class About extends Page {
   async show(){
     super.show()
 
-    this.textAnimation()
+    Detection.isDesktop() ? this.textAnimation() : null
   }
 
   textAnimation(){
     this.page = document.querySelector('.about')
 
-    this.texts = this.page.querySelectorAll('h1, h2, p, a')
+    this.links = this.page.querySelectorAll('a')
+    this.texts = this.page.querySelectorAll('h1, h2, p')
 
     each(this.texts, text => {
       split({
@@ -38,11 +41,11 @@ export default class About extends Page {
   
 
     this.animationIn = GSAP.timeline()
-    this.animationIn.set(this.spans,{
+    this.animationIn.set([this.spans, this.links],{
       y: '100%',
     }) 
 
-    this.animationIn.to(this.spans,{
+    this.animationIn.to([this.spans, this.links],{
       y: '0%',
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
       duration: .5
