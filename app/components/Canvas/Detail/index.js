@@ -80,6 +80,10 @@ export default class {
     this.scroll.last = this.scroll.current
   }
 
+  onMouseMove(positions){
+    map(this.medias, media => media.onMouseMove(positions))
+  }
+
   onTouchMove({ y }){
     const distance = y.start - y.end
 

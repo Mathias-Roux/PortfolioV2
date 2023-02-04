@@ -11,6 +11,11 @@ export default class Canvas {
       end: 0
     }
 
+    this.positions = {
+      posX: 0,
+      posY: 0
+    }
+
     this.createRenderer()
     this.createScene()
     this.createCamera()
@@ -115,6 +120,15 @@ export default class Canvas {
 
     if (this.detail) {
       this.detail.onTouchDown(values)
+    }
+  }
+
+  onMouseMove(event) {
+    this.positions.posX = event.clientX / window.innerWidth * 2 - 1
+    this.positions.posY = -(event.clientY / window.innerHeight) * 2 + 1
+
+    if (this.detail) {
+      this.detail.onMouseMove(this.positions)
     }
   }
 

@@ -39,7 +39,9 @@ export default class Media {
       uniforms: {
         uAlpha: { value: 0 },
         tMap: { value: this.texture },
-				u_saturation: { value: null }
+				u_saturation: { value: null },
+        u_mouseX :{ value: 0 },
+        u_mouseY :{ value: 0 }
       }
     })
   }
@@ -84,6 +86,11 @@ export default class Media {
     this.createBounds(sizes)
     this.updateX(scroll && scroll.x)
     this.updateY(scroll && scroll.y)
+  }
+
+  onMouseMove({ posX, posY }){
+    this.program.uniforms.u_mouseX.value = posX * 0.1
+    this.program.uniforms.u_mouseY.value = posY * 0.1
   }
 
   // Loop.
