@@ -10,10 +10,7 @@ export default class Detail extends Page {
   constructor(){
     super({
       id: 'detail',
-      element: '.detail',
-      elements: {
-        wrapper: '.detail__gallery__wrapper'
-      }
+      element: '.detail'
     })
   }
 

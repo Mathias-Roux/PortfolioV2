@@ -29,11 +29,11 @@
   position: absolute;
   pointer-events: auto;
   right: 4rem;
-  top: 6rem;
+  top: 6.5rem;
 }
 
 .navigation__list__link{
-  @extend %title-20;
+  @extend %title-30;
 
   display: block;
   line-height: 1;

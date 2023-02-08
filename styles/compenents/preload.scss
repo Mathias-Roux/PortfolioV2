@@ -20,6 +20,7 @@
   span{
     display: inline-block;
     overflow: hidden;
+    vertical-align: top;
   }
 
   span span{}
@@ -36,7 +37,7 @@
   @extend %title-70;
 
   position: absolute;
-  bottom: 50%;
+  top: 50%;
   right: 4rem;
   transform: translateY(-50%);
   overflow: hidden;

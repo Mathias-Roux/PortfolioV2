@@ -72,16 +72,19 @@
   letter-spacing: 0.7rem;
   text-transform: uppercase;
   
-
   span{
     display: inline-block;
     overflow: hidden;
+    vertical-align: top;
   }
 
-  span span{}
+  span span{
+    will-change: transform;
+  }
 
   @include media('<desktop'){
     padding-bottom: 3rem;
+    letter-spacing: 0;
   }
 }
 
@@ -90,21 +93,24 @@
 }
 
 .detail__information__description{
-  padding-bottom: 2rem;
-  text-align: justify;
+  padding: 2.5rem 0 2rem 0;
 }
 
 .detail__information__description__text{
-  line-height: 1.3;
   @extend %description-16;
+
+  line-height: 1.3;
   letter-spacing: .1rem;
 
   span{
     display: inline-block;
     overflow: hidden;
+    vertical-align: top;
   }
 
-  span span{}
+  span span{
+    will-change: transform;
+  }
 }
 
 .detail__information__technos{
@@ -121,7 +127,10 @@
   span{
     display: inline-block;
     overflow: hidden;
+    vertical-align: top;
   }
 
-  span span{}
+  span span{
+    will-change: transform;
+  }
 }

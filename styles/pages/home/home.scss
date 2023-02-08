@@ -22,6 +22,7 @@
 
 .home__wrapper{
   padding-top: 30rem;
+  will-change: transform;
 
   @include media('<desktop'){
     padding-top: 15rem;
@@ -42,13 +43,14 @@
   }
 
   @include media('<desktop'){
-    line-height: 3.6;
+    line-height: 3.4;
     opacity: 1;
   }
 }
 
 .item__wrapper{
   position: relative;
+  will-change: transform;
 }
 
 .item__wrapper__link{
@@ -60,5 +62,5 @@
 .item__wrapper__title{
   @extend %title-200;
   
-  letter-spacing: 1.1rem;
+  letter-spacing: 0.3rem;
 }

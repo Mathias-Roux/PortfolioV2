@@ -160,7 +160,6 @@ export default class Page {
     if (this.elements.wrapper && Detection.isDesktop()) {
       this.elements.wrapper.style[this.transformPrefix] = `translate3d(0, -${this.scroll.current}px, 0)`
     }
-
   }
 
   addEventListeners(){}

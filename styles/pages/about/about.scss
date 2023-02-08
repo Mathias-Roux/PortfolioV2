@@ -32,9 +32,12 @@
   span{
     display: inline-block;
     overflow: hidden;
+    vertical-align: top;
   }
 
-  span span{}
+  span span{
+    will-change: transform;
+  }
 }
 
 .about__contact__list{
