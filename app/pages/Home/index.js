@@ -38,8 +38,4 @@ export default class Home extends Page {
       duration: .5
     }, '+=1')
   }
-
-  async hide(){
-    return super.hide()
-  }
 }

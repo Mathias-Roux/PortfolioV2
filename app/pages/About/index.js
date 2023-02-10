@@ -58,8 +58,4 @@ export default class About extends Page {
     }, '+=0.2') 
 
   }
-
-  async hide(){
-    return super.hide()
-  }
 }

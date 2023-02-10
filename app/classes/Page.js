@@ -77,28 +77,28 @@ export default class Page {
   }
 
   show(){
-    this.animationIn = GSAP.timeline()
-    this.animationIn.fromTo(this.element,{
-      autoAlpha: 0
-    },{
-      autoAlpha: 1
-    })
+    return new Promise((resolve) => {
+      this.animationIn = GSAP.timeline()
+      this.animationIn.fromTo(this.element,{
+        autoAlpha: 0
+      },{
+        autoAlpha: 1
+      })
     
-    this.addEventListeners()
-
-    return Promise.resolve()
+      this.addEventListeners()
+    })
   }
   
 
-  hide(){
-    this.removeEventListeners()
+  async hide(){
+    return new Promise((resolve) => {
+      this.removeEventListeners()
 
-    this.animationOut = GSAP.timeline()
-    this.animationOut.to(this.element, {
-      autoAlpha: 0
+      this.animationOut = GSAP.timeline()
+      this.animationOut.to(this.element, {
+        autoAlpha: 0
+      })
     })
-
-    return Promise.resolve() 
   }
   
 
