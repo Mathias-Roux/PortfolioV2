@@ -39,7 +39,7 @@ export default class Home extends Page {
     }, '+=1')
   }
 
-  hide(){
+  async hide(){
     return super.hide()
   }
 }

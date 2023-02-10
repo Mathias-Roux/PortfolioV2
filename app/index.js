@@ -85,7 +85,7 @@ class App {
       this.canvas.onChangeStart(this.template, url)
     }
 
-    await this.page.hide(this.pixelY)
+    await this.page.hide()
 
     const res = await window.fetch(url)
 
@@ -117,7 +117,7 @@ class App {
 
       this.onResize()
 
-      this.page.show()
+      await this.page.show()
 
       this.addLinkListeners()
     } else {

@@ -71,6 +71,8 @@
 
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+  line-height: 1.2;
+  transform: translateX(-1rem);
   
   span{
     display: inline-block;
@@ -80,11 +82,14 @@
 
   span span{
     will-change: transform;
+    padding-left: 1rem;
   }
 
   @include media('<desktop'){
-    padding-bottom: 3rem;
+    padding-bottom: 1.3rem;
     letter-spacing: 0;
+    line-height: 1;
+    transform: translateX(0);
   }
 }
 
@@ -93,7 +98,7 @@
 }
 
 .detail__information__description{
-  padding: 2.5rem 0 2rem 0;
+  padding: 1.3rem 0 2rem 0;
 }
 
 .detail__information__description__text{

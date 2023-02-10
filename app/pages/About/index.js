@@ -59,7 +59,7 @@ export default class About extends Page {
 
   }
 
-  hide(){
+  async hide(){
     return super.hide()
   }
 }

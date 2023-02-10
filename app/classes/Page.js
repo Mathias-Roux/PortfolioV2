@@ -76,7 +76,7 @@ export default class Page {
     })
   }
 
-  show(){
+  async show(){
     this.animationIn = GSAP.timeline()
     this.animationIn.fromTo(this.element,{
       autoAlpha: 0
@@ -90,7 +90,7 @@ export default class Page {
   }
   
 
-  hide(){
+  async hide(){
     this.removeEventListeners()
 
     this.animationOut = GSAP.timeline()
