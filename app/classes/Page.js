@@ -95,7 +95,6 @@ export default class Page {
 
     this.animationOut = GSAP.timeline()
     this.animationOut.to(this.element, {
-      y: '-4%',
       autoAlpha: 0
     })
 
