@@ -85,7 +85,7 @@ class App {
       this.canvas.onChangeStart(this.template, url)
     }
 
-    this.page.hide()
+    await this.page.hide()
 
     const res = await window.fetch(url)
 

@@ -85,18 +85,23 @@ export default class Page {
         autoAlpha: 1
       })
     
-      this.addEventListeners()
+      this.animationIn.call((_) => {
+        this.addEventListeners()
+
+        resolve()
+      })
     })
   }
   
 
-  async hide(){
+  hide(){
     return new Promise((resolve) => {
       this.removeEventListeners()
 
       this.animationOut = GSAP.timeline()
       this.animationOut.to(this.element, {
-        autoAlpha: 0
+        autoAlpha: 0,
+        onComplete: resolve
       })
     })
   }
