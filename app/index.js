@@ -216,11 +216,16 @@ class App {
   addLinkListeners() {
     const links = document.querySelectorAll('a')
     each(links, (link) => {
-      link.onclick = (event) => {
-        event.preventDefault()
+      
+      const isExternal = link.href.indexOf(window.location.origin) === -1
 
-        const { href } = link
-        this.onChange({ url: href })
+      if (!isExternal){
+        link.onclick = (event) => {
+          event.preventDefault()
+  
+          const { href } = link
+          this.onChange({ url: href })
+        }
       }
     })
   }
