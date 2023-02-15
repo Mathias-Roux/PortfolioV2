@@ -1,5 +1,4 @@
 import GSAP from 'gsap'
-import Prefix from 'prefix'
 
 import each from 'lodash/each'
 import map from 'lodash/map'
@@ -23,8 +22,6 @@ export default class Page {
     this.id = id
 
     this.alert = document.querySelector('.alert')
-
-    this.transformPrefix = Prefix('transform')
   }
 
   create(){
@@ -162,7 +159,7 @@ export default class Page {
     }
 
     if (this.elements.wrapper && Detection.isDesktop()) {
-      this.elements.wrapper.style[this.transformPrefix] = `translate3d(0, -${this.scroll.current}px, 0)`
+      this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
     }
   }
 

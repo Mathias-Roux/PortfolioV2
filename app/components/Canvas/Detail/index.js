@@ -1,7 +1,6 @@
 import { Plane, Transform } from 'ogl'
 import map from 'lodash/map'
 import GSAP from 'gsap'
-import Prefix from 'prefix'
 
 import Media from './Media'
 
@@ -12,8 +11,6 @@ export default class {
     this.sizes = sizes
 
     this.group = new Transform()
-
-    this.transformPrefix = Prefix('transform')
     
     this.galleryWrapperElement = document.querySelector('.detail__gallery__wrapper')
 

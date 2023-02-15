@@ -13,8 +13,8 @@
 
   z-index: 0;
 
-  @include media('<desktop'){
-    &::after{
+  @media screen and (max-width: 1920px){
+     &::after{
       content: none;
     }
   }
@@ -24,7 +24,7 @@
   padding-top: 30rem;
   will-change: transform;
 
-  @include media('<desktop'){
+  @media screen and (max-width: 1920px){
     padding-top: 15rem;
   }
 }
@@ -42,7 +42,7 @@
     transform: scale3d(1.005, 1.005, 1);
   }
 
-  @include media('<desktop'){
+  @media screen and (max-width: 1920px){
     line-height: 3.4;
     opacity: 1;
   }
