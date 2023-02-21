@@ -13,7 +13,7 @@ html{
   background: $color-white;
   color: $color-black;
 
-  @media screen and (max-width: 1920px) {
+  @media screen and (max-width: 768px) {
     font-size: calc(100vw / 750 * 10);
   }
 }
@@ -24,7 +24,7 @@ body{
   font-family: $font-switzer;
   overflow: hidden;
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     overflow: scroll;
   }
 }
@@ -40,7 +40,7 @@ img{
   opacity: 0;
   vertical-align: middle;
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     transition: opacity 0.4s ease;
 
     &.loaded {

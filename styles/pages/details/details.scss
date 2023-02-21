@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     flex-direction: column;
     position: static;
   }
@@ -17,7 +17,7 @@
 .detail__gallery{
   @extend %cover;
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     position: static;
     height: 0%;
   }
@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     position: static;
     margin-top: 80rem;
     padding-bottom: 10rem;
@@ -58,7 +58,7 @@
   left: 56%;
   transform: translateY(-50%);
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     position: static;
     transform: none;
     padding-top: 20rem;
@@ -85,7 +85,7 @@
     padding-left: 1rem;
   }
 
-  @media screen and (max-width: 1920px){
+  @media screen and (max-width: 768px){
     padding-bottom: 1.3rem;
     letter-spacing: 0;
     line-height: 1;
