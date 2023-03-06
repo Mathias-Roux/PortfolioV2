@@ -160,6 +160,25 @@ export default class Page {
 
     if (this.elements.wrapper && Detection.isDesktop()) {
       this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
+
+      const elements = this.element.querySelectorAll('.item')
+      const middleScreen = window.innerHeight / 2
+
+      each(elements, element => {
+        const elementRect = element.getBoundingClientRect();
+        // const middleElement = elementRect.top + (elementRect.height / 2)
+       
+        // const elementInMiddle = (middleElement > middleScreen / 2) && (middleElement < (middleScreen * 2) / 2)
+
+        if(elementRect.top < middleScreen && elementRect.bottom > middleScreen){
+          element.style.color = "green"
+        } else {
+          element.style.color = "red"
+        }
+      })
+
+      
+
     }
   }
 
