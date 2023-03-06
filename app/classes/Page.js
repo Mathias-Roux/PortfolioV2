@@ -173,9 +173,6 @@ export default class Page {
           element.classList.remove("item_on_middle")
         }
       })
-
-      
-
     }
   }
 
