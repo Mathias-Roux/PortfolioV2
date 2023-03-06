@@ -165,15 +165,12 @@ export default class Page {
       const middleScreen = window.innerHeight / 2
 
       each(elements, element => {
-        const elementRect = element.getBoundingClientRect();
-        // const middleElement = elementRect.top + (elementRect.height / 2)
-       
-        // const elementInMiddle = (middleElement > middleScreen / 2) && (middleElement < (middleScreen * 2) / 2)
+        const elementRect = element.getBoundingClientRect();       
 
         if(elementRect.top < middleScreen && elementRect.bottom > middleScreen){
-          element.style.color = "green"
+          element.classList.add("item_on_middle")
         } else {
-          element.style.color = "red"
+          element.classList.remove("item_on_middle")
         }
       })
 
