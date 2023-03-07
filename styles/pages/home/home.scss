@@ -52,6 +52,9 @@
   @media screen and (max-width: 768px){
     line-height: 1.25;
     opacity: 1;
+    color: #282828;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
   }
 }
 
