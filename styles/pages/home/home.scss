@@ -21,14 +21,15 @@
 }
 
 .home__wrapper{
-  padding-top: calc(50vh - 145px);
+  padding-top: 40vh;
   will-change: transform;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media screen and (max-width: 768px){
-    padding-top: 15rem;
+    padding-top: 26rem;
+    padding-bottom: 18rem;
   }
 }
 
@@ -47,10 +48,11 @@
 
   &:hover{
     transform: scale3d(1.02, 1.02, 1);
+    color: #282828;
   }
 
   &:hover .corner{
-    transform: scale3d(2, 2, 1);
+    opacity: 1;
   }
 
   @media screen and (max-width: 768px){
@@ -62,10 +64,6 @@
   }
 }
 
-.item_on_middle{
-  color: #282828;
-}
-
 .item__wrapper{
   position: relative;
   will-change: transform;
@@ -73,27 +71,35 @@
 
 .corner{
   position: absolute;
-  width: .3rem;
-  height: .3rem;
-  background-color: red;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  width: .5rem;
+  height: .5rem;
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 }
 
 .dot_0{
-  top: 0;
-  left: 0;
+  top: 1px;
+  left: 1px;
+  border-top: 1px solid red;
+  border-left: 1px solid red;
 }
 .dot_1{
-  top: 0;
-  right: 0;
+  top: 1px;
+  right: 1px;
+  border-top: 1px solid red;
+  border-right: 1px solid red;
 }
 .dot_2{
-  bottom: 0;
-  left: 0;
+  bottom: 1px;
+  left: 1px;
+  border-bottom: 1px solid red;
+  border-left: 1px solid red;
 }
 .dot_3{
-  bottom: 0;
-  right: 0;
+  bottom: 1px;
+  right: 1px;
+  border-bottom: 1px solid red;
+  border-right: 1px solid red;
 }
 
 .item__wrapper__link{

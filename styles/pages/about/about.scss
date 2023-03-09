@@ -73,8 +73,17 @@
   }
 
   @media screen and (max-width: 768px){
-    margin: 0 0rem 0rem 4rem;
+    margin: 0 0 0 3rem;
     text-align: center;
+
+    &:before{
+      content: ' ';
+      display: inline-block;
+      background-color: red;
+      width: .3rem;
+      margin-right: 1px;
+      height: .3rem;
+    }
 
     &:after{
       content: none;
