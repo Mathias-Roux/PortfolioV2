@@ -41,14 +41,10 @@
   text-stroke: 1px #282828;
   transform: scale3d(1, 1, 1);
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  pointer-events: none;
 
   &:not(:last-child){
     margin-bottom: 24rem;
-  }
-
-  &:hover{
-    transform: scale3d(1.02, 1.02, 1);
-    color: #282828;
   }
 
   &:hover .corner{
@@ -62,6 +58,12 @@
     -webkit-text-stroke: unset;
     text-stroke: unset;
   }
+}
+
+.item_on_middle{
+  color: #282828;
+  pointer-events: all;
+  transform: scale3d(1.02, 1.02, 1);
 }
 
 .item__wrapper{
