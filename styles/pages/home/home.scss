@@ -114,5 +114,11 @@
 .item__wrapper__title{
   @extend %title-200;
   
+  display: flex;
   letter-spacing: 0.3rem;
+  overflow: hidden;
+
+  div{
+    will-change: transform;
+  }
 }

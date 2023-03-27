@@ -4,6 +4,7 @@ import Page from "../../classes/Page"
 
 import Detection from 'classes/Detection'
 
+
 export default class Home extends Page {
   constructor(){
     super({
@@ -21,21 +22,38 @@ export default class Home extends Page {
     Detection.isDesktop() ? this.textAnimation() : null
   }
 
+  async show(){
+    super.show()
+
+    Detection.isDesktop() ? this.textAnimation() : null
+  }
+
   textAnimation(){
     this.page = document.querySelector('.home')
 
-    this.texts = this.page.querySelectorAll('.item__wrapper')
+    this.titles = this.page.querySelectorAll('.item__wrapper__title')
+
+    this.titles.forEach(title => {
+      const letters = title.innerHTML.split('')
+      title.innerHTML = ""
+
+      letters.forEach(letter => {
+        title.innerHTML += `<div>${letter}</div>`
+      })
+    });
   
+    this.titleLetters = this.page.querySelectorAll('.item__wrapper__title div')
 
     this.animationIn = GSAP.timeline()
-    this.animationIn.set(this.texts,{
-      y: '100%',
-    }) 
-
-    this.animationIn.to(this.texts,{
-      y: '0%',
-      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
-      duration: .5
-    }, '+=1')
+    this.animationIn.fromTo(this.titleLetters,{
+        y: "50%",
+        opacity: 0
+      },
+      {
+        y: "0%",
+        opacity: 1,
+        stagger: .01
+      }, "+=2") 
   }
 }
+
