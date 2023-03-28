@@ -14,16 +14,6 @@ export default class Home extends Page {
         wrapper: '.home__wrapper'
       }
     })
-  }
-
-  async show(){
-    super.show()
-
-    Detection.isDesktop() ? this.textAnimation() : null
-  }
-
-  async show(){
-    super.show()
 
     Detection.isDesktop() ? this.textAnimation() : null
   }
@@ -46,13 +36,13 @@ export default class Home extends Page {
 
     this.animationIn = GSAP.timeline()
     this.animationIn.fromTo(this.titleLetters,{
-        y: "50%",
+        y: '10%',
         opacity: 0
       },
       {
-        y: "0%",
+        y: '0%',
         opacity: 1,
-        stagger: .01
+        stagger: .03
       }, "+=2") 
   }
 }
