@@ -9,9 +9,5 @@ block content
       each item in home
         .item
           .item__wrapper
-            span.corner.dot_0
-            span.corner.dot_1
-            span.corner.dot_2
-            span.corner.dot_3
             a.item__wrapper__link(draggable="false" href=Link(item.data.project[0].project_shots))
-            .item__wrapper__title=item.data.title
+            .item__wrapper__title(data-animation="title")!=item.data.title

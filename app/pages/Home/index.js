@@ -37,10 +37,12 @@ export default class Home extends Page {
     this.animationIn = GSAP.timeline()
     this.animationIn.fromTo(this.titleLetters,{
         y: '10%',
+        x: '10%',
         opacity: 0
       },
       {
         y: '0%',
+        x: '0%',
         opacity: 1,
         stagger: .03
       }, "+=2") 
