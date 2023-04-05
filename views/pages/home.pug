@@ -6,8 +6,9 @@ block variables
 block content
   .home
     .home__wrapper
-      each item in home
-        .item
-          .item__wrapper
-            a.item__wrapper__link(draggable="false" href=Link(item.data.project[0].project_shots))
-            .item__wrapper__title(data-animation="title")!=item.data.title
+      .home__list
+        each item in home
+          .item
+            .item__wrapper
+              a.item__wrapper__link(draggable="false" href=Link(item.data.project[0].project_shots))
+              .item__wrapper__title=item.data.title
