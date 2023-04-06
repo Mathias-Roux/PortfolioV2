@@ -12,9 +12,9 @@
   @extend %title-60;
 
   pointer-events: auto;
-  left: 4rem;
+  right: 4rem;
   position: absolute;
-  top: 4rem;
+  bottom: 4rem;
   letter-spacing: 0.1rem;
 
   @media screen and (max-width: 768px){

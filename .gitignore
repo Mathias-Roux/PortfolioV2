@@ -1,12 +1,1 @@
-# logs
-yarn-debug.log*
-npm-error.log*
-
-# dependency directories
-node_modules/
-
-# environment variables
-.env
-
-# global rules
-.DS_Store
+node_modules
