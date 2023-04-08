@@ -7,7 +7,7 @@
     background-color: $color-white;
     pointer-events: none;
     overflow: hidden;
-  
+    position: fixed;
     z-index: z('alert');
 }
   
