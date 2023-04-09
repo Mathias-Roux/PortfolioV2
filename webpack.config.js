@@ -58,7 +58,6 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-
       {
         test: /\.scss$/,
         use: [
@@ -79,7 +78,6 @@ module.exports = {
           },
         ]
       },
-
       {
         test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
         type: 'asset/resource',
@@ -87,15 +85,11 @@ module.exports = {
           filename: '[name].[hash].[ext]',
         },
       },
-
-
-
       {
         test: /\.(glsl|frag|vert)$/,
         type: 'asset/source',
         exclude: /node_modules/,
       },
-
       {
         test: /\.(glsl|frag|vert)$/,
         loader: 'glslify-loader',

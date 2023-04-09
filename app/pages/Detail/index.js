@@ -17,7 +17,7 @@ export default class Detail extends Page {
   async show(){
     super.show()
 
-    Detection.isMobile() ? null : this.textAnimation()
+    Detection.isDesktop() ? this.textAnimation() : null
   }
 
   textAnimation(){

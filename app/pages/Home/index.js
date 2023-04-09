@@ -18,7 +18,7 @@ export default class Home extends Page {
   async show(){
     super.show()
 
-    Detection.isMobile() ? null : this.textAnimation()
+    Detection.isDesktop() ? this.textAnimation() : null
   }
 
   textAnimation(){

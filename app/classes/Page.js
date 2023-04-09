@@ -28,7 +28,7 @@ export default class Page {
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
-    if(Detection.isMobile()){
+    if(!Detection.isDesktop()){
       window.pageYOffset = 0
       document.documentElement.scrollTop = 0 
       document.body.scrollTop = 0
@@ -64,7 +64,7 @@ export default class Page {
       }
     })
 
-    Detection.isMobile() ? this.createPreloader() : null
+    Detection.isDesktop() ? null : this.createPreloader()
   }
 
   createPreloader() {
@@ -111,7 +111,7 @@ export default class Page {
       this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight / 1.5)
     }
 
-    if (Detection.isMobile()){
+    if (!Detection.isDesktop()){
       if (window.innerHeight < window.innerWidth) {
         this.alert.style.opacity = 1
       } else {
@@ -158,7 +158,7 @@ export default class Page {
       this.scroll.current = 0
     }
 
-    if (this.elements.wrapper && !Detection.isMobile()) {
+    if (this.elements.wrapper && Detection.isDesktop()) {
       this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
 
       const elements = this.element.querySelectorAll('.item')
