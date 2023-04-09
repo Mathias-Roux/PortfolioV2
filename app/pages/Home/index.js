@@ -18,7 +18,7 @@ export default class Home extends Page {
   async show(){
     super.show()
 
-    Detection.isDesktop() ? this.textAnimation() : null
+    Detection.isMobile() ? null : this.textAnimation()
   }
 
   textAnimation(){
@@ -28,12 +28,10 @@ export default class Home extends Page {
   
 
     this.animationIn = GSAP.timeline()
-    this.animationIn.set(this.texts,{
-      y: '100%',
-    }) 
-
-    this.animationIn.to(this.texts,{
-      y: '0%',
+    this.animationIn.fromTo(this.texts,{
+      autoAlpha: 0,
+    }, {
+      autoAlpha: 1,
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
       duration: .5
     }, '+=1')

@@ -16,7 +16,7 @@ class App {
   constructor(){
     this.createContent()
     
-    Detection.isDesktop() ? this.createCanvas() : null
+    Detection.isMobile() ? null : this.createCanvas()
     
     this.createPreloader()
     this.createNavigation()
@@ -117,7 +117,7 @@ class App {
 
       this.onResize()
 
-      this.page.show()
+      await this.page.show()
 
       this.addLinkListeners()
     } else {

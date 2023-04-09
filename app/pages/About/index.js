@@ -17,7 +17,7 @@ export default class About extends Page {
   async show(){
     super.show()
 
-    Detection.isDesktop() ? this.textAnimation() : null
+    Detection.isMobile() ? null : this.textAnimation()
   }
 
   textAnimation(){

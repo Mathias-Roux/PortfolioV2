@@ -15,7 +15,6 @@ const prismic = require('@prismicio/client')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args))
 const prismicH =  require('@prismicio/helpers')
 
-const UAParser = require('ua-parser-js')
 
 const endpoint = prismic.getEndpoint("personal-portfoliov2")
 const client = prismic.createClient(endpoint, { fetch })
@@ -47,12 +46,6 @@ const prismicAutoPreviewsMiddleware = (req, _res, next) => {
 }
 
 app.use((req, res, next) => {
-  const ua = UAParser(req.headers['user-agent'])
-
-  res.locals.isDesktop = ua.device.type === undefined
-  res.locals.isPhone = ua.device.type === 'mobile'
-  res.locals.isTablet = ua.device.type === 'tablet'
-
   res.locals.ctx = { prismicH }
   prismicAutoPreviewsMiddleware
   res.locals.Link = handleLinkResolver

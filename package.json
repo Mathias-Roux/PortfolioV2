@@ -48,7 +48,6 @@
     "node-fetch": "^3.2.10",
     "nodemon": "^2.0.20",
     "normalize-wheel": "^1.0.1",
-    "pug": "^3.0.2",
-    "ua-parser-js": "^1.0.32"
+    "pug": "^3.0.2"
   }
 }
