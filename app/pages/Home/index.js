@@ -15,13 +15,7 @@ export default class Home extends Page {
     })
   }
 
-  async show(){
-    super.show()
-
-    Detection.isDesktop() ? this.textAnimation() : null
-  }
-
-  textAnimation(){
+  textShow(){
     this.page = document.querySelector('.home')
     this.texts = this.page.querySelectorAll('.item__wrapper')
   
@@ -37,4 +31,34 @@ export default class Home extends Page {
       stagger: .05
     }, '+=1')
   }
+
+  textHide(){
+    this.page = document.querySelector('.home')
+    this.texts = this.page.querySelectorAll('.item__wrapper')
+  
+    this.animationIn = GSAP.timeline()
+    this.animationIn.fromTo(this.texts,{
+      autoAlpha: 0,
+      y: '15%'
+    }, {
+      autoAlpha: 1,
+      y: '0%',
+      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
+      duration: .5,
+      stagger: .05
+    }, '+=1')
+  }
+
+  async show(){
+    super.show()
+
+    Detection.isDesktop() ? this.textShow() : null
+  }
+
+  async hide(){
+    super.hide()
+
+    Detection.isDesktop() ? this.textHide() : null
+  }
+
 }

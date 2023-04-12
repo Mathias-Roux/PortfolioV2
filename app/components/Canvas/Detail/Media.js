@@ -39,9 +39,7 @@ export default class Media {
       uniforms: {
         uAlpha: { value: 0 },
         tMap: { value: this.texture },
-				u_saturation: { value: null },
-        u_mouseX :{ value: 0 },
-        u_mouseY :{ value: 0 }
+				u_saturation: { value: null }
       }
     })
   }
@@ -88,11 +86,6 @@ export default class Media {
     this.updateY(scroll && scroll.y)
   }
 
-  onMouseMove({ posX, posY }){
-    this.program.uniforms.u_mouseX.value = posX * 0.1
-    this.program.uniforms.u_mouseY.value = posY * 0.1
-  }
-
   // Loop.
   updateScale() {
     this.height = this.bounds.height / window.innerHeight
@@ -100,7 +93,6 @@ export default class Media {
 
     this.mesh.scale.x = this.sizes.width * this.width
     this.mesh.scale.y = this.sizes.height * this.height
-
   }
 
   updateX(x = 0) {

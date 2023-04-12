@@ -73,24 +73,8 @@ export default class {
     this.scroll.limit = this.bounds.height - this.medias[0].element.clientHeight
   }
 
-  onTouchDown({ x }){
-    this.scroll.last = this.scroll.current
-  }
-
   onMouseMove(positions){
-    map(this.medias, media => media.onMouseMove(positions))
-  }
-
-  onTouchMove({ y }){
-    const distance = y.start - y.end
-
-    this.scroll.target = this.scroll.last - distance
-  }
-
-  onTouchUp({ x }){}
-
-  onWheel({ pixelY }){
-    this.scroll.target -= pixelY
+    this.scroll.target += positions.posY * 15
   }
 
   update(){
@@ -98,7 +82,7 @@ export default class {
 
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
 
-    const distance = (this.scroll.current- this.scroll.target) * 0.1
+    const distance = (this.scroll.current - this.scroll.target) * 0.1
 
     map(this.medias, media => {
       media.update(this.scroll.current, distance)
