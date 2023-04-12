@@ -73,8 +73,20 @@ export default class {
     this.scroll.limit = this.bounds.height - this.medias[0].element.clientHeight
   }
 
-  onMouseMove(positions){
-    this.scroll.target += positions.posY * 15
+  onTouchDown({ x }){
+    this.scroll.last = this.scroll.current
+  }
+
+  onTouchMove({ y }){
+    const distance = y.start - y.end
+
+    this.scroll.target = this.scroll.last - distance
+  }
+
+  onTouchUp({ x }){}
+
+  onWheel({ pixelY }){
+    this.scroll.target -= pixelY
   }
 
   update(){
