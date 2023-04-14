@@ -33,7 +33,6 @@ export default class {
     this.show()
   }
 
-
   createGeometry() {
     this.geometry = new Plane(this.gl)
   }
@@ -54,7 +53,17 @@ export default class {
   }
 
   show() {
-    map(this.medias, (media) => media.show())
+    map(this.medias, (media, index) => {
+      media.show()
+      GSAP.fromTo(media.mesh.position, {
+        z: 1
+      }, {
+        duration: 2,
+        ease: 'expo.inOut',
+        z: 0,
+        delay: index * 0.2
+      })
+    })
   }
 
   hide(){
