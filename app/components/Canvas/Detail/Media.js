@@ -1,7 +1,6 @@
 import { Mesh, Program } from 'ogl'
 import GSAP from 'gsap'
 
-
 import fragment from 'shaders/plane-fragment.glsl'
 import vertex from 'shaders/plane-vertex.glsl'
 
