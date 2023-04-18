@@ -9,7 +9,6 @@
 
   display: flex;
   align-items: center;
-  overflow: hidden;
 
   @media screen and (max-width: 768px){
     flex-direction: column;
@@ -50,6 +49,11 @@
 
   &:not(:last-child){
     margin-bottom: 10rem
+  }
+
+  @media screen and (max-width: 768px){
+    height: 36.956rem;
+    width: 64.875rem;
   }
 }
 
