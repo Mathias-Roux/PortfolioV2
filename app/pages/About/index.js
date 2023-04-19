@@ -51,7 +51,8 @@ export default class About extends Page {
     this.animationIn.to(this.spans,{
       y: '0%',
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
-      duration: .5
+      duration: .5,
+      stagger: .02
     }, '+=1')
     this.animationIn.to(this.links,{
       opacity: 1,
