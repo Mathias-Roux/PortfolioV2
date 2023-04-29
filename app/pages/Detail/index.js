@@ -40,11 +40,10 @@ export default class Detail extends Page {
   
 
     this.animationIn = GSAP.timeline()
-    this.animationIn.set(this.spans,{
+    this.animationIn.fromTo(this.spans,{
       y: '110%',
-    }) 
-
-    this.animationIn.to(this.spans,{
+    }, 
+    {
       y: '0%',
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
       duration: .5,
