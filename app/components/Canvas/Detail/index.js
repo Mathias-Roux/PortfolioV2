@@ -85,19 +85,15 @@ export default class {
   onTouchUp({ x }){}
 
   onWheel({ pixelY }){
-    this.scroll.target -= pixelY
+    this.scroll.target += pixelY
   }
 
   update(){
-    this.scroll.target = GSAP.utils.clamp(-this.scroll.limit, 0, this.scroll.target)
+    this.scroll.target = Math.min(Math.max(this.scroll.target, 0), this.scroll.limit);
 
-    this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
+    this.scroll.current = this.scroll.current + (-this.scroll.target - this.scroll.current) * 0.1
 
-    const distance = (this.scroll.current - this.scroll.target) * 0.1
-
-    map(this.medias, media => {
-      media.update(this.scroll.current, distance)
-    })
+    map(this.medias, media => media.update(this.scroll.current))
   }
 
   destroy(){
