@@ -38,26 +38,20 @@ export default class About extends Page {
     })
     
     this.spans = this.page.querySelectorAll('span span')
-  
 
-    this.animationIn = anime.timeline()
-    this.animationIn.set(this.spans,{
-      y: '105%',
-    })
-    this.animationIn.set(this.links,{
-      opacity: 0,
-    }) 
-
-    this.animationIn({
+    anime({
       targets: this.spans,
-      y: '0%',
+      translateY: ['105%', '0%'],
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
       duration: 500,
       delay: anime.stagger(200)
-    }, '+=1000')
-    this.animationIn({
+    }, 1000)
+
+    anime({
       targets: this.links,
-      opacity: 1,
+      opacity: [0, 1],
+      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
+      duration: 500
     }, '+=200') 
   }
 }

@@ -74,10 +74,9 @@ export default class Page {
 
   show(){
     return new Promise((resolve) => {
-      this.animationIn = anime.timeline()
-      this.animationIn.add({
+      anime({
         targets: this.element,
-        autoAlpha: [0, 1],
+        opacity: [0, 1],
         complete: function() {
           this.addEventListeners()
 
@@ -90,10 +89,9 @@ export default class Page {
 
   hide(){
     return new Promise((resolve) => {
-      this.animationOut = anime.timeline()
-      this.animationOut.add({
+      anime({
         targets: this.element,
-        autoAlpha: 0,
+        opacity: 0,
         complete: function() {
           resolve()
         }

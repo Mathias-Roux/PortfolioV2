@@ -19,14 +19,14 @@ export default class Home extends Page {
     this.page = document.querySelector('.home')
     this.texts = this.page.querySelectorAll('.item__wrapper')
   
-    this.animationIn = anime.timeline()
-    this.animationIn({
+    
+    anime({
       targets: this.texts,
-      autoAlpha: [0, 1],
-      y: ['15%', '0%'],
-      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
+      opacity: [0, 1],
+      translateY: ['15%', '0%'],
       duration: 500,
-      delay: anime.stagger(50)
+      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
+      delay: anime.stagger(50),
     }, 1000)
   }
 

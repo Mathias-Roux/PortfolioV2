@@ -22,36 +22,38 @@ export default class Navigation extends Component {
     if (template === 'home') {
       anime({
         targets: this.elements.items[1],
-        autoAlpha: 0,
-        y: '-100%',
+        opacity: 0,
+        translateY: '-100%',
         duration: 750,
+        easing: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
       })
 
       anime.set(this.elements.items[0], {
-        y: '0%',
+        translateY: '0%'
       })
       anime({
         targets: this.elements.items[0],
-        autoAlpha: 1,
+        opacity: 1,
         delay: 750,
-        duration: 750,
+        duration: 750
       })
     } else {
       anime({
         targets: this.elements.items[0],
-        autoAlpha: 0,
-        y: '-100%',
+        opacity: 0,
+        translateY: '-100%',
         duration: 750,
+        easing: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
       })
 
       anime.set(this.elements.items[1], {
-        y: '0%',
+        translateY: '0%'
       })
       anime({
         targets: this.elements.items[1],
-        autoAlpha: 1,
+        opacity: 1,
         delay: 750,
-        duration: 750,
+        duration: 750
       })
     }
   }

@@ -37,17 +37,10 @@ export default class Detail extends Page {
     })
     
     this.spans = this.page.querySelectorAll('span span')
-  
 
-    this.animationIn = anime.timeline()
-    this.animationIn.set({
+    anime({
       targets: this.spans,
-      y: '110%'
-    }) 
-
-    this.animationIn({
-      targets: this.spans,
-      y: '0%',
+      translateY: ['110%', '0%'],
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
       duration: 500,
       delay: anime.stagger(50)

@@ -64,17 +64,17 @@ export default class Media {
       targets: this.program.uniforms.threshold,
       value: 1,
       duration: 1000,
-      ease: 'expo.out',
+      ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)',
       delay: 500
     })
   }
 
   hide() {
-    anime.to({
+    anime({
       targets: this.program.uniforms.threshold,
       value: -1,
       duration: 700,
-      ease: 'expo.out'
+      ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
     })
   }
 
