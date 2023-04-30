@@ -1,5 +1,4 @@
-import GSAP from 'gsap'
-
+import anime from 'animejs';
 import each from 'lodash/each'
 import map from 'lodash/map'
 
@@ -75,17 +74,15 @@ export default class Page {
 
   show(){
     return new Promise((resolve) => {
-      this.animationIn = GSAP.timeline()
-      this.animationIn.fromTo(this.element,{
-        autoAlpha: 0
-      },{
-        autoAlpha: 1
-      })
-    
-      this.animationIn.call((_) => {
-        this.addEventListeners()
+      this.animationIn = anime.timeline()
+      this.animationIn.add({
+        targets: this.element,
+        autoAlpha: [0, 1],
+        complete: function() {
+          this.addEventListeners()
 
-        resolve()
+          resolve()
+        }
       })
     })
   }
@@ -93,12 +90,13 @@ export default class Page {
 
   hide(){
     return new Promise((resolve) => {
-      this.removeEventListeners()
-
-      this.animationOut = GSAP.timeline()
-      this.animationOut.to(this.element, {
+      this.animationOut = anime.timeline()
+      this.animationOut.add({
+        targets: this.element,
         autoAlpha: 0,
-        onComplete: resolve
+        complete: function() {
+          resolve()
+        }
       })
     })
   }

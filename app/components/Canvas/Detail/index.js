@@ -1,6 +1,5 @@
 import { Plane, Transform } from 'ogl'
 import map from 'lodash/map'
-import GSAP from 'gsap'
 
 import Media from './Media'
 

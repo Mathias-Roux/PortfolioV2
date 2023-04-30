@@ -1,4 +1,4 @@
-import GSAP from 'gsap'
+import anime from 'animejs'
 import each from 'lodash/each'
 import { split } from 'utils/text'
 import { Texture } from 'ogl'
@@ -84,32 +84,33 @@ export default class Preloader extends Component{
   onLoaded(){
     return new Promise(resolve => {
       
-      this.animateOut = GSAP.timeline({
-        delay: 1
-      })
+      this.animateOut = anime.timeline()
 
-      this.animateOut.call(_ => {
+      this.animateOut.add(_ => {
         this.emit('completed')
       })
 
-      this.animateOut.to(this.titleSpan, {
-        duration: 1.5,
-        ease: 'expo.out',
+      this.animateOut.add({
+        targets: this.titleSpan,
+        duration: 1500,
+        ease: 'easeOutExpo',
         y: '-110%'
+      }, 1000)
+
+      this.animateOut.add({
+        targets: this.elements.numberText,
+        duration: 1500,
+        ease: 'easeOutExpo',
+        y: '110%'
+      }, '-=1000')
+
+      this.animateOut.add({
+        targets: this.element,
+        autoAlpha: 0,
+        duration: 1000
       })
 
-      this.animateOut.to(this.elements.numberText, {
-        duration: 1.5,
-        ease: 'expo.out',
-        y: '110%'
-      }, '-=1.5')
-
-      this.animateOut.to(this.element, {
-        autoAlpha: 0,
-        duration: 1
-      }, '-=0.5')
-
-      this.animateOut.call(_ => {
+      this.animateOut.add(_ => {
         this.destroy()
       })
     })

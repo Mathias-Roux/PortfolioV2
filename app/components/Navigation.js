@@ -1,4 +1,4 @@
-import GSAP from 'gsap'
+import anime from 'animejs';
 
 import Component from 'classes/Component'
 
@@ -20,34 +20,38 @@ export default class Navigation extends Component {
 
   onChange(template) {
     if (template === 'home') {
-      GSAP.to(this.elements.items[1], {
+      anime({
+        targets: this.elements.items[1],
         autoAlpha: 0,
         y: '-100%',
-        duration: 0.75,
+        duration: 750,
       })
 
-      GSAP.set(this.elements.items[0], {
+      anime.set(this.elements.items[0], {
         y: '0%',
       })
-      GSAP.to(this.elements.items[0], {
+      anime({
+        targets: this.elements.items[0],
         autoAlpha: 1,
-        delay: 0.75,
-        duration: 0.75,
+        delay: 750,
+        duration: 750,
       })
     } else {
-      GSAP.to(this.elements.items[0], {
+      anime({
+        targets: this.elements.items[0],
         autoAlpha: 0,
         y: '-100%',
-        duration: 0.75,
+        duration: 750,
       })
 
-      GSAP.set(this.elements.items[1], {
+      anime.set(this.elements.items[1], {
         y: '0%',
       })
-      GSAP.to(this.elements.items[1], {
+      anime({
+        targets: this.elements.items[1],
         autoAlpha: 1,
-        delay: 0.75,
-        duration: 0.75,
+        delay: 750,
+        duration: 750,
       })
     }
   }

@@ -1,4 +1,4 @@
-import GSAP from 'gsap'
+import anime from 'animejs';
 import { split } from 'utils/text'
 import each from 'lodash/each'
 
@@ -39,15 +39,18 @@ export default class Detail extends Page {
     this.spans = this.page.querySelectorAll('span span')
   
 
-    this.animationIn = GSAP.timeline()
-    this.animationIn.fromTo(this.spans,{
-      y: '110%',
-    }, 
-    {
+    this.animationIn = anime.timeline()
+    this.animationIn.set({
+      targets: this.spans,
+      y: '110%'
+    }) 
+
+    this.animationIn({
+      targets: this.spans,
       y: '0%',
       ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
-      duration: .5,
-      stagger: .05
-    }, '+=1')
+      duration: 500,
+      delay: anime.stagger(50)
+    }, 1000)
   }
 }

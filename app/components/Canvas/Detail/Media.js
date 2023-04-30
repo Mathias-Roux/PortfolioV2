@@ -1,5 +1,5 @@
 import { Mesh, Program } from 'ogl'
-import GSAP from 'gsap'
+import anime from 'animejs';
 
 import fragment from 'shaders/plane-fragment.glsl'
 import vertex from 'shaders/plane-vertex.glsl'
@@ -60,18 +60,20 @@ export default class Media {
 
   // Animations
   show() {
-    GSAP.to(this.program.uniforms.threshold, {
+    anime({
+      targets: this.program.uniforms.threshold,
       value: 1,
-      duration: 1,
+      duration: 1000,
       ease: 'expo.out',
-      delay: 0.5
+      delay: 500
     })
   }
 
   hide() {
-    GSAP.to(this.program.uniforms.threshold, {
-      value: -0.1,
-      duration: .7,
+    anime.to({
+      targets: this.program.uniforms.threshold,
+      value: -1,
+      duration: 700,
       ease: 'expo.out'
     })
   }
