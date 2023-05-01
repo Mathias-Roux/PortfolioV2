@@ -84,36 +84,35 @@ export default class Preloader extends Component{
   onLoaded(){
     return new Promise(resolve => {
       
-      this.animationOut = anime.timeline({})
-
-      this.animationOut.add(_ => {
-        return this.emit('completed')
+      this.animationOut = anime.timeline({
+        begin: () => {
+          this.emit('completed')
+        },
+        complete: () => {
+          this.destroy()
+        }
       })
 
       this.animationOut.add({
         targets: this.titleSpan,
         translateY: '-110%',
         duration: 1500,
-        ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)',
+        ease: 'cubicBezier(0.33, 1, 0.68, 1)',
       }, 1000)
 
       this.animationOut.add({
         targets: this.elements.numberText,
         translateY: '110%',
         duration: 1500,
-        ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)',
+        ease: 'cubicBezier(0.33, 1, 0.68, 1)',
       }, 1000)
-
+    
       this.animationOut.add({
         targets: this.element,
         opacity: 0,
         duration: 1000,
-        easing: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
+        easing: 'cubicBezier(0.33, 1, 0.68, 1)'
       }, '+=500')
-
-      this.animationOut.add(_ => {
-        return this.destroy()
-      })
     })
   }
 

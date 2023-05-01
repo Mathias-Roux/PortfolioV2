@@ -24,9 +24,8 @@ export default class Home extends Page {
       targets: this.texts,
       opacity: [0, 1],
       translateY: ['15%', '0%'],
-      duration: 500,
-      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
-      delay: anime.stagger(50),
+      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
+      delay: anime.stagger(50)
     }, 1000)
   }
 

@@ -25,7 +25,7 @@ export default class Navigation extends Component {
         opacity: 0,
         translateY: '-100%',
         duration: 750,
-        easing: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
+        easing: 'cubicBezier(0.520, 0.690, 0.340, 1.000)'
       })
 
       anime.set(this.elements.items[0], {
@@ -43,7 +43,7 @@ export default class Navigation extends Component {
         opacity: 0,
         translateY: '-100%',
         duration: 750,
-        easing: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
+        easing: 'cubicBezier(0.520, 0.690, 0.340, 1.000)'
       })
 
       anime.set(this.elements.items[1], {

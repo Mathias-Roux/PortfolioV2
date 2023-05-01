@@ -42,15 +42,14 @@ export default class About extends Page {
     anime({
       targets: this.spans,
       translateY: ['105%', '0%'],
-      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
-      duration: 500,
-      delay: anime.stagger(200)
+      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
+      duration: 500
     }, 1000)
 
     anime({
       targets: this.links,
       opacity: [0, 1],
-      ease: 'cubic-bezier(0.77, 0, 0.175, 1)',
+      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
       duration: 500
     }, '+=200') 
   }

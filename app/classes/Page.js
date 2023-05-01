@@ -77,9 +77,9 @@ export default class Page {
       anime({
         targets: this.element,
         opacity: [0, 1],
-        complete: function() {
+        complete: () => {
           this.addEventListeners()
-
+          
           resolve()
         }
       })
@@ -92,7 +92,7 @@ export default class Page {
       anime({
         targets: this.element,
         opacity: 0,
-        complete: function() {
+        complete: () => {
           resolve()
         }
       })

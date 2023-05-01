@@ -64,7 +64,7 @@ export default class Media {
       targets: this.program.uniforms.threshold,
       value: 1,
       duration: 1000,
-      ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)',
+      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
       delay: 500
     })
   }
@@ -74,7 +74,7 @@ export default class Media {
       targets: this.program.uniforms.threshold,
       value: -1,
       duration: 700,
-      ease: 'cubic-bezier(0.520, 0.690, 0.340, 1.000)'
+      ease: 'cubicBezier(0.33, 1, 0.68, 1)'
     })
   }
 
