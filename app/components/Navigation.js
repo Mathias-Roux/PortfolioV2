@@ -34,7 +34,7 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.items[0],
         opacity: 1,
-        delay: 500,
+        delay: 750,
         easing: 'linear',
         duration: 500
       })
@@ -53,7 +53,7 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.items[1],
         opacity: 1,
-        delay: 500,
+        delay: 750,
         easing: 'linear',
         duration: 500
       })

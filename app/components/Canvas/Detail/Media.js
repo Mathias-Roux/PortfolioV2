@@ -63,9 +63,9 @@ export default class Media {
     anime({
       targets: this.program.uniforms.threshold,
       value: 1,
-      duration: 1500,
+      duration: 1100,
       easing: 'easeOutQuint',
-      delay: 500
+      delay: 400
     })
   }
 
