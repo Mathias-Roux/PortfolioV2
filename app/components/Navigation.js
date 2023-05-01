@@ -24,8 +24,8 @@ export default class Navigation extends Component {
         targets: this.elements.items[1],
         opacity: 0,
         translateY: '-100%',
-        duration: 750,
-        easing: 'cubicBezier(0.520, 0.690, 0.340, 1.000)'
+        easing: 'linear',
+        duration: 500
       })
 
       anime.set(this.elements.items[0], {
@@ -34,16 +34,17 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.items[0],
         opacity: 1,
-        delay: 750,
-        duration: 750
+        delay: 500,
+        easing: 'linear',
+        duration: 500
       })
     } else {
       anime({
         targets: this.elements.items[0],
         opacity: 0,
         translateY: '-100%',
-        duration: 750,
-        easing: 'cubicBezier(0.520, 0.690, 0.340, 1.000)'
+        easing: 'linear',
+        duration: 500
       })
 
       anime.set(this.elements.items[1], {
@@ -52,8 +53,9 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.items[1],
         opacity: 1,
-        delay: 750,
-        duration: 750
+        delay: 500,
+        easing: 'linear',
+        duration: 500
       })
     }
   }

@@ -96,22 +96,22 @@ export default class Preloader extends Component{
       this.animationOut.add({
         targets: this.titleSpan,
         translateY: '-110%',
-        duration: 1500,
-        ease: 'cubicBezier(0.33, 1, 0.68, 1)',
+        easing: 'linear',
+        duration: 300
       }, 1000)
 
       this.animationOut.add({
         targets: this.elements.numberText,
         translateY: '110%',
-        duration: 1500,
-        ease: 'cubicBezier(0.33, 1, 0.68, 1)',
+        easing: 'linear',
+        duration: 300
       }, 1000)
     
       this.animationOut.add({
         targets: this.element,
         opacity: 0,
-        duration: 1000,
-        easing: 'cubicBezier(0.33, 1, 0.68, 1)'
+        easing: 'linear',
+        duration: 500
       }, '+=500')
     })
   }

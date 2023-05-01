@@ -24,9 +24,10 @@ export default class Home extends Page {
       targets: this.texts,
       opacity: [0, 1],
       translateY: ['15%', '0%'],
-      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
-      delay: anime.stagger(50)
-    }, 1000)
+      easing: 'easeOutQuint',
+      duration: 600,
+      delay: anime.stagger(50, {start: 700})
+    })
   }
 
   async show(){

@@ -42,15 +42,17 @@ export default class About extends Page {
     anime({
       targets: this.spans,
       translateY: ['105%', '0%'],
-      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
-      duration: 500
-    }, 1000)
+      easing: 'easeOutQuint',
+      duration: 600,
+      delay: anime.stagger(50, {start: 700})
+    })
 
     anime({
       targets: this.links,
       opacity: [0, 1],
-      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
-      duration: 500
-    }, '+=200') 
+      duration: 600,
+      easing: 'linear',
+      delay: 1000
+    }) 
   }
 }

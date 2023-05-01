@@ -63,8 +63,8 @@ export default class Media {
     anime({
       targets: this.program.uniforms.threshold,
       value: 1,
-      duration: 1000,
-      ease: 'cubicBezier(0.33, 1, 0.68, 1)',
+      duration: 1500,
+      easing: 'easeOutQuint',
       delay: 500
     })
   }
@@ -72,9 +72,9 @@ export default class Media {
   hide() {
     anime({
       targets: this.program.uniforms.threshold,
-      value: -1,
-      duration: 700,
-      ease: 'cubicBezier(0.33, 1, 0.68, 1)'
+      value: -0.1,
+      easing: 'easeOutQuint',
+      duration: 800
     })
   }
 
