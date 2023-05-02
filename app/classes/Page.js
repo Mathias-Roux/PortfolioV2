@@ -78,7 +78,7 @@ export default class Page {
         targets: this.element,
         opacity: [0, 1],
         easing: 'linear',
-        duration: 500,
+        duration: 400,
         complete: () => {
           this.addEventListeners()
           
@@ -95,7 +95,7 @@ export default class Page {
         targets: this.element,
         opacity: 0,
         easing: 'linear',
-        duration: 500,
+        duration: 400,
         complete: () => {
           resolve()
         }
