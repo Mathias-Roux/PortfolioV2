@@ -23,13 +23,15 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.items[1],
         opacity: 0,
+        pointerEvents:'none',
         translateY: '-100%',
         easing: 'linear',
         duration: 500
       })
 
       anime.set(this.elements.items[0], {
-        translateY: '0%'
+        translateY: '0%',
+        pointerEvents:'auto'
       })
       anime({
         targets: this.elements.items[0],
@@ -43,12 +45,14 @@ export default class Navigation extends Component {
         targets: this.elements.items[0],
         opacity: 0,
         translateY: '-100%',
+        pointerEvents:'none',
         easing: 'linear',
         duration: 500
       })
 
       anime.set(this.elements.items[1], {
-        translateY: '0%'
+        translateY: '0%',
+        pointerEvents:'auto'
       })
       anime({
         targets: this.elements.items[1],
