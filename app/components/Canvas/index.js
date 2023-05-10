@@ -114,12 +114,8 @@ export default class Canvas {
 
     this.y.start = e.touches ? e.touches[0].clientY : e.clientY
 
-    const values = {
-      y: this.y,
-    }
-
     if (this.detail) {
-      this.detail.onTouchDown(values)
+      this.detail.onTouchDown()
     }
   }
 
@@ -141,18 +137,6 @@ export default class Canvas {
 
   onTouchUp(e) {
     this.isDown = false
-
-    const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY
-
-    this.y.end = y
-
-    const values = {
-      y: this.y,
-    }
-
-    if (this.detail) {
-      this.detail.onTouchUp(values)
-    }
   }
 
   onWheel(event){
