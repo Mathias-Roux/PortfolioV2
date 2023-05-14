@@ -30,9 +30,24 @@ export default class Home extends Page {
     })
   }
 
+  textHide(){
+    anime({
+      targets: this.texts,
+      translateY: '-105%',
+      easing: 'easeOutQuint',
+      duration: 700,
+    })
+  }
+
   async show(){
     super.show()
 
-    Detection.isDesktop() ? this.textShow() : null
+    this.textShow()
+  }
+
+  async hide(){
+    super.hide()
+
+    this.textHide()
   }
 }

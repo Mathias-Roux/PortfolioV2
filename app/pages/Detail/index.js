@@ -14,13 +14,7 @@ export default class Detail extends Page {
     })
   }
 
-  async show(){
-    super.show()
-
-    Detection.isDesktop() ? this.textAnimation() : null
-  }
-
-  textAnimation(){
+  textShow(){
     this.page = document.querySelector('.detail')
 
     this.texts = this.page.querySelectorAll('h1, h2, p')
@@ -46,4 +40,26 @@ export default class Detail extends Page {
       delay: anime.stagger(50, {start: 700})
     })
   }
+
+  textHide(){
+    anime({
+      targets: this.spans,
+      translateY: '-110%',
+      easing: 'easeOutQuint',
+      duration: 600
+    })
+  }
+
+  async show(){
+    super.show()
+
+    this.textShow()
+  }
+
+  async hide(){
+    super.hide()
+
+    this.textHide()
+  }
+
 }

@@ -14,13 +14,7 @@ export default class About extends Page {
     })  
   }
 
-  async show(){
-    super.show()
-
-    Detection.isDesktop() ? this.textAnimation() : null
-  }
-
-  textAnimation(){
+  textShow(){
     this.page = document.querySelector('.about')
 
     this.links = this.page.querySelectorAll('a')
@@ -54,5 +48,33 @@ export default class About extends Page {
       easing: 'linear',
       delay: 1000
     }) 
+  }
+
+  textHide(){
+    anime({
+      targets: this.spans,
+      translateY: '-105%',
+      easing: 'easeOutQuint',
+      duration: 600,
+    })
+
+    anime({
+      targets: this.links,
+      opacity: 0,
+      duration: 600,
+      easing: 'linear'
+    }) 
+  }
+
+  async show(){
+    super.show()
+
+    this.textShow()
+  }
+
+  async hide(){
+    super.hide()
+
+    this.textHide()
   }
 }

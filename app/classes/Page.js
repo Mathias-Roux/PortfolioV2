@@ -95,7 +95,8 @@ export default class Page {
         targets: this.element,
         opacity: 0,
         easing: 'linear',
-        duration: 400,
+        duration: 100,
+        delay: 700,
         complete: () => {
           resolve()
         }
