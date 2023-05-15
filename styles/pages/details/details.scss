@@ -37,7 +37,7 @@
 
   @media screen and (max-width: 768px){
     position: static;
-    margin-top: 80rem;
+    margin-top: 58rem;
     padding-bottom: 10rem;
   }
 }
@@ -72,7 +72,7 @@
   @media screen and (max-width: 768px){
     position: static;
     transform: none;
-    padding-top: 20rem;
+    padding-top: 16rem;
     width: 72vw;
   }
 }
@@ -101,6 +101,10 @@
     letter-spacing: 0;
     line-height: 1;
     transform: translateX(0);
+
+    span span{
+      padding-left: 0;
+    }
   }
 }
 

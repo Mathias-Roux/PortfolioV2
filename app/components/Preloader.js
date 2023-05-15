@@ -95,7 +95,7 @@ export default class Preloader extends Component{
 
       this.animationOut.add({
         targets: this.titleSpan,
-        translateY: '-110%',
+        translateY: '110%',
         easing: 'linear',
         duration: 300
       }, 1000)
@@ -109,10 +109,10 @@ export default class Preloader extends Component{
     
       this.animationOut.add({
         targets: this.element,
-        opacity: 0,
-        easing: 'linear',
-        duration: 500
-      }, '+=500')
+        translateY: '-100%',
+        easing: 'easeOutQuint',
+        duration: 1500
+      }, '+=300')
     })
   }
 

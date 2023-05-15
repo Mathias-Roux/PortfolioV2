@@ -2,8 +2,6 @@ import anime from 'animejs';
 
 import Page from "../../classes/Page"
 
-import Detection from 'classes/Detection'
-
 export default class Home extends Page {
   constructor(){
     super({
@@ -22,11 +20,10 @@ export default class Home extends Page {
     
     anime({
       targets: this.texts,
-      opacity: [0, 1],
-      translateY: ['15%', '0%'],
+      translateY: ['105%', '0%'],
       easing: 'easeOutQuint',
       duration: 600,
-      delay: anime.stagger(50, {start: 700})
+      delay: anime.stagger(50)
     })
   }
 

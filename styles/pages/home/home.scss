@@ -7,7 +7,7 @@
 }
 
 .home__list{
-  padding-top: 34vh;
+  padding-top: 41vh;
   will-change: transform;
 
   @media screen and (max-width: 768px){
@@ -57,4 +57,8 @@
   @extend %title-200;
   
   letter-spacing: -0.9rem;
+
+  @media screen and (max-width: 768px){
+    letter-spacing: -0.4rem;
+  }
 }

@@ -64,8 +64,7 @@ export default class Media {
       targets: this.program.uniforms.threshold,
       value: 1,
       duration: 1100,
-      easing: 'easeOutQuint',
-      delay: 400
+      easing: 'easeOutQuint'
     })
   }
 

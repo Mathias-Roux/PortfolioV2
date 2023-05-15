@@ -4,8 +4,6 @@ import each from 'lodash/each'
 
 import Page from "../../classes/Page"
 
-import Detection from 'classes/Detection'
-
 export default class Detail extends Page {
   constructor(){
     super({
@@ -37,7 +35,7 @@ export default class Detail extends Page {
       translateY: ['110%', '0%'],
       easing: 'easeOutQuint',
       duration: 600,
-      delay: anime.stagger(50, {start: 700})
+      delay: anime.stagger(50)
     })
   }
 

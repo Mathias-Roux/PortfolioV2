@@ -38,7 +38,7 @@ export default class About extends Page {
       translateY: ['105%', '0%'],
       easing: 'easeOutQuint',
       duration: 600,
-      delay: anime.stagger(50, {start: 700})
+      delay: anime.stagger(50)
     })
 
     anime({
@@ -61,7 +61,7 @@ export default class About extends Page {
     anime({
       targets: this.links,
       opacity: 0,
-      duration: 600,
+      duration: 500,
       easing: 'linear'
     }) 
   }
