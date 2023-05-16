@@ -34,7 +34,7 @@ export default class Detail extends Page {
       targets: this.spans,
       translateY: ['110%', '0%'],
       easing: 'easeOutQuint',
-      duration: 600,
+      duration: 700,
       delay: anime.stagger(50)
     })
   }
@@ -44,7 +44,7 @@ export default class Detail extends Page {
       targets: this.spans,
       translateY: '-110%',
       easing: 'easeOutQuint',
-      duration: 600
+      duration: 700
     })
   }
 

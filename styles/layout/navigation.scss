@@ -29,6 +29,9 @@
   position: absolute;
   right: 4rem;
   top: 6.5rem;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
 }
 
 .navigation__list__link{

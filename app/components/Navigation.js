@@ -21,45 +21,41 @@ export default class Navigation extends Component {
   onChange(template) {
     if (template === 'home') {
       anime({
-        targets: this.elements.items[1],
-        opacity: 0,
+        targets: this.elements.links[1],
         pointerEvents:'none',
-        translateY: '-100%',
-        easing: 'linear',
-        duration: 500
+        translateY: '-110%',
+        easing: 'easeOutQuint',
+        duration: 700
       })
 
-      anime.set(this.elements.items[0], {
-        translateY: '0%',
+      anime.set(this.elements.links[0], {
+        translateY: '110%',
         pointerEvents:'auto'
       })
       anime({
-        targets: this.elements.items[0],
-        opacity: 1,
-        delay: 750,
-        easing: 'linear',
-        duration: 500
+        targets: this.elements.links[0],
+        easing: 'easeOutQuint',
+        translateY: '0%',
+        duration: 700
       })
     } else {
       anime({
-        targets: this.elements.items[0],
-        opacity: 0,
-        translateY: '-100%',
+        targets: this.elements.links[0],
+        translateY: '-110%',
         pointerEvents:'none',
-        easing: 'linear',
-        duration: 500
+        easing: 'easeOutQuint',
+        duration: 700
       })
 
-      anime.set(this.elements.items[1], {
-        translateY: '0%',
+      anime.set(this.elements.links[1], {
+        translateY: '110%',
         pointerEvents:'auto'
       })
       anime({
-        targets: this.elements.items[1],
-        opacity: 1,
-        delay: 750,
-        easing: 'linear',
-        duration: 500
+        targets: this.elements.links[1],
+        easing: 'easeOutQuint',
+        translateY: '0%',
+        duration: 700
       })
     }
   }

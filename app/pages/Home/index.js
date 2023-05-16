@@ -22,7 +22,7 @@ export default class Home extends Page {
       targets: this.texts,
       translateY: ['105%', '0%'],
       easing: 'easeOutQuint',
-      duration: 600,
+      duration: 700,
       delay: anime.stagger(50)
     })
   }

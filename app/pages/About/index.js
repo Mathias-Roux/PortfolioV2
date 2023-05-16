@@ -37,14 +37,14 @@ export default class About extends Page {
       targets: this.spans,
       translateY: ['105%', '0%'],
       easing: 'easeOutQuint',
-      duration: 600,
+      duration: 700,
       delay: anime.stagger(50)
     })
 
     anime({
       targets: this.links,
       opacity: [0, 1],
-      duration: 600,
+      duration: 700,
       easing: 'linear',
       delay: 1000
     }) 
@@ -55,7 +55,7 @@ export default class About extends Page {
       targets: this.spans,
       translateY: '-105%',
       easing: 'easeOutQuint',
-      duration: 600,
+      duration: 700,
     })
 
     anime({
