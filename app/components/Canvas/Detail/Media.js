@@ -24,6 +24,7 @@ export default class Media {
     this.createBounds({
       sizes: this.sizes,
     })
+    
   }
 
   createTexture() {
@@ -59,7 +60,7 @@ export default class Media {
   }
 
   // Animations
-  show() {
+  show() {  
     anime({
       targets: this.program.uniforms.threshold,
       value: 1,
@@ -88,6 +89,14 @@ export default class Media {
     this.updateY(scroll && scroll.y)
   }
 
+  onPointerIn(){
+    // this.program.uniforms.isBlackAndWhite.value = true
+  }
+
+  onPointerOut(){
+    // this.program.uniforms.isBlackAndWhite.value = false
+  }
+
   // Loop.
   updateScale() {
     this.height = this.bounds.height / window.innerHeight
@@ -107,11 +116,9 @@ export default class Media {
     this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height) + this.extra.y
   }
 
- 
   update(scroll) {
     this.updateScale()
     this.updateX()
     this.updateY(scroll)
   }
-
 }

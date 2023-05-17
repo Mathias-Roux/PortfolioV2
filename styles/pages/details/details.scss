@@ -46,7 +46,8 @@
   height: 44.956rem;
   position: relative;
   width: 79.875rem;
-
+  cursor: crosshair;
+  
   &:not(:last-child){
     margin-bottom: 10rem
   }

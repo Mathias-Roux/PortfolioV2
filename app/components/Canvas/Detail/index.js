@@ -1,5 +1,6 @@
 import { Plane, Transform } from 'ogl'
 import map from 'lodash/map'
+import each from 'lodash/each'
 
 import Media from './Media'
 
@@ -29,7 +30,9 @@ export default class {
 
     this.group.setParent(this.scene)
 
-    this.show()
+    this.createObserver()
+
+    this.event()
   }
 
   createGeometry() {
@@ -51,8 +54,31 @@ export default class {
     })
   }
 
-  show() {
-    map(this.medias, media => media.show())
+  event(){
+    each(this.mediasElements, (element, index) => {
+      element.addEventListener('pointerenter', _ => {
+        this.medias[index].onPointerIn()
+      })
+      element.addEventListener('pointerleave', _ => {
+        this.medias[index].onPointerOut()
+      })
+    })
+  }
+
+  createObserver() {
+    each(this.mediasElements, (element, index) => {
+      new window.IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.show(index)
+          }
+        })
+      }).observe(element)
+    })
+  }
+
+  show(index) {
+    this.medias[index].show()
   }
 
   hide(){
@@ -95,6 +121,8 @@ export default class {
     if (this.scroll.current < 0.01) {
       this.scroll.current = 0
     }
+
+    this.galleryWrapperElement.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
 
     map(this.medias, media => media.update(this.scroll.current))
   }
