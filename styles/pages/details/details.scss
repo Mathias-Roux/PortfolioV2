@@ -52,6 +52,23 @@
     margin-bottom: 10rem
   }
 
+  &::after {
+    @extend %description-18;
+  
+    content: attr(data-alt);
+  
+    position: absolute;
+    bottom: -5%;
+    right: 0;
+    opacity: 0;
+    font-style: italic;
+    transition: all .8s cubic-bezier(0.22, 1, 0.36, 1)
+  }
+
+  &:hover::after{
+    opacity: 1;
+  }
+
   @media screen and (max-width: 768px){
     height: 36.956rem;
     width: 64.875rem;
