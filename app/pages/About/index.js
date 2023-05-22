@@ -61,7 +61,7 @@ export default class About extends Page {
     anime({
       targets: this.links,
       opacity: 0,
-      duration: 500,
+      duration: 400,
       easing: 'linear'
     }) 
   }
