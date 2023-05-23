@@ -40,11 +40,16 @@ export default class Detail extends Page {
   }
 
   textHide(){
-    anime({
-      targets: this.spans,
-      translateY: '-110%',
-      easing: 'easeOutQuint',
-      duration: 700
+    return new Promise((resolve) => {
+      anime({
+        targets: this.spans,
+        translateY: '-110%',
+        easing: 'easeOutQuint',
+        duration: 700,
+        complete: () => {
+          resolve()
+        }
+      })
     })
   }
 
@@ -55,9 +60,7 @@ export default class Detail extends Page {
   }
 
   async hide(){
-    super.hide()
-
-    this.textHide()
+    await this.textHide()
   }
 
 }

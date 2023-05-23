@@ -4,8 +4,6 @@ import each from 'lodash/each'
 
 import Page from "../../classes/Page"
 
-import Detection from 'classes/Detection'
-
 export default class About extends Page {
   constructor(){
     super({
@@ -51,19 +49,23 @@ export default class About extends Page {
   }
 
   textHide(){
-    anime({
-      targets: this.spans,
-      translateY: '-105%',
-      easing: 'easeOutQuint',
-      duration: 700,
+    return new Promise((resolve) => {
+      anime({
+        targets: this.links,
+        opacity: 0,
+        duration: 400,
+        easing: 'linear'
+      })
+      anime({
+        targets: this.spans,
+        translateY: '-105%',
+        easing: 'easeOutQuint',
+        duration: 700,
+        complete: () => {
+          resolve()
+        }
+      })
     })
-
-    anime({
-      targets: this.links,
-      opacity: 0,
-      duration: 400,
-      easing: 'linear'
-    }) 
   }
 
   async show(){
@@ -73,8 +75,6 @@ export default class About extends Page {
   }
 
   async hide(){
-    super.hide()
-
-    this.textHide()
+    await this.textHide()
   }
 }

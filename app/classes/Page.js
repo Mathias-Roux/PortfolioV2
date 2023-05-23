@@ -90,18 +90,18 @@ export default class Page {
   
 
   hide(){
-    return new Promise((resolve) => {
-      anime({
-        targets: this.element,
-        opacity: 0,
-        easing: 'linear',
-        duration: 100,
-        delay: 1000,
-        complete: () => {
-          resolve()
-        }
-      })
-    })
+    // return new Promise((resolve) => {
+    //   anime({
+    //     targets: this.element,
+    //     opacity: 0,
+    //     easing: 'linear',
+    //     duration: 100,
+    //     delay: 5000,
+    //     complete: () => {
+    //       resolve()
+    //     }
+    //   })
+    // })
   }
   
 
