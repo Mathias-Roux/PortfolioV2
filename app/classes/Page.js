@@ -96,7 +96,7 @@ export default class Page {
         opacity: 0,
         easing: 'linear',
         duration: 100,
-        delay: 700,
+        delay: 1000,
         complete: () => {
           resolve()
         }
