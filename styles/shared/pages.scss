@@ -1,6 +1,6 @@
 %page {
   @extend %cover;
 
-  opacity: 0;
+  background-color: transparent;
   z-index: z('content');
 }

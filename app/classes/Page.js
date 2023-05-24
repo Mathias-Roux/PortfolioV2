@@ -73,19 +73,18 @@ export default class Page {
   }
 
   show(){
-    return new Promise((resolve) => {
-      anime({
-        targets: this.element,
-        opacity: [0, 1],
-        easing: 'linear',
-        duration: 400,
-        complete: () => {
-          this.addEventListeners()
+    // return new Promise((resolve) => {
+    //   anime({
+    //     targets: this.element,
+    //     opacity: [0, 1],
+    //     duration: 0,
+    //     complete: () => {
+    //       this.addEventListeners()
           
-          resolve()
-        }
-      })
-    })
+    //       resolve()
+    //     }
+    //   })
+    // })
   }
   
 

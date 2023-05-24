@@ -28,16 +28,14 @@ export default class Home extends Page {
   }
 
   textHide(){
-    return new Promise((resolve) => {
-      anime({
-        targets: this.texts,
-        translateY: '-97%',
-        easing: 'easeOutQuint',
-        duration: 700,
-        complete: () => {
-          resolve()
-        }
-      })
+    anime({
+      targets: this.texts,
+      translateY: '-97%',
+      easing: 'easeInCubic',
+      duration: 700,
+      complete: () => {
+        this.page.remove()
+      }
     })
   }
 
@@ -47,7 +45,7 @@ export default class Home extends Page {
     this.textShow()
   }
 
-  async hide(){
-    await this.textHide()
+  hide(){
+    this.textHide()
   }
 }

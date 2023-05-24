@@ -49,23 +49,21 @@ export default class About extends Page {
   }
 
   textHide(){
-    return new Promise((resolve) => {
-      anime({
-        targets: this.links,
-        opacity: 0,
-        duration: 400,
-        easing: 'linear'
-      })
-      anime({
-        targets: this.spans,
-        translateY: '-105%',
-        easing: 'easeOutQuint',
-        duration: 700,
-        complete: () => {
-          resolve()
-        }
-      })
+    anime({
+      targets: this.links,
+      opacity: 0,
+      duration: 400,
+      easing: 'linear'
     })
+    anime({
+      targets: this.spans,
+      translateY: '-105%',
+      easing: 'easeInCubic',
+      duration: 700,
+      complete: () => {
+        this.page.remove()
+      }
+    }) 
   }
 
   async show(){
@@ -74,7 +72,7 @@ export default class About extends Page {
     this.textShow()
   }
 
-  async hide(){
-    await this.textHide()
+  hide(){
+    this.textHide()
   }
 }

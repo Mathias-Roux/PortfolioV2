@@ -81,43 +81,46 @@ class App {
   }
 
   async onChange({ url, push = true }){
+    this.page.hide()
+    
     if (this.canvas) {
       this.canvas.onChangeStart(this.template, url)
     }
-
-    await this.page.hide()
 
     const res = await window.fetch(url)
 
     if(res.status === 200) {
       const html = await res.text()
-      const div = document.createElement('div')
+      const newDiv = document.createElement('div')
 
       if (push) {
         window.history.pushState({}, '', url)
       }
 
-      div.innerHTML = html
+      newDiv.innerHTML = html
 
-      const divContent = div.querySelector('.content')
+      const divContent = newDiv.querySelector('.content')
+      const innerDivContent = divContent.querySelector('div')
 
       this.template = divContent.getAttribute('data-template')
 
       this.navigation.onChange(this.template)
 
       this.content.setAttribute('data-template', this.template)
-      this.content.innerHTML = divContent.innerHTML
-
-      if (this.canvas) {
-        this.canvas.onChangeEnd(this.template)
-      }
+      this.content.append(innerDivContent)
 
       this.page = this.pages[this.template]
       this.page.create()
-
+      
       this.onResize()
 
-      await this.page.show()
+      setTimeout(() => {
+        if (this.canvas) {
+          this.canvas.onChangeEnd(this.template)
+        }  
+      }, "1000")
+
+      this.page.show()
 
       this.addLinkListeners()
     } else {
