@@ -118,7 +118,7 @@ class App {
         if (this.canvas) {
           this.canvas.onChangeEnd(this.template)
         }  
-      }, "1000")
+      }, "700")
 
       this.page.show()
 

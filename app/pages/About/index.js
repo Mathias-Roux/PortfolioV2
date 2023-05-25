@@ -53,13 +53,13 @@ export default class About extends Page {
       targets: this.links,
       opacity: 0,
       duration: 400,
-      easing: 'linear'
+      easing: 'easeOutCubic'
     })
     anime({
       targets: this.spans,
       translateY: '-105%',
-      easing: 'easeInCubic',
-      duration: 700,
+      easing: 'easeOutCubic',
+      duration: 500,
       complete: () => {
         this.page.remove()
       }

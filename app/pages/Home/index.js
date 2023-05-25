@@ -31,8 +31,8 @@ export default class Home extends Page {
     anime({
       targets: this.texts,
       translateY: '-97%',
-      easing: 'easeInCubic',
-      duration: 700,
+      easing: 'easeOutCubic',
+      duration: 500,
       complete: () => {
         this.page.remove()
       }

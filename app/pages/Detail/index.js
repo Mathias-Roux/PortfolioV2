@@ -43,8 +43,8 @@ export default class Detail extends Page {
     anime({
       targets: this.spans,
       translateY: '-110%',
-      easing: 'easeInCubic',
-      duration: 700,
+      easing: 'easeOutCubic',
+      duration: 500,
       complete: () => {
         this.page.remove()
       }
