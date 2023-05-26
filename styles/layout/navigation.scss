@@ -9,11 +9,11 @@
 }
 
 .navigation__link{
-  @extend %title-60;
+  @extend %title-32;
 
-  right: 4rem;
+  right: 1.0416vw;
   position: absolute;
-  bottom: 4rem;
+  bottom: 4%;
   letter-spacing: 0.1rem;
 
   @media screen and (max-width: 768px){
@@ -27,15 +27,15 @@
 
 .navigation__list__item{
   position: absolute;
-  right: 4rem;
-  top: 6.5rem;
+  right: 1.0416vw;
+  top: 4%;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
 }
 
 .navigation__list__link{
-  @extend %title-30;
+  @extend %title-24;
 
   display: block;
   line-height: 1;

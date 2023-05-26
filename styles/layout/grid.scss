@@ -1,0 +1,24 @@
+.grid{
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  display: flex;
+  z-index: 9996;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.grid__columns{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.grid__column{
+  margin: 0 0.5208vw;
+  width: 7.1875vw;
+  height: 100%;
+  background-color: red;
+}
+  

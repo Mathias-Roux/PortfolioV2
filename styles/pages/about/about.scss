@@ -8,8 +8,8 @@
 
 .about__frame{
   position: absolute;
-  top: 6.5rem;
-  left: 6rem;
+  left: 9.2707vw;
+  top: 4%;
   
   @media screen and (max-width: 768px){
     top: 15%;
@@ -22,9 +22,9 @@
 }
 
 .about__infos__row__text{
-  @extend %description-20;
+  @extend %description-16;
 
-  letter-spacing: .1rem;
+  letter-spacing: .05rem;
   text-align: justify;
   line-height: 1.3;
 
@@ -40,8 +40,12 @@
 }
 
 .about__contact__list{
-  margin-top: 4rem;
-  overflow: hidden;
+  position: absolute;
+  top: 30%;
+  right: 17.4998vw;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
 
   @media screen and (max-width: 768px){
     margin-top: 10rem;
@@ -52,40 +56,13 @@
 
 
 .about__contact__list__link{
-  @extend %description-20;
+  @extend %description-16;
 
-  letter-spacing: .08rem;
-  margin-right: 1.5rem;
-
-  &:after{
-    content: ' ';
-    opacity: 0;
-    display: inline-block;
-    background-color: red;
-    width: .3rem;
-    height: .3rem;
-    transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-  }
-
-  &:hover::after{
-    opacity: 1;
-  }
+  letter-spacing: .05rem;
+  margin-bottom: 0.5rem;
 
   @media screen and (max-width: 768px){
     margin: 0 0 0 3rem;
     text-align: center;
-
-    &:before{
-      content: ' ';
-      display: inline-block;
-      background-color: red;
-      width: .3rem;
-      margin-right: 1px;
-      height: .3rem;
-    }
-
-    &:after{
-      content: none;
-    }
   }
 }

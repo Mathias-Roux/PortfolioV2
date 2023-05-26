@@ -10,12 +10,12 @@
 }
 
 .preloader__text{
-  @extend %title-90;
+  @extend %title-70;
 
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 4rem;
+  left: 9.2707vw;
 
   span{
     display: inline-block;
@@ -38,7 +38,7 @@
 
   position: absolute;
   top: 50%;
-  right: 4rem;
+  right: 9.2707vw;
   transform: translateY(-50%);
   overflow: hidden;
 

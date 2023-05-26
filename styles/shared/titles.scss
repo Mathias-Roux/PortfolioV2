@@ -1,24 +1,6 @@
-%title-30 {
+%title-24{
   font-family: $font-cormorant;
-  font-size: 3rem;
-
-  @media screen and (max-width: 768px){
-    font-size: 2.5rem;
-  }
-}
-
-%title-60 {
-  font-family: $font-cormorant;
-  font-size: 6rem;
-
-  @media screen and (max-width: 768px){
-    font-size: 4rem;
-  }
-}
-
-%title-70{
-  font-family: $font-cormorant;
-  font-size: 7rem;
+  font-size: 1.667vw;
   line-height: 1;
 
   @media screen and (max-width: 768px){
@@ -26,19 +8,40 @@
   }
 }
 
-%title-90{
+%title-32{
   font-family: $font-cormorant;
-  font-size: 9rem;
+  font-size: 2.222vw;
   line-height: 1;
 
+  @media screen and (max-width: 768px){
+    font-size: 5rem;
+  }
+}
+
+
+%title-50{
+  font-family: $font-cormorant;
+  font-size: 3.472vw;
+  line-height: 1;
+  
   @media screen and (max-width: 768px){
     font-size: 6.5rem;
   }
 }
 
-%title-200 {
+%title-70{
   font-family: $font-cormorant;
-  font-size: 20rem;
+  font-size: 4.2787vw;
+  line-height: 1;
+
+  @media screen and (max-width: 768px){
+    font-size: 5rem;
+  }
+}
+
+%title-144 {
+  font-family: $font-cormorant;
+  font-size: 10vw;
 
   @media screen and (max-width: 768px){
     font-size: 8.2rem;

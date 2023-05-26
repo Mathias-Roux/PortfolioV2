@@ -11,6 +11,6 @@ block content
           .about__infos__row
             p.about__infos__row__text!=row.infos_text.replace(/\n/g, '<br>')
 
-        .about__contact__list
-          each link in about.data.contact
-            a.about__contact__list__link(href=link.contact_link.url target="_blank")=link.contact_title
+      .about__contact__list
+        each link in about.data.contact
+          a.about__contact__list__link(href=link.contact_link.url target="_blank")=link.contact_title

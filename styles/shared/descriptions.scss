@@ -1,22 +1,13 @@
 %description-12 {
   font-family: $font-switzer;
-  font-size: 1.2rem;
+  font-size: 0.7334vw;
 }
 
-%description-18 {
+%description-16 {
   font-family: $font-switzer;
-  font-size: 1.8rem;
+  font-size: 0.833vw;
 
   @media screen and (max-width: 768px){
     font-size: 2.8rem;
-  }
-}
-
-%description-20 {
-  font-family: $font-switzer;
-  font-size: 2rem;
-
-  @media screen and (max-width: 768px){
-    font-size: 2.4rem;
   }
 }
