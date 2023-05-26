@@ -14,7 +14,6 @@
   right: 1.0416vw;
   position: absolute;
   bottom: 4%;
-  letter-spacing: 0.1rem;
 
   @media screen and (max-width: 768px){
     right: unset;
@@ -35,7 +34,7 @@
 }
 
 .navigation__list__link{
-  @extend %title-24;
+  @extend %description-18;
 
   display: block;
   line-height: 1;

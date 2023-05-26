@@ -6,8 +6,19 @@
 %description-16 {
   font-family: $font-league-spartan-regular;
   font-size: 0.833vw;
+  letter-spacing: 0.02rem;
 
   @media screen and (max-width: 768px){
     font-size: 2.8rem;
+  }
+}
+
+%description-18{
+  font-family: $font-league-spartan-regular;
+  font-size: 1.250vw;
+  line-height: 1;
+
+  @media screen and (max-width: 768px){
+    font-size: 5rem;
   }
 }
