@@ -14,3 +14,6 @@ block content
       .about__contact__list
         each link in about.data.contact
           a.about__contact__list__link(href=link.contact_link.url target="_blank")=link.contact_title
+
+      figure.about__media
+        img.about__media__image(alt=about.data.image.alt  data-src=about.data.image.url)

@@ -74,7 +74,8 @@ const handleRequest = async () => {
       })
     })
   })
-
+ 
+  assets.push(about.data.image.url)
 
   return {
     meta,
