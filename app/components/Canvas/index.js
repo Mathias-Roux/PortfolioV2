@@ -1,6 +1,7 @@
 import { Camera, Renderer, Transform } from 'ogl'
 
 import Detail from './Detail'
+import About from './About'
 
 export default class Canvas {
   constructor({ template }) {
@@ -63,14 +64,35 @@ export default class Canvas {
     this.detail = null
   }
 
+  /**
+   * About
+   */
+  createAbout() {
+    this.about = new About({
+      gl: this.gl,
+      scene: this.scene,
+      sizes: this.sizes
+    })
+  }
+
+  destroyAbout(){
+    if (!this.about) return
+    this.about.destroy()
+    this.about = null
+  }
+
 
   onPreloaded(){
     this.onChangeEnd(this.template)
   }
 
-  onChangeStart(url){
+  onChangeStart(){
     if(this.detail){
       this.detail.hide()
+    }
+
+    if(this.about){
+      this.about.hide()
     }
   }
 
@@ -79,6 +101,12 @@ export default class Canvas {
       this.createDetail()
     } else if (this.detail){
       this.destroyDetail()
+    }
+
+    if (template === 'about') {
+      this.createAbout()
+    } else if (this.about){
+      this.destroyAbout()
     }
 
     this.template = template
@@ -106,6 +134,10 @@ export default class Canvas {
 
     if(this.detail){
       this.detail.onResize(values)
+    }
+
+    if(this.about){
+      this.about.onResize(values)
     }
   }
 
@@ -135,7 +167,7 @@ export default class Canvas {
     }
   }
 
-  onTouchUp(e) {
+  onTouchUp() {
     this.isDown = false
   }
 
@@ -148,6 +180,10 @@ export default class Canvas {
   update(scroll) {
     if (this.detail) {
       this.detail.update(scroll)
+    }
+
+    if (this.about) {
+      this.about.update()
     }
 
     this.renderer.render({

@@ -66,10 +66,12 @@
 }
 
 .about__media{
-  height: 22.7129vw;
-  position: relative;
-  width: 40.1039vw;
+  height: 43.7129vw;
+    position: relative;
+    width: 35.1039vw;
   cursor: crosshair;
+  left: 9.2707vw;
+  top: 30%;
 
   @media screen and (max-width: 768px){
     height: 37.956rem;

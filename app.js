@@ -14,6 +14,7 @@ const port = 3000
 const prismic = require('@prismicio/client')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args))
 const prismicH =  require('@prismicio/helpers')
+const { log } = require('console')
 
 
 const endpoint = prismic.getEndpoint("personal-portfoliov2")
