@@ -93,6 +93,7 @@ export default class Media {
       x: 0,
       y: 0,
     }
+    this.aspect = window.innerWidth / window.innerHeight
     this.createBounds(sizes)
     this.updateX()
     this.updateY()
@@ -112,7 +113,7 @@ export default class Media {
     }
 
     // Get mouse value in 0 to 1 range, with y flipped
-    this.mouse.set(e.x / this.gl.renderer.width, 1.0 - e.y / this.gl.renderer.height);
+    this.mouse.set(e.x / window.innerWidth, 1.0 - e.y / window.innerHeight);
 
     // Calculate velocity
     if (!this.lastTime) {

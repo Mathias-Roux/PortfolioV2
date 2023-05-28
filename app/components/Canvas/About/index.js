@@ -44,7 +44,7 @@ export default class {
     // this.mediaElement.addEventListener('pointerenter', e => {
     //   this.media.onPointerIn(e)
     // })
-    this.mediaElement.addEventListener('pointermove', e => {
+    window.addEventListener('pointermove', e => {
       this.media.onPointerMove(e)
     })
     // this.mediaElement.addEventListener('pointerleave', e => {
