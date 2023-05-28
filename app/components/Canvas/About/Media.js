@@ -45,7 +45,7 @@ export default class Media {
       fragment,
       vertex,
       uniforms: {
-        // threshold: { value: -0.1 },
+        threshold: { value: -0.1 },
         tMap: { value: this.texture },
         tFlow: this.flowmap.uniform
       }
@@ -70,21 +70,21 @@ export default class Media {
 
   // Animations
   show() {  
-    // anime({
-    //   targets: this.program.uniforms.threshold,
-    //   value: 1,
-    //   duration: 1100,
-    //   easing: 'easeOutQuint'
-    // })
+    anime({
+      targets: this.program.uniforms.threshold,
+      value: 1,
+      duration: 1100,
+      easing: 'easeOutQuint'
+    })
   }
 
   hide() {
-    // anime({
-    //   targets: this.program.uniforms.threshold,
-    //   value: -0.1,
-    //   easing: 'easeOutQuint',
-    //   duration: 800
-    // })
+    anime({
+      targets: this.program.uniforms.threshold,
+      value: -0.1,
+      easing: 'easeOutQuint',
+      duration: 800
+    })
   }
 
   // Events

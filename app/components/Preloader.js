@@ -95,16 +95,16 @@ export default class Preloader extends Component{
 
       this.animationOut.add({
         targets: this.titleSpan,
-        translateY: '110%',
+        translateY: '100%',
         easing: 'linear',
-        duration: 300
+        duration: 400
       }, 1000)
 
       this.animationOut.add({
         targets: this.elements.numberText,
-        translateY: '110%',
+        translateY: '100%',
         easing: 'linear',
-        duration: 300
+        duration: 250
       }, 1000)
     
       this.animationOut.add({

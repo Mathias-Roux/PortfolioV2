@@ -5,17 +5,24 @@
   color: $color-white;
   text-align: center;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   z-index: z('preloader');
 }
 
-.preloader__text{
-  @extend %title-70;
-
+.preloader__wrapper{
+  display: flex;
   position: absolute;
+  align-items: baseline;
   top: 50%;
-  transform: translateY(-50%);
-  left: 33.958vw;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.preloader__text{
+  @extend %title-32;
 
   span{
     display: inline-block;
@@ -23,7 +30,9 @@
     vertical-align: top;
   }
 
-  span span{}
+  span span{
+    will-change: transform;
+  }
 
   @media screen and (max-width: 768px){
     top: 4rem;
@@ -34,12 +43,8 @@
 }
 
 .preloader__number{
-  @extend %title-70;
+  @extend %title-23;
 
-  position: absolute;
-  top: 50%;
-  right: 33.958vw;
-  transform: translateY(-50%);
   overflow: hidden;
 
   @media screen and (max-width: 768px){
