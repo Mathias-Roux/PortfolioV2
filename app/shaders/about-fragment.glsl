@@ -12,7 +12,7 @@ void main() {
 
     vec3 flow = texture2D(tFlow, vUv).rgb;
 
-    uv += flow.xy * 0.005;
+    uv += flow.xy * 0.0005;
     vec4 tex = texture2D(tMap, uv);
     float alpha = step(vUv.y, threshold);
     
