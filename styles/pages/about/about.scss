@@ -12,13 +12,18 @@
   top: 4%;
   
   @media screen and (max-width: 768px){
-    top: 15%;
-    width: 83vw;
+    top: 13%;
+    width: 81.5vw;
+    left: 9.2vw;
   }
 }
 
 .about__infos__row{
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 768px){
+    margin-bottom: 0.5rem;
+  }
 }
 
 .about__infos__row__text{
@@ -40,16 +45,14 @@
 
 .about__contact__list{
   position: absolute;
-  top: 30%;
+  top: 36%;
   right: 17.4998vw;
   display: flex;
   flex-direction: column;
   text-align: right;
 
   @media screen and (max-width: 768px){
-    margin-top: 10rem;
-    display: flex;
-    justify-content: flex-end;
+    right: 9.4998vw;
   }
 }
 
@@ -58,11 +61,6 @@
   @extend %description-16;
 
   margin-bottom: 0.5rem;
-
-  @media screen and (max-width: 768px){
-    margin: 0 0 0 3rem;
-    text-align: center;
-  }
 }
 
 .about__media{
@@ -74,8 +72,9 @@
   top: 30%;
 
   @media screen and (max-width: 768px){
-    height: 37.956rem;
-    width: 64.875rem;
+    height: 13.956000000000003rem;
+    width: 9.875rem;
+    top: 43%;
   }
 }
 

@@ -17,8 +17,7 @@
 
   @media screen and (max-width: 768px){
     right: unset;
-    left: 4rem;
-    mix-blend-mode: color-dodge;
+    left: 9.4998vw;
   }
 }
 
@@ -31,6 +30,10 @@
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
+
+  @media screen and (max-width: 768px){
+    right: 9.4998vw;
+  }
 }
 
 .navigation__list__link{
@@ -39,13 +42,4 @@
   display: block;
   line-height: 1;
   opacity: 1;
-  transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-
-  &:hover{
-    opacity: 0.85;
-  }
-
-  @media screen and (max-width: 768px){
-    opacity: 1;
-  }
 }
