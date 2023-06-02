@@ -189,7 +189,6 @@ class App {
   }
 
   onKeyDown(){
-    console.log('keydown');
     this.grid.onChange()
   }
 
