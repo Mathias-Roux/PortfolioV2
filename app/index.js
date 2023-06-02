@@ -7,6 +7,7 @@ import Canvas from './components/Canvas'
 
 import Preloader from './components/Preloader'
 import Navigation from './components/Navigation'
+import Grid from './components/Grid'
 
 import Home from './pages/Home'
 import Detail from './pages/Detail'
@@ -20,6 +21,7 @@ class App {
     
     this.createPreloader()
     this.createNavigation()
+    this.createGrid()
 
     this.createPages()
 
@@ -50,6 +52,10 @@ class App {
 
   createNavigation(){
     this.navigation = new Navigation({ template: this.template })
+  }
+
+  createGrid(){
+    this.grid = new Grid()
   }
 
   createPages(){
@@ -182,6 +188,11 @@ class App {
     }
   }
 
+  onKeyDown(){
+    console.log('keydown');
+    this.grid.onChange()
+  }
+
   update(){
     if(this.page && this.page.update){
       this.page.update()
@@ -205,6 +216,12 @@ class App {
     window.addEventListener('touchstart', this.onTouchDown.bind(this))
     window.addEventListener('touchmove', this.onTouchMove.bind(this))
     window.addEventListener('touchend', this.onTouchUp.bind(this))
+
+    window.addEventListener('keydown', function(e){
+      if(e.shiftKey && e.key === 'G'){
+        this.onKeyDown()
+      }
+    }.bind(this))
 
     window.addEventListener('resize', this.onResize.bind(this))
   }
