@@ -36,12 +36,12 @@ html(lang="en")
 
 
   body
-    include ./partials/preloader
+    #components
+      include ./partials/preloader
+      include ./partials/alert
+      include ./partials/grid
+
     include ./partials/navigation
-
-    include ./partials/alert
-
-    include ./partials/grid
 
     .content#content(data-template=template)
       block content
