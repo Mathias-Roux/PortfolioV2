@@ -45,7 +45,7 @@
 
 .about__contact__list{
   position: absolute;
-  top: 36%;
+  top: 30%;
   right: 17.4998vw;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,7 @@
 
   @media screen and (max-width: 768px){
     right: 9.4998vw;
+    top: 40%;
   }
 }
 
