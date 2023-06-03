@@ -1,6 +1,6 @@
 class Detection {
   isDesktop(){
-    return /(Windows NT|Macintosh)/i.test(navigator.userAgent)
+    return /(Windows NT|Macintosh|Linux)/i.test(navigator.userAgent)
   }
 }
 
