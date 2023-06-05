@@ -1,6 +1,6 @@
 class Detection {
   isMobile(){
-    return /(Mobi|Andrdoid|Tablet|iPad|iPhone)/i.test(navigator.userAgent)
+    return /Mobi|Andrdoid|Tablet|iPad|iPhone/.test(navigator.userAgent) || "MacIntel"===navigator.platform&&e.maxTouchPoints>1
   }
 }
 
