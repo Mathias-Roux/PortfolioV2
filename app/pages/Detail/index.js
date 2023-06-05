@@ -60,5 +60,4 @@ export default class Detail extends Page {
   hide(){
     this.textHide()
   }
-
 }

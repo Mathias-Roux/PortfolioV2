@@ -1,4 +1,3 @@
-import anime from 'animejs';
 import each from 'lodash/each'
 import map from 'lodash/map'
 
@@ -27,7 +26,7 @@ export default class Page {
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
-    if(!Detection.isDesktop()){
+    if(Detection.isMobile()){
       window.pageYOffset = 0
       document.documentElement.scrollTop = 0 
       document.body.scrollTop = 0
@@ -63,7 +62,7 @@ export default class Page {
       }
     })
 
-    Detection.isDesktop() ? null : this.createPreloader()
+    Detection.isMobile() ? this.createPreloader() : null
   }
 
   createPreloader() {
@@ -73,34 +72,10 @@ export default class Page {
   }
 
   show(){
-    // return new Promise((resolve) => {
-    //   anime({
-    //     targets: this.element,
-    //     opacity: [0, 1],
-    //     duration: 0,
-    //     complete: () => {
-    //       this.addEventListeners()
-          
-    //       resolve()
-    //     }
-    //   })
-    // })
   }
   
 
   hide(){
-    // return new Promise((resolve) => {
-    //   anime({
-    //     targets: this.element,
-    //     opacity: 0,
-    //     easing: 'linear',
-    //     duration: 100,
-    //     delay: 5000,
-    //     complete: () => {
-    //       resolve()
-    //     }
-    //   })
-    // })
   }
   
 
@@ -111,7 +86,7 @@ export default class Page {
       this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight / 1.5)
     }
 
-    if (!Detection.isDesktop()){
+    if (Detection.isMobile()){
       if (window.innerHeight < window.innerWidth) {
         this.alert.style.opacity = 1
       } else {
@@ -158,7 +133,7 @@ export default class Page {
       this.scroll.current = 0
     }
 
-    if (this.elements.wrapper && Detection.isDesktop()) {
+    if (this.elements.wrapper && !Detection.isMobile()) {
       this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
 
       const elements = this.element.querySelectorAll('.item')

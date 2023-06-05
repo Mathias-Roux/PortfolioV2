@@ -1,6 +1,6 @@
 class Detection {
-  isDesktop(){
-    return /(Windows NT|Macintosh|Linux)/i.test(navigator.userAgent)
+  isMobile(){
+    return /(Mobi|Andrdoid|Tablet|iPad|iPhone)/i.test(navigator.userAgent)
   }
 }
 
