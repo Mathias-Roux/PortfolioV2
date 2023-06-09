@@ -116,7 +116,7 @@ export default class Page {
     this.scroll.target = this.scroll.last + distance
   }
 
-  onTouchUp (event) {
+  onTouchUp () {
     this.isDown = false
   }
 
