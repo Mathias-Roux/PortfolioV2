@@ -12,32 +12,54 @@ export default class Home extends Page {
         wrapper: '.home__list'
       }
     })
+
+    this.mobile = isMobile
   }
 
   textShow(){
     this.page = document.querySelector('.home')
     this.texts = this.page.querySelectorAll('.item__wrapper')
   
-    
-    anime({
-      targets: this.texts,
-      translateY: ['105%', '0%'],
-      easing: 'easeOutQuint',
-      duration: 700,
-      delay: anime.stagger(50)
-    })
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: ['0', '1'],
+        easing: 'easeOutQuint',
+        duration: 500
+      })
+    } else {
+      anime({
+        targets: this.texts,
+        translateY: ['105%', '0%'],
+        easing: 'easeOutQuint',
+        duration: 700,
+        delay: anime.stagger(50)
+      })
+    }
   }
 
   textHide(){
-    anime({
-      targets: this.texts,
-      translateY: '-97%',
-      easing: 'easeOutCubic',
-      duration: 500,
-      complete: () => {
-        this.page.remove()
-      }
-    })
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: '0',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      })
+    } else {
+      anime({
+        targets: this.texts,
+        translateY: '-97%',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      })
+    }
   }
 
   show(){

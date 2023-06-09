@@ -11,6 +11,8 @@ export default class Detail extends Page {
       device: isMobile,
       element: '.detail'
     })
+
+    this.mobile = isMobile
   }
 
   textShow(){
@@ -31,25 +33,47 @@ export default class Detail extends Page {
     
     this.spans = this.page.querySelectorAll('span span')
 
-    anime({
-      targets: this.spans,
-      translateY: ['110%', '0%'],
-      easing: 'easeOutQuint',
-      duration: 700,
-      delay: anime.stagger(50)
-    })
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: ['0', '1'],
+        easing: 'easeOutQuint',
+        duration: 500
+      })
+    } else{
+      anime({
+        targets: this.spans,
+        translateY: ['110%', '0%'],
+        easing: 'easeOutQuint',
+        duration: 700,
+        delay: anime.stagger(50)
+      })
+    }
+
   }
 
   textHide(){
-    anime({
-      targets: this.spans,
-      translateY: '-110%',
-      easing: 'easeOutCubic',
-      duration: 500,
-      complete: () => {
-        this.page.remove()
-      }
-    })
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: '0',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      })
+    } else {
+      anime({
+        targets: this.spans,
+        translateY: '-110%',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      })
+    }
   }
 
   show(){

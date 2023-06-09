@@ -11,6 +11,8 @@ export default class About extends Page {
       device: isMobile,
       element: '.about'
     })  
+
+    this.mobile = isMobile
   }
 
   textShow(){
@@ -32,39 +34,61 @@ export default class About extends Page {
     
     this.spans = this.page.querySelectorAll('span span')
 
-    anime({
-      targets: this.spans,
-      translateY: ['105%', '0%'],
-      easing: 'easeOutQuint',
-      duration: 700,
-      delay: anime.stagger(50)
-    })
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: ['0', '1'],
+        easing: 'easeOutQuint',
+        duration: 500
+      })
+    } else {
+      anime({
+        targets: this.spans,
+        translateY: ['105%', '0%'],
+        easing: 'easeOutQuint',
+        duration: 700,
+        delay: anime.stagger(50)
+      })
+  
+      anime({
+        targets: this.links,
+        opacity: [0, 1],
+        duration: 700,
+        easing: 'linear',
+        delay: 1000
+      }) 
+    }
 
-    anime({
-      targets: this.links,
-      opacity: [0, 1],
-      duration: 700,
-      easing: 'linear',
-      delay: 1000
-    }) 
   }
 
   textHide(){
-    anime({
-      targets: this.links,
-      opacity: 0,
-      duration: 400,
-      easing: 'easeOutCubic'
-    })
-    anime({
-      targets: this.spans,
-      translateY: '-105%',
-      easing: 'easeOutCubic',
-      duration: 500,
-      complete: () => {
-        this.page.remove()
-      }
-    }) 
+    if(this.mobile){
+      anime({
+        targets: this.page,
+        opacity: '0',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      }) 
+    } else {
+      anime({
+        targets: this.links,
+        opacity: 0,
+        duration: 400,
+        easing: 'easeOutCubic'
+      })
+      anime({
+        targets: this.spans,
+        translateY: '-105%',
+        easing: 'easeOutCubic',
+        duration: 500,
+        complete: () => {
+          this.page.remove()
+        }
+      }) 
+    }
   }
 
   show(){
