@@ -3,9 +3,10 @@ import anime from 'animejs';
 import Page from "../../classes/Page"
 
 export default class Home extends Page {
-  constructor(){
+  constructor(isMobile){
     super({
       id: 'home',
+      device: isMobile,
       element: '.home',
       elements: {
         wrapper: '.home__list'
@@ -39,9 +40,7 @@ export default class Home extends Page {
     })
   }
 
-  async show(){
-    super.show()
-
+  show(){
     this.textShow()
   }
 

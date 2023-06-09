@@ -1,14 +1,16 @@
 import each from 'lodash/each'
 import map from 'lodash/map'
 
+import anime from 'animejs';
+
 import AsyncLoad from 'classes/AsyncLoad'
-import Detection from 'classes/Detection'
 
 export default class Page {
   constructor({
     element,
     elements,
-    id
+    id,
+    device
   }) {
     this.selector = element
     this.selectorChildren = {
@@ -19,6 +21,8 @@ export default class Page {
 
     this.id = id
 
+    this.isMobile = device
+
     this.alert = document.querySelector('.alert')
   }
 
@@ -26,7 +30,7 @@ export default class Page {
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
-    if(Detection.isMobile()){
+    if(this.isMobile){
       window.pageYOffset = 0
       document.documentElement.scrollTop = 0 
       document.body.scrollTop = 0
@@ -62,23 +66,17 @@ export default class Page {
       }
     })
 
-    Detection.isMobile() ? this.createPreloader() : null
+    this.createPreloader()
   }
 
   createPreloader() {
-    this.preloaders = map(this.elements.preloaders, (element) => {
-      return new AsyncLoad({ element })
-    })
-  }
-
-  show(){
-  }
-  
-
-  hide(){
+    if(this.isMobile){
+      this.preloaders = map(this.elements.preloaders, (element) => {
+        return new AsyncLoad({ element })
+      })
+    }
   }
   
-
   onResize(){
     this.scroll.last = this.scroll.target = 0
 
@@ -86,7 +84,7 @@ export default class Page {
       this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight / 1.5)
     }
 
-    if (Detection.isMobile()){
+    if (this.isMobile){
       if (window.innerHeight < window.innerWidth) {
         this.alert.style.opacity = 1
       } else {
@@ -133,7 +131,7 @@ export default class Page {
       this.scroll.current = 0
     }
 
-    if (this.elements.wrapper && !Detection.isMobile()) {
+    if (this.elements.wrapper && !this.isMobile) {
       this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
 
       const elements = this.element.querySelectorAll('.item')

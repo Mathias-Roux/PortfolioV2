@@ -26,6 +26,7 @@
 
   @media screen and (max-width: 768px){
     opacity: 1;
+    filter: blur(0px);
     pointer-events: all;
   }
 }

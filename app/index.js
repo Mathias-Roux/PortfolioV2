@@ -16,8 +16,10 @@ import About from './pages/About'
 class App {
   constructor(){
     this.createContent()
+
+    this.DetectDevice()
     
-    Detection.isMobile() ? null : this.createCanvas()
+    this.createCanvas()
     
     this.createPreloader()
     this.createNavigation()
@@ -38,8 +40,15 @@ class App {
     this.template = this.content.getAttribute('data-template')
   }
 
+  DetectDevice(){
+    //Boolean
+    this.isMobile = Detection.isMobile()
+  }
+
   createCanvas(){
-    this.canvas = new Canvas({ template: this.template })
+    if(!this.isMobile){
+      this.canvas = new Canvas({ template: this.template })
+    }
   }
 
   createPreloader(){
@@ -60,9 +69,9 @@ class App {
 
   createPages(){
     this.pages = {
-      home: new Home(),
-      detail: new Detail(),
-      about: new About()
+      home: new Home(this.isMobile),
+      detail: new Detail(this.isMobile),
+      about: new About(this.isMobile)
     }
 
     this.page = this.pages[this.template]

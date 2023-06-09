@@ -5,9 +5,10 @@ import each from 'lodash/each'
 import Page from "../../classes/Page"
 
 export default class Detail extends Page {
-  constructor(){
+  constructor(isMobile){
     super({
       id: 'detail',
+      device: isMobile,
       element: '.detail'
     })
   }
@@ -51,9 +52,7 @@ export default class Detail extends Page {
     })
   }
 
-  async show(){
-    super.show()
-
+  show(){
     this.textShow()
   }
 
