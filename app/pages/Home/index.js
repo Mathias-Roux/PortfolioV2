@@ -16,9 +16,11 @@ export default class Home extends Page {
     this.mobile = isMobile
   }
 
-  textShow(){
+  textShow(isPreloaded){
     this.page = document.querySelector('.home')
     this.texts = this.page.querySelectorAll('.item__wrapper')
+
+    const delay = isPreloaded ? 1950 : 0
   
     if(this.mobile){
       anime({
@@ -33,7 +35,7 @@ export default class Home extends Page {
         translateY: ['105%', '0%'],
         easing: 'easeOutQuint',
         duration: 700,
-        delay: anime.stagger(50)
+        delay: anime.stagger(50, {start: delay})
       })
     }
   }
@@ -62,8 +64,8 @@ export default class Home extends Page {
     }
   }
 
-  show(){
-    this.textShow()
+  show(isPreloaded){
+    this.textShow(isPreloaded)
   }
 
   hide(){

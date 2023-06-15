@@ -15,10 +15,12 @@ export default class Detail extends Page {
     this.mobile = isMobile
   }
 
-  textShow(){
+  textShow(isPreloaded){
     this.page = document.querySelector('.detail')
 
     this.texts = this.page.querySelectorAll('h1, h2, p')
+
+    const delay = isPreloaded ? 1950 : 0
 
     each(this.texts, text => {
       split({
@@ -46,7 +48,7 @@ export default class Detail extends Page {
         translateY: ['110%', '0%'],
         easing: 'easeOutQuint',
         duration: 700,
-        delay: anime.stagger(50)
+        delay: anime.stagger(50, {start: delay})
       })
     }
 
@@ -76,8 +78,8 @@ export default class Detail extends Page {
     }
   }
 
-  show(){
-    this.textShow()
+  show(isPreloaded){
+    this.textShow(isPreloaded)
   }
 
   hide(){

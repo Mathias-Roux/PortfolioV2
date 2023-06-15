@@ -85,7 +85,7 @@ class App {
       this.canvas.onPreloaded()
     }
 
-    this.page.show()
+    this.page.show(true)
   }
 
   onPopState() {
