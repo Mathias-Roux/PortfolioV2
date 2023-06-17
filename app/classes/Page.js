@@ -111,7 +111,7 @@ export default class Page {
 
     const distance = this.y.start - this.y.end
 
-    this.scroll.target = this.scroll.last + distance
+    this.scroll.target = this.scroll.last + distance * 2
   }
 
   onTouchUp () {
