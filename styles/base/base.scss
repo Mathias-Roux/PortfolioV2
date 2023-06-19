@@ -21,7 +21,7 @@ body{
   font-family: $font-league-spartan-regular;
   overflow: hidden;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     overflow: scroll;
   }
 }
@@ -39,7 +39,7 @@ img{
   vertical-align: middle;
   aspect-ratio: 16 / 9;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     transition: opacity 0.4s ease;
 
     &.loaded {

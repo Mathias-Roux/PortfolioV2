@@ -11,7 +11,7 @@
   left: 17.4998vw;
   top: 4%;
   
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     top: 13%;
     width: 81.5vw;
     left: 9.2vw;
@@ -21,7 +21,7 @@
 .about__infos__row{
   margin-bottom: 1rem;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     margin-bottom: 0.5rem;
   }
 }
@@ -51,7 +51,7 @@
   flex-direction: column;
   text-align: right;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     right: 9.4998vw;
     top: calc(60vw + 100px);
   }
@@ -72,8 +72,8 @@
   left: 17.4998vw;
   top: 30%;
 
-  @media screen and (max-width: 768px){
-    height: 13.956000000000003rem;
+  @media screen and (max-width: 1024px){
+    height: 13.9560rem;
     width: 9.875rem;
     top: 43%;
   }
