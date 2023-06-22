@@ -1,8 +1,8 @@
 import { Mesh, Program, Vec2, Flowmap} from 'ogl'
 import anime from 'animejs';
 
-import fragment from 'shaders/about-fragment.glsl'
-import vertex from 'shaders/plane-vertex.glsl'
+import fragment from '../../../shaders/about-fragment.glsl'
+import vertex from '../../../shaders/plane-vertex.glsl'
 
 export default class Media {
   constructor({ element, geometry, gl, index, scene, sizes }) {

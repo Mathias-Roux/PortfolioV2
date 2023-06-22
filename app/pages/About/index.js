@@ -1,5 +1,5 @@
 import anime from 'animejs';
-import { split } from 'utils/text'
+import { split } from '../../utils/text'
 import each from 'lodash/each'
 
 import Page from "../../classes/Page"

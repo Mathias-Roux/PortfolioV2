@@ -1,9 +1,7 @@
 import each from 'lodash/each'
 import map from 'lodash/map'
 
-import anime from 'animejs';
-
-import AsyncLoad from 'classes/AsyncLoad'
+import AsyncLoad from '../classes/AsyncLoad'
 
 export default class Page {
   constructor({

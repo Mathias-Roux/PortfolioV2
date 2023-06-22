@@ -1,6 +1,6 @@
 import anime from 'animejs'
 import each from 'lodash/each'
-import { split } from 'utils/text'
+import { split } from '../utils/text'
 import { Texture } from 'ogl'
 
 import Component from "../classes/Component"
