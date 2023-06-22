@@ -6,7 +6,6 @@ const errorHandler = require('errorhandler')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-
 const app = express()
 const path = require('path')
 const port = 3000
@@ -14,10 +13,9 @@ const port = 3000
 const prismic = require('@prismicio/client')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args))
 const prismicH =  require('@prismicio/helpers')
-const { log } = require('console')
 
 
-const endpoint = prismic.getEndpoint("personal-portfoliov2")
+const endpoint = "https://personal-portfoliov2.cdn.prismic.io/api/v2"
 const client = prismic.createClient(endpoint, { fetch })
 
 
