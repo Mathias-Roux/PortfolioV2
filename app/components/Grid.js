@@ -1,4 +1,4 @@
-import Component from 'classes/Component'
+import Component from '../classes/Component'
 
 export default class Grid extends Component {
   constructor() {

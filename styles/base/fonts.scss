@@ -1,23 +1,23 @@
 @font-face {
   font-family: $font-league-spartan-regular;
-  src: url('../fonts/LeagueSpartan-Regular.woff2') format('woff2'),
-    url('../fonts/LeagueSpartan-Regular.woff') format('woff');
+  src: url('./LeagueSpartan-Regular.woff2') format('woff2'),
+    url('./LeagueSpartan-Regular.woff') format('woff');
   font-style: regular;
   font-display: swap;
 }
 
 @font-face {
   font-family: $font-league-spartan-light;
-  src: url('../fonts/LeagueSpartan-Light.woff2') format('woff2'),
-    url('../fonts/LeagueSpartan-Light.woff') format('woff');
+  src: url('./LeagueSpartan-Light.woff2') format('woff2'),
+    url('./LeagueSpartan-Light.woff') format('woff');
   font-style: light;
   font-display: swap;
 }
 
 @font-face {
   font-family: $font-oranienbaum;
-  src: url('../fonts/Oranienbaum-Regular.woff2') format('woff2'),
-    url('../fonts/Oranienbaum-Regular.woff') format('woff');
+  src: url('./Oranienbaum-Regular.woff2') format('woff2'),
+    url('./Oranienbaum-Regular.woff') format('woff');
   font-style: regular;
   font-display: swap;
 }
