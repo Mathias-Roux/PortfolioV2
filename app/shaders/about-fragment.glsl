@@ -7,8 +7,8 @@ uniform float threshold;
 varying vec2 vUv;
 
 void main() {
-    vec2 textureCenter = vec2(0.5, 0.5);
-    vec2 uv = (vUv - textureCenter) + 0.5;
+    // vec2 textureCenter = vec2(0.5, 0.5);
+    // vec2 uv = (vUv - textureCenter) + 0.5;
 
     vec3 flow = texture2D(tFlow, vUv).rgb;
 
