@@ -79,7 +79,7 @@ export default class Page {
     this.scroll.last = this.scroll.target = 0
 
     if (this.elements.wrapper) {
-      this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight / 1.5)
+      this.scroll.limit = this.elements.wrapper.clientHeight - (window.innerHeight / 1.7)
     }
 
     if (this.isMobile){
