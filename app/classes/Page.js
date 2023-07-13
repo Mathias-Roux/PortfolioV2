@@ -29,7 +29,7 @@ export default class Page {
     this.elements = {}
 
     if(this.isMobile){
-      window.pageYOffset = 0
+      window.scrollY = 0
       document.documentElement.scrollTop = 0 
       document.body.scrollTop = 0
     }
@@ -38,7 +38,8 @@ export default class Page {
       current: 0,
       target: 0,
       last: 0,
-      limit: 0
+      limit: 0,
+      skew: 0
     }
 
     this.y = {
@@ -125,12 +126,18 @@ export default class Page {
 
     this.scroll.current = this.scroll.current + (this.scroll.target - this.scroll.current) * 0.1
 
+    this.scroll.skew = this.scroll.skew + (this.scroll.target - this.scroll.current) * 0.01
+
     if (this.scroll.current < 0.01) {
       this.scroll.current = 0
     }
 
     if (this.elements.wrapper && !this.isMobile) {
-      this.elements.wrapper.style.transform = `translate3d(0, -${this.scroll.current}px, 0)`
+      this.elements.wrapper.style.transform = `
+        translate3d(0, -${this.scroll.current}px, 0) 
+        skewY(${this.scroll.skew}deg)
+      `
+      this.scroll.skew = 0
 
       const elements = this.element.querySelectorAll('.item')
       const middleScreen = window.innerHeight / 2
