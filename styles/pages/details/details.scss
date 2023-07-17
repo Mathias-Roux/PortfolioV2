@@ -46,27 +46,9 @@
   height: 22.7129vw;
   position: relative;
   width: 40.1039vw;
-  cursor: crosshair;
   
   &:not(:last-child){
     margin-bottom: 5rem
-  }
-
-  &::after {
-    @extend %description-12;
-  
-    content: attr(data-alt);
-  
-    position: absolute;
-    bottom: -5%;
-    right: 0;
-    opacity: 0;
-    font-style: italic;
-    transition: all .8s cubic-bezier(0.22, 1, 0.36, 1)
-  }
-
-  &:hover::after{
-    opacity: 0.5;
   }
 
   @media screen and (max-width: 1024px){

@@ -31,8 +31,6 @@ export default class {
     this.group.setParent(this.scene)
 
     this.createObserver()
-
-    this.event()
   }
 
   createGeometry() {
@@ -50,17 +48,6 @@ export default class {
         gl: this.gl,
         scene: this.group,
         sizes: this.sizes
-      })
-    })
-  }
-
-  event(){
-    each(this.mediasElements, (element, index) => {
-      element.addEventListener('pointerenter', _ => {
-        this.medias[index].onPointerIn()
-      })
-      element.addEventListener('pointerleave', _ => {
-        this.medias[index].onPointerOut()
       })
     })
   }

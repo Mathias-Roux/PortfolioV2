@@ -85,6 +85,7 @@ class App {
       this.canvas.onPreloaded()
     }
 
+    // true = on preloaded
     this.page.show(true)
   }
 
@@ -99,7 +100,7 @@ class App {
     this.page.hide()
     
     if (this.canvas) {
-      this.canvas.onChangeStart(this.template, url)
+      this.canvas.onChangeStart()
     }
 
     const res = await window.fetch(url)
