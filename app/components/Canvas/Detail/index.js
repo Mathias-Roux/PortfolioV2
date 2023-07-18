@@ -84,6 +84,10 @@ export default class {
     this.scroll.limit = this.bounds.height - this.medias[0].element.clientHeight
   }
 
+  onMouseMove(positions){
+    map(this.medias, media => media.onMouseMove(positions))
+  }
+
   onTouchDown(){
     this.scroll.last = this.scroll.current
   }

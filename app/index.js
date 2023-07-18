@@ -166,6 +166,12 @@ class App {
     }
   }
 
+  onMouseMove(event){
+    if (this.canvas && this.canvas.onMouseMove) {
+      this.canvas.onMouseMove(event)
+    }
+  }
+
   onTouchMove (event) {
     if (this.canvas && this.canvas.onTouchMove) {
       this.canvas.onTouchMove(event)
@@ -220,6 +226,7 @@ class App {
 
     window.addEventListener('mousedown', this.onTouchDown.bind(this))
     window.addEventListener('mousemove', this.onTouchMove.bind(this))
+    window.addEventListener('mousemove', this.onMouseMove.bind(this))
     window.addEventListener('mouseup', this.onTouchUp.bind(this))
 
     window.addEventListener('touchstart', this.onTouchDown.bind(this))

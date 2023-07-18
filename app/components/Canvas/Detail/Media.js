@@ -17,7 +17,8 @@ export default class Media {
       // Math.random() * (max - min) + min
       xPos: Math.random() * (0.1 - (-0.1)) + (-0.1),
       yPos: Math.random() * (0.1 - (-0.1)) + (-0.1),
-      yPosScroll: Math.random() * (1.1 - 1.06) + 1.06,
+      zPos: Math.random() * (0 - (-0.5)) + (-0.5),
+      yPosScroll: Math.random() * (1.1 - 1.07) + 1.07,
     }
 
     // console.log(this.extra.yPosScroll)
@@ -41,7 +42,9 @@ export default class Media {
       vertex,
       uniforms: {
         threshold: { value: -0.1 },
-        tMap: { value: this.texture }
+        tMap: { value: this.texture },
+        u_mouseX :{ value: 0 },
+        u_mouseY :{ value: 0 }
       }
     })
   }
@@ -52,6 +55,8 @@ export default class Media {
       program: this.program
     })
     this.mesh.setParent(this.scene)
+
+    this.mesh.position.z = this.extra.zPos
   }
 
   createBounds({ sizes }) {
@@ -62,7 +67,7 @@ export default class Media {
     this.updateY()
   }
 
-  Animations
+  // Animations
   show() {  
     anime({
       targets: this.program.uniforms.threshold,
@@ -86,6 +91,11 @@ export default class Media {
     this.createBounds(sizes)
     this.updateX(scroll && scroll.x)
     this.updateY(scroll && scroll.y)
+  }
+
+  onMouseMove({ posX, posY }){
+    this.program.uniforms.u_mouseX.value = posX * 0.05
+    this.program.uniforms.u_mouseY.value = posY * 0.05
   }
 
   // Loop.
