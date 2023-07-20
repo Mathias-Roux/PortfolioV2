@@ -106,12 +106,12 @@ class App {
     const res = await window.fetch(url)
 
     if(res.status === 200) {
-      const html = await res.text()
-      const newDiv = document.createElement('div')
-
       if (push) {
         window.history.pushState({}, '', url)
       }
+
+      const html = await res.text()
+      const newDiv = document.createElement('div')
 
       newDiv.innerHTML = html
 
@@ -130,13 +130,11 @@ class App {
       
       this.onResize()
 
-      setTimeout(() => {
-        if (this.canvas) {
-          this.canvas.onChangeEnd(this.template)
-        }  
-      }, "700")
-
       this.page.show()
+
+      if (this.canvas) {
+        this.canvas.onChangeEnd(this.template)
+      } 
 
       this.addLinkListeners()
     } else {

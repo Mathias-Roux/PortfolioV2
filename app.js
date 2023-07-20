@@ -57,8 +57,9 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 const handleRequest = async () => {
-  const meta = await client.getSingle('meta')
   let assets = []
+
+  const meta = await client.getSingle('meta')
   const navigation = await client.getSingle('navigation')
   const preloader = await client.getSingle('preloader')
   const about = await client.getSingle('about')
