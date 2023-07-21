@@ -94,8 +94,8 @@ export default class Media {
   }
 
   onMouseMove({ posX, posY }){
-    this.program.uniforms.u_mouseX.value = posX * 0.05
-    this.program.uniforms.u_mouseY.value = posY * 0.05
+    this.program.uniforms.u_mouseX.value = posX * 0.02
+    this.program.uniforms.u_mouseY.value = posY * 0.02
   }
 
   // Loop.
