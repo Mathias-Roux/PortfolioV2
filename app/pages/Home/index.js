@@ -20,7 +20,7 @@ export default class Home extends Page {
     this.page = document.querySelector('.home')
     this.texts = this.page.querySelectorAll('.item__wrapper')
 
-    const delay = isPreloaded ? 1950 : 0
+    const delay = isPreloaded ? 1200 : 0
   
     if(this.mobile){
       anime({

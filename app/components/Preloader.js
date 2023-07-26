@@ -113,7 +113,7 @@ export default class Preloader extends Component{
         opacity: '0',
         easing: 'easeOutQuint',
         duration: 1500
-      }, '-=200')
+      }, 1000)
     })
   }
 
