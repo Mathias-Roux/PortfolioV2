@@ -97,6 +97,7 @@ class App {
   }
 
   async onChange({ url, push = true }){
+
     this.page.hide()
     
     if (this.canvas) {
@@ -241,6 +242,8 @@ class App {
   }
 
   addLinkListeners() {
+    let isLinkDisabled = false;
+
     const links = document.querySelectorAll('a')
     each(links, (link) => {
       
@@ -249,11 +252,28 @@ class App {
       if (!isExternal){
         link.onclick = (event) => {
           event.preventDefault()
+
+          if (isLinkDisabled) {
+            return;
+          }
+
+          isLinkDisabled = true;
   
           const { href } = link
           this.onChange({ url: href })
+
+          setTimeout(() => {
+            isLinkDisabled = false;
+          }, 800);
         }
       }
+    })
+  }
+
+  removeLinkListeners() {
+    const links = document.querySelectorAll('a')
+    each(links, (link) => {
+      link.setAttribute('disabled', 'disabled')
     })
   }
 }

@@ -11,6 +11,7 @@ export default class Preloader extends Component{
     super({
       element: '.preloader',
       elements: {
+        background: ".preloader__background",
         title: '.preloader__text',
         number: '.preloader__number',
         numberText: '.preloader__number__text'
@@ -108,11 +109,11 @@ export default class Preloader extends Component{
       }, 1000)
     
       this.animationOut.add({
-        targets: this.element,
-        translateY: '-100%',
+        targets: this.elements.background,
+        opacity: '0',
         easing: 'easeOutQuint',
         duration: 1500
-      }, '+=300')
+      }, '-=200')
     })
   }
 

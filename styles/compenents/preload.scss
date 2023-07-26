@@ -1,16 +1,20 @@
 .preloader{
   @extend %cover;
 
-  background-color: $color-black;
+  background-color: transparent;
   color: $color-white;
-  text-align: center;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
 
   z-index: z('preloader');
+}
+
+.preloader__background{
+  width: 100%;
+  height: 100%;
+  background-color: $color-black;
+  overflow: hidden;
+  position: fixed;
 }
 
 .preloader__wrapper{
@@ -19,7 +23,8 @@
   align-items: baseline;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 .preloader__text{
