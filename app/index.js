@@ -269,13 +269,6 @@ class App {
       }
     })
   }
-
-  removeLinkListeners() {
-    const links = document.querySelectorAll('a')
-    each(links, (link) => {
-      link.setAttribute('disabled', 'disabled')
-    })
-  }
 }
 
 new App()

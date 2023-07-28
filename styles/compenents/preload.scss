@@ -9,14 +9,6 @@
   z-index: z('preloader');
 }
 
-// .preloader__background{
-//   width: 100%;
-//   height: 100%;
-//   background-color: $color-white;
-//   overflow: hidden;
-//   position: fixed;
-// }
-
 .preloader__wrapper{
   display: flex;
   position: absolute;
@@ -29,22 +21,10 @@
 
 .preloader__text{
   @extend %title-32;
-
-  // span{
-  //   display: inline-block;
-  //   overflow: hidden;
-  //   vertical-align: top;
-  // }
-
-  // span span{
-  //   will-change: transform;
-  // }
 }
 
 .preloader__number{
   @extend %title-23;
-
-  // overflow: hidden;
 }
 
 .preloader__number__text{
