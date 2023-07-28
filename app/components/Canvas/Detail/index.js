@@ -68,8 +68,12 @@ export default class {
     this.medias[index].show()
   }
 
-  hide(){
-    map(this.medias, media => media.hide())
+  async hide(){
+    const hideMedias = this.medias.map(media => media.hide())
+
+    await Promise.all(hideMedias)
+    
+    this.destroy()
   }
 
   onResize(event){

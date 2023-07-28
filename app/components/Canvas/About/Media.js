@@ -80,17 +80,16 @@ export default class Media {
   }
 
   hide() {
-    anime({
-      targets: this.extra,
-      y: 0.1,
-      easing: 'easeOutQuint',
-      duration: 800
-    })
-    anime({
-      targets: this.program.uniforms.uAlpha,
-      value: 0,
-      easing: 'easeOutQuint',
-      duration: 800
+    return new Promise(resolve => {
+      anime({
+        targets: this.program.uniforms.uAlpha,
+        value: 0,
+        easing: 'easeOutQuint',
+        duration: 2100,
+        complete: () => {
+          resolve()
+        }
+      })
     })
   }
 

@@ -56,7 +56,7 @@ export default class Home extends Page {
         targets: this.texts,
         translateY: '-97%',
         easing: 'easeOutCubic',
-        duration: 500,
+        duration: 2100,
         complete: () => {
           this.page.remove()
         }

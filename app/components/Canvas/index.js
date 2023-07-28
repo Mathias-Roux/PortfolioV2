@@ -58,11 +58,11 @@ export default class Canvas {
     })
   }
 
-  destroyDetail(){
-    if (!this.detail) return
-    this.detail.destroy()
-    this.detail = null
-  }
+  // destroyDetail(){
+  //   if (!this.detail) return
+  //   this.detail.destroy()
+  //   this.detail = null
+  // }
 
   /**
    * About
@@ -75,11 +75,11 @@ export default class Canvas {
     })
   }
 
-  destroyAbout(){
-    if (!this.about) return
-    this.about.destroy()
-    this.about = null
-  }
+  // destroyAbout(){
+  //   if (!this.about) return
+  //   this.about.destroy()
+  //   this.about = null
+  // }
 
 
   onPreloaded(){
@@ -99,15 +99,17 @@ export default class Canvas {
   onChangeEnd(template){
     if (template === 'detail') {
       this.createDetail()
-    } else if (this.detail){
-      this.destroyDetail()
     }
+    // } else if (this.detail){
+    //   this.destroyDetail()
+    // }
 
     if (template === 'about') {
       this.createAbout()
-    } else if (this.about){
-      this.destroyAbout()
     }
+    // } else if (this.about){
+    //   this.destroyAbout()
+    // }
 
     this.template = template
   }

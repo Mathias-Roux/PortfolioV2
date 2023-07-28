@@ -51,8 +51,10 @@ export default class {
     this.media.show()
   }
 
-  hide(){
-    this.media.hide()
+  async hide(){
+    await this.media.hide()
+
+    this.destroy()
   }
 
   onResize(event){
