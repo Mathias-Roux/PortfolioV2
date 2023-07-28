@@ -3,6 +3,7 @@ precision highp float;
 uniform sampler2D tMap;
 uniform sampler2D tFlow;
 uniform float threshold;
+uniform float uAlpha;
 
 varying vec2 vUv;
 
@@ -16,5 +17,5 @@ void main() {
     vec4 tex = texture2D(tMap, uv);
     float alpha = step(vUv.y, threshold);
     
-    gl_FragColor = vec4(tex.rgb, alpha * tex.a);
+    gl_FragColor = vec4(tex.rgb, alpha * tex.a * uAlpha);
 }
