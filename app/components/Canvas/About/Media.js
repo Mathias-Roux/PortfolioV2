@@ -112,8 +112,6 @@ export default class Media {
       (e.x - this.bounds.left) / this.bounds.width,
       1.0 -(e.y - this.bounds.top) / this.bounds.height
     );
-
-    // console.log(this.mouse, 'mouse')
     
     // Calculate velocity
     if (!this.lastTime) {

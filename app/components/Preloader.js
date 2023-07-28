@@ -1,6 +1,5 @@
 import anime from 'animejs'
 import each from 'lodash/each'
-import { split } from '../utils/text'
 import { Texture } from 'ogl'
 
 import Component from "../classes/Component"
@@ -12,8 +11,6 @@ export default class Preloader extends Component{
       element: '.preloader',
       elements: {
         background: ".preloader__background",
-        title: '.preloader__text',
-        number: '.preloader__number',
         numberText: '.preloader__number__text'
       }
     })
@@ -21,15 +18,6 @@ export default class Preloader extends Component{
     this.canvas = canvas
 
     window.TEXTURES = {}
-
-    this.page = document.querySelector('.preloader')
-
-    const title = this.page.querySelector('.preloader__text')
-
-    split({ element: title })
-    split({ element: title })
-
-    this.titleSpan = this.page.querySelector('span span')
 
     this.length = 0
 
@@ -93,26 +81,12 @@ export default class Preloader extends Component{
           this.destroy()
         }
       })
-
-      this.animationOut.add({
-        targets: this.titleSpan,
-        translateY: '100%',
-        easing: 'linear',
-        duration: 300
-      }, 1000)
-
-      this.animationOut.add({
-        targets: this.elements.numberText,
-        translateY: '100%',
-        easing: 'linear',
-        duration: 180
-      }, 1000)
     
       this.animationOut.add({
-        targets: this.elements.background,
+        targets: this.element,
         opacity: '0',
         easing: 'easeOutQuint',
-        duration: 1500
+        duration: 600
       }, 1000)
     })
   }

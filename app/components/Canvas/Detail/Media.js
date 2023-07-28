@@ -43,6 +43,7 @@ export default class Media {
       uniforms: {
         threshold: { value: -0.1 },
         tMap: { value: this.texture },
+        uAlpha: { value: 1 },
         u_mouseX :{ value: 0 },
         u_mouseY :{ value: 0 }
       }
@@ -79,8 +80,14 @@ export default class Media {
 
   hide() {
     anime({
-      targets: this.program.uniforms.threshold,
-      value: -0.1,
+      targets: this.extra,
+      yPos: 0.3,
+      easing: 'easeOutQuint',
+      duration: 800
+    })
+    anime({
+      targets: this.program.uniforms.uAlpha,
+      value: 0,
       easing: 'easeOutQuint',
       duration: 800
     })
