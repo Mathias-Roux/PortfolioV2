@@ -78,14 +78,14 @@ export default class About extends Page {
       anime({
         targets: this.links,
         opacity: 0,
-        duration: 2100,
+        duration: 500,
         easing: 'easeOutCubic'
       })
       anime({
         targets: this.spans,
         translateY: '-105%',
         easing: 'easeOutCubic',
-        duration: 2100,
+        duration: 500,
         complete: () => {
           this.page.remove()
         }

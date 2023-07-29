@@ -46,7 +46,6 @@ export default class Canvas {
     this.scene = new Transform()
   }
 
-
   /**
    * DETAIL
    */
@@ -58,12 +57,6 @@ export default class Canvas {
     })
   }
 
-  // destroyDetail(){
-  //   if (!this.detail) return
-  //   this.detail.destroy()
-  //   this.detail = null
-  // }
-
   /**
    * About
    */
@@ -74,13 +67,6 @@ export default class Canvas {
       sizes: this.sizes
     })
   }
-
-  // destroyAbout(){
-  //   if (!this.about) return
-  //   this.about.destroy()
-  //   this.about = null
-  // }
-
 
   onPreloaded(){
     this.onChangeEnd(this.template)
@@ -100,16 +86,10 @@ export default class Canvas {
     if (template === 'detail') {
       this.createDetail()
     }
-    // } else if (this.detail){
-    //   this.destroyDetail()
-    // }
 
     if (template === 'about') {
       this.createAbout()
     }
-    // } else if (this.about){
-    //   this.destroyAbout()
-    // }
 
     this.template = template
   }

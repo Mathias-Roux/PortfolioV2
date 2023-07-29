@@ -21,8 +21,6 @@ export default class Media {
       yPosScroll: Math.random() * (1.1 - 1.07) + 1.07,
     }
 
-    // console.log(this.extra.yPosScroll)
-
     this.createTexture()
     this.createProgram()
     this.createMesh()
@@ -84,7 +82,7 @@ export default class Media {
         targets: this.program.uniforms.uAlpha,
         value: 0,
         easing: 'easeOutQuint',
-        duration: 2100,
+        duration: 800,
         complete: () => {
           resolve()
         }

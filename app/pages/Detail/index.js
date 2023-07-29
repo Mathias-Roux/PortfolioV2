@@ -70,7 +70,7 @@ export default class Detail extends Page {
         targets: this.spans,
         translateY: '-110%',
         easing: 'easeOutCubic',
-        duration: 2100,
+        duration: 500,
         complete: () => {
           this.page.remove()
         }
