@@ -82,7 +82,7 @@ export default class Media {
         targets: this.program.uniforms.uAlpha,
         value: 0,
         easing: 'easeOutQuint',
-        duration: 700,
+        duration: 500,
         complete: () => {
           resolve()
         }
