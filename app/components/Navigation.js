@@ -22,7 +22,6 @@ export default class Navigation extends Component {
     if (template === 'home') {
       anime({
         targets: this.elements.links[1],
-        pointerEvents:'none',
         translateY: '-110%',
         easing: 'easeOutQuint',
         duration: 700
@@ -42,7 +41,6 @@ export default class Navigation extends Component {
       anime({
         targets: this.elements.links[0],
         translateY: '-110%',
-        pointerEvents:'none',
         easing: 'easeOutQuint',
         duration: 700
       })

@@ -242,8 +242,6 @@ class App {
   }
 
   addLinkListeners() {
-    let isLinkDisabled = false;
-
     const links = document.querySelectorAll('a')
     each(links, (link) => {
       
@@ -253,18 +251,10 @@ class App {
         link.onclick = (event) => {
           event.preventDefault()
 
-          if (isLinkDisabled) {
-            return;
-          }
-
-          isLinkDisabled = true;
+          link.style.pointerEvents = 'none'
   
           const { href } = link
           this.onChange({ url: href })
-
-          setTimeout(() => {
-            isLinkDisabled = false;
-          }, 800);
         }
       }
     })
