@@ -130,12 +130,14 @@ class App {
       this.page.create()
       
       this.onResize()
+      
+      setTimeout(() => {
+        if (this.canvas) {
+          this.canvas.onChangeEnd(this.template)
+        } 
+      }, "400");
 
       this.page.show()
-
-      if (this.canvas) {
-        this.canvas.onChangeEnd(this.template)
-      } 
 
       this.addLinkListeners()
     } else {
