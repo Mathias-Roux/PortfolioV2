@@ -135,7 +135,7 @@ class App {
         if (this.canvas) {
           this.canvas.onChangeEnd(this.template)
         } 
-      }, "400");
+      }, "300");
 
       this.page.show()
 
