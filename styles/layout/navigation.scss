@@ -11,7 +11,7 @@
 .navigation__link{
   @extend %title-32;
 
-  right: 1.0416vw;
+  right: .5556vw;
   position: absolute;
   bottom: 4%;
 
@@ -25,7 +25,7 @@
 
 .navigation__list__item{
   position: absolute;
-  right: 1.0416vw;
+  right: .5556vw;
   top: 4%;
   display: inline-block;
   overflow: hidden;
