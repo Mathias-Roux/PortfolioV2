@@ -23,6 +23,8 @@ export default class Media {
 
     this.createTexture()
     this.createProgram()
+    console.log(this.program.uniforms.canvasSize, 'uniform canvasSize');
+    console.log(this.program.uniforms.textureSize, 'uniform textureSize');
     this.createMesh()
     this.createBounds({
       sizes: this.sizes,
@@ -42,8 +44,9 @@ export default class Media {
         threshold: { value: -0.1 },
         tMap: { value: this.texture },
         uAlpha: { value: 1 },
-        u_mouseX :{ value: 0 },
-        u_mouseY :{ value: 0 }
+        wipe: { value: 0.1 },
+        u_mouseX : { value: 0 },
+        u_mouseY : { value: 0 }
       }
     })
   }
@@ -71,6 +74,12 @@ export default class Media {
     anime({
       targets: this.program.uniforms.threshold,
       value: 1,
+      duration: 1100,
+      easing: 'easeOutQuint'
+    })
+    anime({
+      targets: this.program.uniforms.wipe,
+      value: 0.0,
       duration: 1100,
       easing: 'easeOutQuint'
     })
