@@ -23,8 +23,6 @@ export default class Media {
 
     this.createTexture()
     this.createProgram()
-    console.log(this.program.uniforms.canvasSize, 'uniform canvasSize');
-    console.log(this.program.uniforms.textureSize, 'uniform textureSize');
     this.createMesh()
     this.createBounds({
       sizes: this.sizes,
