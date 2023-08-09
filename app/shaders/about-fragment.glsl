@@ -4,6 +4,7 @@ uniform sampler2D tMap;
 uniform sampler2D tFlow;
 uniform float threshold;
 uniform float uAlpha;
+uniform float wipe;
 
 varying vec2 vUv;
 
@@ -14,7 +15,7 @@ void main() {
     vec3 flow = texture2D(tFlow, vUv).rgb;
 
     uv += flow.xy * 0.0005;
-    vec4 tex = texture2D(tMap, uv);
+    vec4 tex = texture2D(tMap, vec2(uv.x, uv.y + wipe));
     float alpha = step(vUv.y, threshold);
     
     gl_FragColor = vec4(tex.rgb, alpha * tex.a * uAlpha);

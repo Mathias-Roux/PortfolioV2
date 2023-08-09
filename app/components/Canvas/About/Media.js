@@ -48,6 +48,7 @@ export default class Media {
         threshold: { value: -0.1 },
         tMap: { value: this.texture },
         uAlpha: { value: 1 },
+        wipe: { value: 0.1 },
         tFlow: this.flowmap.uniform
       }
     })
@@ -74,6 +75,12 @@ export default class Media {
     anime({
       targets: this.program.uniforms.threshold,
       value: 1,
+      duration: 1100,
+      easing: 'easeOutQuint'
+    })
+    anime({
+      targets: this.program.uniforms.wipe,
+      value: 0.0,
       duration: 1100,
       easing: 'easeOutQuint'
     })
